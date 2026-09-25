@@ -121,14 +121,25 @@
       .v2 { background: linear-gradient(135deg, #2a2140, #221a36); color: #c4a6f5; }
       .v3 { background: linear-gradient(135deg, #16301f, #11281a); color: #7fdca3; }
       .v4 { background: linear-gradient(135deg, #3a2716, #301f11); color: #f3b27c; }
+      .shots.dark { background: linear-gradient(135deg, #222735, #1b1f2b); }
+      .soon { background: #3a2e12; color: #f5c96a; }
     }
+    .thumb { aspect-ratio: 16 / 10; overflow: hidden; border-bottom: 1px solid var(--border); background: #0f1115; }
+    .thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top left; }
+    .shots.dark { background: linear-gradient(135deg, #dfe4ee, #cbd3e2); }
+    .stack .shots { padding: 28px 28px 0; min-height: 0; }
+    .stack .body { padding: 26px 28px 28px; }
+    @media (min-width: 900px) {
+      .stack .shots { padding: 36px 48px 0; }
+      .stack .body { display: grid; grid-template-columns: 1fr 1.2fr; column-gap: 40px; align-items: start; }
+      .stack .intro { grid-row: span 2; }
+    }
+    .intro { display: flex; flex-direction: column; margin-bottom: 18px; }
+    .shots .solo { border-radius: 10px 10px 0 0; box-shadow: 0 10px 30px rgba(0,0,0,.18); width: 100%; }
+    .soon { align-self: flex-start; font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; padding: 3px 9px; border-radius: 6px; background: #fff4d6; color: #8a5a00; margin-bottom: 8px; }
     .badge { align-self: flex-start; display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; padding: 3px 9px; border-radius: 6px; background: var(--fg); color: var(--bg); margin-bottom: 8px; }
     .private { font-size: 13px; color: var(--muted); margin-top: 14px; display: flex; gap: 6px; align-items: center; }
     .private svg { width: 14px; height: 14px; flex: none; }
-    @media (min-width: 820px) {
-      .wide { display: grid; grid-template-columns: 280px 1fr; }
-      .wide .visual { height: auto; border-bottom: 0; border-right: 1px solid var(--border); }
-    }
 
     /* Services */
     .services { display: grid; gap: 16px; }
@@ -185,7 +196,7 @@
         <div class="sec-head">
           <span class="eyebrow">Lavori</span>
           <h2>Alcuni progetti realizzati</h2>
-          <p>Siti pubblici e software interni. Per i progetti privati non mostro nomi né dati dei clienti.</p>
+          <p>Siti pubblici, app e software interni. Per i progetti riservati non mostro nomi né dati dei clienti.</p>
         </div>
 
         <div class="work">
@@ -211,15 +222,19 @@
           </article>
 
           <!-- 5. Gestionale Amazon -->
-          <article class="card wide">
-            <div class="visual v4" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5h17"/><rect x="5" y="12" width="3" height="6" rx=".6"/><rect x="10.5" y="8" width="3" height="10" rx=".6"/><rect x="16" y="4" width="3" height="14" rx=".6"/></svg>
+          <article class="card stack">
+            <div class="shots dark">
+              <img class="solo" src="img/gestionale.webp" width="1904" height="911" alt="Pagina Profitto del gestionale, con dati di esempio" loading="lazy" />
             </div>
             <div class="body">
-              <span class="badge">Il progetto più grande</span>
-              <span class="kicker">Gestionale su misura · E-commerce</span>
-              <h3>Piattaforma gestionale per un venditore Amazon europeo</h3>
-              <p>Software interno che collega i dati di vendita di Amazon su più paesi alla produzione, al magazzino e alla contabilità dell'azienda.</p>
+              <div class="intro">
+                <span class="badge">Il progetto più grande</span>
+                <span class="kicker">Gestionale su misura · E-commerce</span>
+                <h3>Piattaforma gestionale per un venditore Amazon europeo</h3>
+                <p>Software interno che collega i dati di vendita di Amazon su più paesi alla produzione, al magazzino e alla contabilità dell'azienda.</p>
+                <span class="private"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> Software riservato: nello screenshot solo dati di esempio, senza nomi aziendali.</span>
+              </div>
+              <div>
               <ul class="points">
                 <li>Integrazione con le API ufficiali di Amazon (Selling Partner API) e sincronizzazioni pianificate</li>
                 <li>Conto economico mensile e margini per prodotto, pronti per il commercialista</li>
@@ -228,19 +243,17 @@
                 <li>Accesso protetto con autenticazione a due fattori</li>
               </ul>
               <div class="tags"><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">SQLite</span><span class="tag">Amazon SP-API</span><span class="tag">AWS</span></div>
-              <span class="private"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> Software riservato: nomi e dati aziendali non vengono mostrati.</span>
+              </div>
             </div>
           </article>
 
           <div class="grid3">
-            <!-- 2. Case vacanze -->
+            <!-- 2. Le Porte di Sardegna -->
             <article class="card">
-              <div class="visual v1" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/><path d="M10 19.5v-5h4v5"/><path d="M2 21.5c2 0 2-1 4-1s2 1 4 1 2-1 4-1 2 1 4 1 2-1 4-1"/></svg>
-              </div>
+              <div class="thumb"><img src="img/casevacanze.webp" width="1901" height="869" alt="Home page del sito Le Porte di Sardegna" loading="lazy" /></div>
               <div class="body">
                 <span class="kicker">Sito web · Turismo, Sardegna</span>
-                <h3>Case vacanze sul mare</h3>
+                <h3>Le Porte di Sardegna</h3>
                 <p>Sito vetrina per due case vacanze tra Stintino e Alghero, pensato per ricevere prenotazioni dirette.</p>
                 <ul class="points">
                   <li>In 4 lingue: italiano, inglese, tedesco e francese</li>
@@ -248,24 +261,26 @@
                   <li>Gallerie fotografiche ottimizzate e caricamento veloce</li>
                 </ul>
                 <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Python</span></div>
+                <a class="btn btn-ghost card-link" href="https://www.leportedisardegna.com/" target="_blank" rel="noopener">Visita il sito ↗</a>
               </div>
             </article>
 
-            <!-- 3. App desktop -->
+            <!-- 3. PresetDock -->
             <article class="card">
-              <div class="visual v2" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="13" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M6.5 8.5h5M6.5 11h7.5M6.5 13.5h4"/><circle cx="17" cy="11" r="1.6"/></svg>
-              </div>
+              <div class="thumb"><img src="img/presetdock.webp" width="1904" height="990" alt="Schermata principale di PresetDock" loading="lazy" /></div>
               <div class="body">
-                <span class="kicker">App desktop · Windows</span>
-                <h3>Libreria preset per musicisti</h3>
+                <span class="soon">In arrivo</span>
+                <span class="kicker">App desktop · Windows · Musicisti</span>
+                <h3>PresetDock</h3>
                 <p>Programma per Windows che organizza, cataloga e rende ricercabile la libreria di preset di un multieffetto per chitarra.</p>
                 <ul class="points">
-                  <li>Catalogazione e ricerca dei file già presenti sul computer</li>
+                  <li>Cerca i preset descrivendo il suono a parole</li>
+                  <li>Catalogazione per genere, ampli, cabinet e artista</li>
+                  <li>Riconoscimento dei duplicati e statistiche della libreria</li>
                   <li>Installer e aggiornamenti automatici</li>
-                  <li>Prodotto in vendita, con sito e licenze</li>
                 </ul>
                 <div class="tags"><span class="tag">App desktop</span><span class="tag">Windows</span></div>
+                <a class="btn btn-ghost card-link" href="https://presetdock.com/" target="_blank" rel="noopener">Scopri PresetDock ↗</a>
               </div>
             </article>
 
