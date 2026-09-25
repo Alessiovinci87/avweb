@@ -89,55 +89,52 @@
     .sec-head p { color: var(--muted); margin: 0; max-width: 60ch; }
 
     /* Work */
-    .work { display: grid; gap: 20px; }
+    .work { display: grid; gap: 24px; }
     .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
-    .featured { display: grid; gap: 0; }
-    @media (min-width: 900px) { .featured { grid-template-columns: 1.25fr 1fr; } }
-    .shots { position: relative; background: linear-gradient(135deg, #e9e5da, #dcd6c6); padding: 28px 28px 0; min-height: 260px; display: flex; align-items: flex-end; }
-    .shots .desk { border-radius: 10px 10px 0 0; box-shadow: 0 10px 30px rgba(0,0,0,.18); width: 88%; }
-    .shots .phone { position: absolute; right: 22px; bottom: 18px; width: 26%; max-width: 150px; border-radius: 16px; border: 4px solid #16181d; box-shadow: 0 12px 30px rgba(0,0,0,.25); }
+    .project { display: grid; }
+    @media (min-width: 900px) { .project { grid-template-columns: 1.25fr 1fr; } }
+    .shots { position: relative; display: flex; align-items: center; justify-content: center; padding: 28px; min-height: 280px; }
+    .shots .desk { width: 100%; border-radius: 10px; box-shadow: 0 12px 32px rgba(0,0,0,.2); }
+    .shots.with-phone { justify-content: flex-start; padding-bottom: 40px; }
+    .shots.with-phone .desk { width: 86%; }
+    .shots .phone { position: absolute; right: 22px; bottom: 22px; width: 25%; max-width: 150px; border-radius: 16px; border: 4px solid #16181d; box-shadow: 0 12px 30px rgba(0,0,0,.28); }
+    .shots .phone-solo { width: 46%; max-width: 250px; border-radius: 26px; border: 6px solid #16181d; box-shadow: 0 16px 40px rgba(0,0,0,.28); }
+    .shots.fill { display: block; min-height: 0; aspect-ratio: 4 / 3; padding: 0; overflow: hidden; }
+    @media (min-width: 900px) { .shots.fill { aspect-ratio: auto; min-height: 380px; } }
+    .shots.fill .desk { position: absolute; top: 28px; left: 28px; width: calc(100% - 28px); height: calc(100% - 28px); max-width: none; object-fit: cover; object-position: left top; border-radius: 10px 0 0 0; }
+    .shots.fill.center .desk { object-position: center top; }
+    .shots .icon-big { width: 96px; height: 96px; opacity: .9; }
+    .g-emovere { background: linear-gradient(135deg, #e9e5da, #dcd6c6); }
+    .g-slate { background: linear-gradient(135deg, #dfe4ee, #cbd3e2); }
+    .g-violet { background: linear-gradient(135deg, #ebe6fb, #d8cff3); }
+    .g-green { background: linear-gradient(135deg, #e3f2e6, #c9e3cf); color: #1f7a45; }
+    .g-sage { background: linear-gradient(135deg, #e7ecdf, #d2dcc4); }
+    .g-sea { background: linear-gradient(135deg, #dcf0f6, #c3e2ec); }
+    .g-night { background: linear-gradient(135deg, #2a2f45, #1a1d2b); }
+    @media (prefers-color-scheme: dark) {
+      .g-emovere { background: linear-gradient(135deg, #2a2822, #221f19); }
+      .g-slate { background: linear-gradient(135deg, #222735, #1b1f2b); }
+      .g-violet { background: linear-gradient(135deg, #272238, #1e1a2d); }
+      .g-green { background: linear-gradient(135deg, #16301f, #11281a); color: #7fdca3; }
+      .g-sage { background: linear-gradient(135deg, #232a1e, #1b2118); }
+      .g-sea { background: linear-gradient(135deg, #15303a, #10262e); }
+    }
     .body { padding: 26px 26px 28px; display: flex; flex-direction: column; }
+    @media (min-width: 900px) { .body { padding: 30px 30px 32px; } }
     .kicker { font-size: 13px; color: var(--muted); }
     h3 { font-size: 22px; letter-spacing: -.01em; margin: 4px 0 10px; line-height: 1.25; }
     .body p { margin: 0 0 14px; color: var(--muted); }
     ul.points { margin: 0 0 18px; padding: 0; list-style: none; display: grid; gap: 7px; font-size: 15px; }
     ul.points li { display: flex; gap: 10px; }
     ul.points li::before { content: ""; flex: none; width: 6px; height: 6px; margin-top: 9px; border-radius: 50%; background: var(--accent); }
-    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
     .tag { font-size: 12.5px; padding: 4px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent-ink); font-weight: 500; }
     .card-link { margin-top: 18px; align-self: flex-start; }
-
-    .grid3 { display: grid; gap: 20px; }
-    @media (min-width: 1000px) { .grid3 { grid-template-columns: repeat(3, 1fr); } }
-    .visual { height: 150px; display: grid; place-items: center; border-bottom: 1px solid var(--border); }
-    .visual svg { width: 64px; height: 64px; }
-    .v1 { background: linear-gradient(135deg, #dff1f7, #c9e4ee); color: #1a6a86; }
-    .v2 { background: linear-gradient(135deg, #efe5fb, #ddcdf4); color: #6a3fb0; }
-    .v3 { background: linear-gradient(135deg, #e3f5e8, #cbe9d4); color: #1f7a45; }
-    .v4 { background: linear-gradient(135deg, #fdeede, #f7dcc0); color: #a2531a; }
-    @media (prefers-color-scheme: dark) {
-      .shots { background: linear-gradient(135deg, #2a2822, #221f19); }
-      .v1 { background: linear-gradient(135deg, #16303a, #132830); color: #7fd0ec; }
-      .v2 { background: linear-gradient(135deg, #2a2140, #221a36); color: #c4a6f5; }
-      .v3 { background: linear-gradient(135deg, #16301f, #11281a); color: #7fdca3; }
-      .v4 { background: linear-gradient(135deg, #3a2716, #301f11); color: #f3b27c; }
-      .shots.dark { background: linear-gradient(135deg, #222735, #1b1f2b); }
-      .soon { background: #3a2e12; color: #f5c96a; }
-    }
-    .thumb { aspect-ratio: 16 / 10; overflow: hidden; border-bottom: 1px solid var(--border); background: #0f1115; }
-    .thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top left; }
-    .shots.dark { background: linear-gradient(135deg, #dfe4ee, #cbd3e2); }
-    .stack .shots { padding: 28px 28px 0; min-height: 0; }
-    .stack .body { padding: 26px 28px 28px; }
-    @media (min-width: 900px) {
-      .stack .shots { padding: 36px 48px 0; }
-      .stack .body { display: grid; grid-template-columns: 1fr 1.2fr; column-gap: 40px; align-items: start; }
-      .stack .intro { grid-row: span 2; }
-    }
-    .intro { display: flex; flex-direction: column; margin-bottom: 18px; }
-    .shots .solo { border-radius: 10px 10px 0 0; box-shadow: 0 10px 30px rgba(0,0,0,.18); width: 100%; }
-    .soon { align-self: flex-start; font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; padding: 3px 9px; border-radius: 6px; background: #fff4d6; color: #8a5a00; margin-bottom: 8px; }
-    .badge { align-self: flex-start; display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; padding: 3px 9px; border-radius: 6px; background: var(--fg); color: var(--bg); margin-bottom: 8px; }
+    .labels { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+    .badge, .soon { font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; padding: 3px 9px; border-radius: 6px; }
+    .badge { background: var(--fg); color: var(--bg); }
+    .soon { background: #fff4d6; color: #8a5a00; }
+    @media (prefers-color-scheme: dark) { .soon { background: #3a2e12; color: #f5c96a; } }
     .private { font-size: 13px; color: var(--muted); margin-top: 14px; display: flex; gap: 6px; align-items: center; }
     .private svg { width: 14px; height: 14px; flex: none; }
 
@@ -200,9 +197,9 @@
         </div>
 
         <div class="work">
-          <!-- 1. Centro Emovere -->
-          <article class="card featured">
-            <div class="shots">
+          <!-- Centro Emovere -->
+          <article class="card project">
+            <div class="shots with-phone g-emovere">
               <img class="desk" src="img/emovere-desktop.webp" width="1440" height="900" alt="Home page del sito Centro Emovere su desktop" loading="lazy" />
               <img class="phone" src="img/emovere-mobile.webp" width="780" height="1688" alt="Il sito Centro Emovere su smartphone" loading="lazy" />
             </div>
@@ -221,20 +218,16 @@
             </div>
           </article>
 
-          <!-- 5. Gestionale Amazon -->
-          <article class="card stack">
-            <div class="shots dark">
-              <img class="solo" src="img/gestionale.webp" width="1904" height="911" alt="Pagina Profitto del gestionale, con dati di esempio" loading="lazy" />
+          <!-- Gestionale Amazon -->
+          <article class="card project">
+            <div class="shots fill g-slate">
+              <img class="desk" src="img/gestionale.webp" width="1904" height="911" alt="Pagina Profitto del gestionale, con dati di esempio" loading="lazy" />
             </div>
             <div class="body">
-              <div class="intro">
-                <span class="badge">Il progetto più grande</span>
-                <span class="kicker">Gestionale su misura · E-commerce</span>
-                <h3>Piattaforma gestionale per un venditore Amazon europeo</h3>
-                <p>Software interno che collega i dati di vendita di Amazon su più paesi alla produzione, al magazzino e alla contabilità dell'azienda.</p>
-                <span class="private"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> Software riservato: nello screenshot solo dati di esempio, senza nomi aziendali.</span>
-              </div>
-              <div>
+              <div class="labels"><span class="badge">Il progetto più grande</span></div>
+              <span class="kicker">Gestionale su misura · E-commerce</span>
+              <h3>Piattaforma gestionale per un venditore Amazon europeo</h3>
+              <p>Software interno che collega i dati di vendita di Amazon su più paesi alla produzione, al magazzino e alla contabilità dell'azienda.</p>
               <ul class="points">
                 <li>Integrazione con le API ufficiali di Amazon (Selling Partner API) e sincronizzazioni pianificate</li>
                 <li>Conto economico mensile e margini per prodotto, pronti per il commercialista</li>
@@ -243,67 +236,112 @@
                 <li>Accesso protetto con autenticazione a due fattori</li>
               </ul>
               <div class="tags"><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">SQLite</span><span class="tag">Amazon SP-API</span><span class="tag">AWS</span></div>
-              </div>
+              <span class="private"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> Software riservato: nello screenshot solo dati di esempio, senza nomi aziendali.</span>
             </div>
           </article>
 
-          <div class="grid3">
-            <!-- 2. Le Porte di Sardegna -->
-            <article class="card">
-              <div class="thumb"><img src="img/casevacanze.webp" width="1901" height="869" alt="Home page del sito Le Porte di Sardegna" loading="lazy" /></div>
-              <div class="body">
-                <span class="kicker">Sito web · Turismo, Sardegna</span>
-                <h3>Le Porte di Sardegna</h3>
-                <p>Sito vetrina per due case vacanze tra Stintino e Alghero, pensato per ricevere prenotazioni dirette.</p>
-                <ul class="points">
-                  <li>In 4 lingue: italiano, inglese, tedesco e francese</li>
-                  <li>Calendario disponibilità sincronizzato con Airbnb</li>
-                  <li>Gallerie fotografiche ottimizzate e caricamento veloce</li>
-                </ul>
-                <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Python</span></div>
-                <a class="btn btn-ghost card-link" href="https://www.leportedisardegna.com/" target="_blank" rel="noopener">Visita il sito ↗</a>
-              </div>
-            </article>
+          <!-- AdPilot -->
+          <article class="card project">
+            <div class="shots fill g-violet">
+              <img class="desk" src="img/adpilot.webp" width="1901" height="788" alt="Dashboard PPC di AdPilot con i dati per paese" loading="lazy" />
+            </div>
+            <div class="body">
+              <span class="kicker">Software su misura · Pubblicità Amazon</span>
+              <h3>AdPilot</h3>
+              <p>Gestore delle campagne pubblicitarie Amazon su più paesi europei, con un motore decisionale, il Brain, che analizza i dati ogni giorno e propone cosa cambiare: offerte, budget e parole chiave.</p>
+              <ul class="points">
+                <li>Dashboard con spesa, vendite, ACoS, ROAS e risultati paese per paese</li>
+                <li>Il Brain propone le azioni sulle campagne, da approvare con un clic</li>
+                <li>Regolazione automatica delle offerte, ritmo del budget e fasce orarie</li>
+                <li>Creazione guidata delle campagne, ricerca keyword e monitoraggio dei concorrenti</li>
+                <li>Collegato ad Amazon Ads API, Selling Partner API e al gestionale vendite</li>
+              </ul>
+              <div class="tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">Celery</span><span class="tag">Redis</span><span class="tag">Docker</span></div>
+              <span class="private"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> Software riservato: nomi aziendali oscurati.</span>
+            </div>
+          </article>
 
-            <!-- 3. PresetDock -->
-            <article class="card">
-              <div class="thumb"><img src="img/presetdock.webp" width="1904" height="990" alt="Schermata principale di PresetDock" loading="lazy" /></div>
-              <div class="body">
-                <span class="soon">In arrivo</span>
-                <span class="kicker">App desktop · Windows · Musicisti</span>
-                <h3>PresetDock</h3>
-                <p>Programma per Windows che organizza, cataloga e rende ricercabile la libreria di preset di un multieffetto per chitarra.</p>
-                <ul class="points">
-                  <li>Cerca i preset descrivendo il suono a parole</li>
-                  <li>Catalogazione per genere, ampli, cabinet e artista</li>
-                  <li>Riconoscimento dei duplicati e statistiche della libreria</li>
-                  <li>Installer e aggiornamenti automatici</li>
-                </ul>
-                <div class="tags"><span class="tag">App desktop</span><span class="tag">Windows</span></div>
-                <a class="btn btn-ghost card-link" href="https://presetdock.com/" target="_blank" rel="noopener">Scopri PresetDock ↗</a>
-              </div>
-            </article>
+          <!-- Awareness -->
+          <article class="card project">
+            <div class="shots g-green" aria-hidden="true">
+              <svg class="icon-big" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10 18.5h4"/><path d="M9 13l2-2 2 1.5 2.5-3.5"/></svg>
+            </div>
+            <div class="body">
+              <span class="kicker">Web app · Finanza personale e familiare</span>
+              <h3>Awareness</h3>
+              <p>Una web app che risponde a una domanda semplice: <strong>quanto posso spendere davvero oggi?</strong> Parte dal saldo del conto e toglie da sola quello che è già impegnato (bollette e rate in arrivo, soldi messi da parte per gli obiettivi, tasse da accantonare), così il numero che vedi è quello realmente disponibile.</p>
+              <ul class="points">
+                <li>"Disponibile reale" sempre aggiornato, con il dettaglio di come è calcolato</li>
+                <li>Previsione del saldo a 90 giorni, che avvisa in anticipo se una settimana andrà sotto zero</li>
+                <li>Spese ricorrenti registrate da sole e obiettivi di risparmio con la quota mensile da versare</li>
+                <li>Import dell'estratto conto con categorie automatiche e lettura degli scontrini da foto</li>
+                <li>Per chi ha la partita IVA: fatture elettroniche, accantonamento delle tasse e promemoria delle scadenze</li>
+                <li>Condivisa in famiglia: più persone sugli stessi conti, aggiornamenti in tempo reale e notifiche</li>
+              </ul>
+              <div class="tags"><span class="tag">React</span><span class="tag">Vite</span><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">PostgreSQL</span><span class="tag">Prisma</span><span class="tag">WebSocket</span></div>
+            </div>
+          </article>
 
-            <!-- 4. Awareness -->
-            <article class="card">
-              <div class="visual v3" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10 18.5h4"/><path d="M9 13l2-2 2 1.5 2.5-3.5"/></svg>
-              </div>
-              <div class="body">
-                <span class="kicker">Web app e app Android · Finanza personale</span>
-                <h3>Awareness</h3>
-                <p>App per gestire l'economia di casa in famiglia: sapere ogni giorno quanto si può davvero spendere.</p>
-                <ul class="points">
-                  <li>Previsione del saldo a 90 giorni, spese ricorrenti e obiettivi di risparmio</li>
-                  <li>Import dell'estratto conto e lettura degli scontrini da foto</li>
-                  <li>Fatture elettroniche e accantonamento tasse per le partite IVA</li>
-                  <li>Più utenti per famiglia, aggiornamenti in tempo reale e notifiche</li>
-                </ul>
-                <div class="tags"><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">PostgreSQL</span><span class="tag">Prisma</span><span class="tag">Capacitor</span></div>
-              </div>
-            </article>
+          <!-- QuitFresh -->
+          <article class="card project">
+            <div class="shots g-sage">
+              <img class="phone-solo" src="img/quitfresh.webp" width="385" height="907" alt="Schermata principale di QuitFresh su smartphone" loading="lazy" />
+            </div>
+            <div class="body">
+              <span class="kicker">Web app per smartphone · Salute e benessere</span>
+              <h3>QuitFresh</h3>
+              <p>Web app per smettere di fumare che accompagna la persona giorno per giorno, soprattutto nei momenti in cui la voglia di fumare è più forte.</p>
+              <ul class="points">
+                <li>Pulsante "Ho bisogno ORA" con supporto AI nel momento del craving</li>
+                <li>Promemoria e tracciamento della terapia, dose per dose</li>
+                <li>Diario, progressi, traguardi e conteggio dei giorni senza fumo</li>
+                <li>Installabile sul telefono come un'app, con notifiche push</li>
+                <li>Abbonamento premium con pagamenti online</li>
+              </ul>
+              <div class="tags"><span class="tag">React</span><span class="tag">Vite</span><span class="tag">Tailwind CSS</span><span class="tag">Node.js</span><span class="tag">PostgreSQL</span><span class="tag">OpenAI</span><span class="tag">Stripe</span></div>
+              <a class="btn btn-ghost card-link" href="https://quitfresh.it" target="_blank" rel="noopener">Visita il sito ↗</a>
+            </div>
+          </article>
 
-          </div>
+          <!-- Le Porte di Sardegna -->
+          <article class="card project">
+            <div class="shots fill center g-sea">
+              <img class="desk" src="img/casevacanze.webp" width="1901" height="869" alt="Home page del sito Le Porte di Sardegna" loading="lazy" />
+            </div>
+            <div class="body">
+              <span class="kicker">Sito web · Turismo, Sardegna</span>
+              <h3>Le Porte di Sardegna</h3>
+              <p>Sito vetrina per due case vacanze tra Stintino e Alghero, pensato per ricevere prenotazioni dirette.</p>
+              <ul class="points">
+                <li>In 4 lingue: italiano, inglese, tedesco e francese</li>
+                <li>Calendario disponibilità sincronizzato con Airbnb</li>
+                <li>Gallerie fotografiche ottimizzate e caricamento veloce</li>
+              </ul>
+              <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Python</span></div>
+              <a class="btn btn-ghost card-link" href="https://www.leportedisardegna.com/" target="_blank" rel="noopener">Visita il sito ↗</a>
+            </div>
+          </article>
+
+          <!-- PresetDock -->
+          <article class="card project">
+            <div class="shots fill g-night">
+              <img class="desk" src="img/presetdock.webp" width="1904" height="990" alt="Schermata principale di PresetDock" loading="lazy" />
+            </div>
+            <div class="body">
+              <div class="labels"><span class="soon">In arrivo</span></div>
+              <span class="kicker">App desktop · Windows · Musicisti</span>
+              <h3>PresetDock</h3>
+              <p>Programma per Windows che organizza, cataloga e rende ricercabile la libreria di preset di un multieffetto per chitarra.</p>
+              <ul class="points">
+                <li>Cerca i preset descrivendo il suono a parole</li>
+                <li>Catalogazione per genere, ampli, cabinet e artista</li>
+                <li>Riconoscimento dei duplicati e statistiche della libreria</li>
+                <li>Installer e aggiornamenti automatici</li>
+              </ul>
+              <div class="tags"><span class="tag">App desktop</span><span class="tag">Windows</span></div>
+              <a class="btn btn-ghost card-link" href="https://presetdock.com/" target="_blank" rel="noopener">Scopri PresetDock ↗</a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
