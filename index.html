@@ -103,7 +103,7 @@
     @media (min-width: 900px) { .shots.fill { aspect-ratio: auto; min-height: 380px; } }
     .shots.fill .desk { position: absolute; top: 28px; left: 28px; width: calc(100% - 28px); height: calc(100% - 28px); max-width: none; object-fit: cover; object-position: left top; border-radius: 10px 0 0 0; }
     .shots.fill.center .desk { object-position: center top; }
-    .shots .icon-big { width: 96px; height: 96px; opacity: .9; }
+    .shots.g-green .desk { max-width: 460px; }
     .g-emovere { background: linear-gradient(135deg, #e9e5da, #dcd6c6); }
     .g-slate { background: linear-gradient(135deg, #dfe4ee, #cbd3e2); }
     .g-violet { background: linear-gradient(135deg, #ebe6fb, #d8cff3); }
@@ -263,8 +263,8 @@
 
           <!-- Awareness -->
           <article class="card project">
-            <div class="shots g-green" aria-hidden="true">
-              <svg class="icon-big" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10 18.5h4"/><path d="M9 13l2-2 2 1.5 2.5-3.5"/></svg>
+            <div class="shots g-green">
+              <img class="desk" src="img/awareness.webp" width="695" height="690" alt="Home di Awareness con il Disponibile reale, dati di esempio" loading="lazy" />
             </div>
             <div class="body">
               <span class="kicker">Web app · Finanza personale e familiare</span>
@@ -279,6 +279,7 @@
                 <li>Condivisa in famiglia: più persone sugli stessi conti, aggiornamenti in tempo reale e notifiche</li>
               </ul>
               <div class="tags"><span class="tag">React</span><span class="tag">Vite</span><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">PostgreSQL</span><span class="tag">Prisma</span><span class="tag">WebSocket</span></div>
+              <span class="private"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> Nello screenshot importi e voci di esempio.</span>
             </div>
           </article>
 
