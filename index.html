@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Alessio Vinci — Sviluppatore web</title>
+  <meta name="description" content="Alessio Vinci, sviluppatore web full stack in Sardegna. Siti per studi e attività, web app e gestionali su misura." />
+  <meta name="theme-color" content="#f6f5f1" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="it_IT" />
+  <meta property="og:title" content="Alessio Vinci — Sviluppatore web" />
+  <meta property="og:description" content="Siti per studi e attività, web app e gestionali su misura." />
+  <meta property="og:image" content="/img/emovere-desktop.webp" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <style>
+    :root {
+      --bg: #f6f5f1;
+      --surface: #ffffff;
+      --fg: #16181d;
+      --muted: #5b606b;
+      --border: #e3e1da;
+      --accent: #2f5bea;
+      --accent-soft: #e8eeff;
+      --accent-ink: #1d3fb3;
+      --wa: #1f9d55;
+      --radius: 18px;
+      --shadow: 0 1px 2px rgba(22,24,29,.04), 0 8px 24px rgba(22,24,29,.06);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111317;
+        --surface: #181b21;
+        --fg: #eef0f4;
+        --muted: #a2a8b4;
+        --border: #2a2e37;
+        --accent: #7b9bff;
+        --accent-soft: #1d2640;
+        --accent-ink: #a9bcff;
+        --wa: #3cc97a;
+        --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
+      }
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0; background: var(--bg); color: var(--fg);
+      font: 16px/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    img { max-width: 100%; height: auto; display: block; }
+    .wrap { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+    .skip { position: absolute; left: -9999px; }
+    .skip:focus { left: 16px; top: 16px; background: var(--surface); padding: 8px 14px; border-radius: 999px; z-index: 10; }
+
+    /* Header */
+    header.top { padding: 22px 0; }
+    header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; text-decoration: none; letter-spacing: -.01em; }
+    .mono { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 10px; background: var(--fg); color: var(--bg); font-size: 14px; font-weight: 800; letter-spacing: .02em; }
+    nav.links { display: flex; gap: 22px; font-size: 15px; }
+    nav.links a { text-decoration: none; color: var(--muted); }
+    nav.links a:hover { color: var(--fg); }
+    @media (max-width: 560px) { nav.links { display: none; } }
+
+    /* Buttons */
+    .btn { display: inline-flex; align-items: center; gap: 8px; border-radius: 999px; padding: 12px 20px; font-weight: 600; font-size: 15px; text-decoration: none; border: 1px solid transparent; transition: transform .15s ease, background .15s ease, border-color .15s ease; white-space: nowrap; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn svg { width: 18px; height: 18px; flex: none; }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: var(--accent-ink); }
+    .btn-ghost { background: var(--surface); border-color: var(--border); }
+    .btn-ghost:hover { border-color: var(--muted); }
+    .btn-wa { background: var(--wa); color: #fff; }
+
+    /* Hero */
+    .hero { padding-top: 56px; padding-bottom: 72px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-ink); }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--wa); box-shadow: 0 0 0 4px color-mix(in srgb, var(--wa) 20%, transparent); }
+    h1 { font-size: clamp(34px, 6vw, 58px); line-height: 1.06; letter-spacing: -.03em; margin: 18px 0 18px; max-width: 16ch; }
+    h1 em { font-style: normal; color: var(--accent); }
+    .lead { font-size: clamp(17px, 2.2vw, 20px); color: var(--muted); max-width: 58ch; margin: 0; }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+
+    /* Sections */
+    section { padding: 64px 0; }
+    .sec-head { margin-bottom: 28px; }
+    h2 { font-size: clamp(26px, 3.6vw, 36px); letter-spacing: -.02em; line-height: 1.15; margin: 8px 0 8px; }
+    .sec-head p { color: var(--muted); margin: 0; max-width: 60ch; }
+
+    /* Work */
+    .work { display: grid; gap: 20px; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
+    .featured { display: grid; gap: 0; }
+    @media (min-width: 900px) { .featured { grid-template-columns: 1.25fr 1fr; } }
+    .shots { position: relative; background: linear-gradient(135deg, #e9e5da, #dcd6c6); padding: 28px 28px 0; min-height: 260px; display: flex; align-items: flex-end; }
+    .shots .desk { border-radius: 10px 10px 0 0; box-shadow: 0 10px 30px rgba(0,0,0,.18); width: 88%; }
+    .shots .phone { position: absolute; right: 22px; bottom: 18px; width: 26%; max-width: 150px; border-radius: 16px; border: 4px solid #16181d; box-shadow: 0 12px 30px rgba(0,0,0,.25); }
+    .body { padding: 26px 26px 28px; display: flex; flex-direction: column; }
+    .kicker { font-size: 13px; color: var(--muted); }
+    h3 { font-size: 22px; letter-spacing: -.01em; margin: 4px 0 10px; line-height: 1.25; }
+    .body p { margin: 0 0 14px; color: var(--muted); }
+    ul.points { margin: 0 0 18px; padding: 0; list-style: none; display: grid; gap: 7px; font-size: 15px; }
+    ul.points li { display: flex; gap: 10px; }
+    ul.points li::before { content: ""; flex: none; width: 6px; height: 6px; margin-top: 9px; border-radius: 50%; background: var(--accent); }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+    .tag { font-size: 12.5px; padding: 4px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent-ink); font-weight: 500; }
+    .card-link { margin-top: 18px; align-self: flex-start; }
+
+    .grid3 { display: grid; gap: 20px; }
+    @media (min-width: 1000px) { .grid3 { grid-template-columns: repeat(3, 1fr); } }
+    .visual { height: 150px; display: grid; place-items: center; border-bottom: 1px solid var(--border); }
+    .visual svg { width: 64px; height: 64px; }
+    .v1 { background: linear-gradient(135deg, #dff1f7, #c9e4ee); color: #1a6a86; }
+    .v2 { background: linear-gradient(135deg, #efe5fb, #ddcdf4); color: #6a3fb0; }
+    .v3 { background: linear-gradient(135deg, #e3f5e8, #cbe9d4); color: #1f7a45; }
+    .v4 { background: linear-gradient(135deg, #fdeede, #f7dcc0); color: #a2531a; }
+    @media (prefers-color-scheme: dark) {
+      .shots { background: linear-gradient(135deg, #2a2822, #221f19); }
+      .v1 { background: linear-gradient(135deg, #16303a, #132830); color: #7fd0ec; }
+      .v2 { background: linear-gradient(135deg, #2a2140, #221a36); color: #c4a6f5; }
+      .v3 { background: linear-gradient(135deg, #16301f, #11281a); color: #7fdca3; }
+      .v4 { background: linear-gradient(135deg, #3a2716, #301f11); color: #f3b27c; }
+    }
+    .badge { align-self: flex-start; display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; padding: 3px 9px; border-radius: 6px; background: var(--fg); color: var(--bg); margin-bottom: 8px; }
+    .private { font-size: 13px; color: var(--muted); margin-top: 14px; display: flex; gap: 6px; align-items: center; }
+    .private svg { width: 14px; height: 14px; flex: none; }
+    @media (min-width: 820px) {
+      .wide { display: grid; grid-template-columns: 280px 1fr; }
+      .wide .visual { height: auto; border-bottom: 0; border-right: 1px solid var(--border); }
+    }
+
+    /* Services */
+    .services { display: grid; gap: 16px; }
+    @media (min-width: 700px) { .services { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1000px) { .services { grid-template-columns: repeat(4, 1fr); } }
+    .svc { padding: 22px; }
+    .svc h3 { font-size: 18px; margin: 12px 0 6px; }
+    .svc p { margin: 0; color: var(--muted); font-size: 15px; }
+    .svc .ic { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent-ink); }
+    .svc .ic svg { width: 22px; height: 22px; }
+
+    /* Contact */
+    .contact { padding: 34px 28px; text-align: center; }
+    .contact h2 { margin-top: 0; }
+    .contact p { color: var(--muted); max-width: 52ch; margin: 0 auto; }
+    .contact .cta-row { justify-content: center; }
+    .contact .alt { margin-top: 18px; font-size: 14px; color: var(--muted); }
+    .contact .alt a { color: var(--fg); }
+
+    footer { padding: 28px 0 40px; color: var(--muted); font-size: 13.5px; }
+    footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: space-between; }
+    footer p { margin: 0; max-width: 70ch; }
+
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } .btn:hover { transform: none; } }
+  </style>
+</head>
+<body>
+  <a href="#lavori" class="skip">Vai ai lavori</a>
+
+  <header class="top">
+    <div class="wrap">
+      <a href="/" class="brand"><span class="mono">AV</span> Alessio Vinci</a>
+      <nav class="links" aria-label="Sezioni">
+        <a href="#lavori">Lavori</a>
+        <a href="#servizi">Cosa faccio</a>
+        <a href="#contatti">Contatti</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap hero">
+      <span class="eyebrow"><span class="dot" aria-hidden="true"></span> Disponibile per nuovi progetti</span>
+      <h1>Siti e software su misura, <em>fatti bene</em>.</h1>
+      <p class="lead">Sono Alessio Vinci, sviluppatore web full stack in Sardegna. Realizzo siti per studi professionali e attività, web app e gestionali: dal design alla messa online, con attenzione a velocità, SEO e privacy.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#contatti">Parliamo del tuo progetto</a>
+        <a class="btn btn-ghost" href="#lavori">Guarda i lavori</a>
+      </div>
+    </div>
+
+    <section id="lavori">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="eyebrow">Lavori</span>
+          <h2>Alcuni progetti realizzati</h2>
+          <p>Siti pubblici e software interni. Per i progetti privati non mostro nomi né dati dei clienti.</p>
+        </div>
+
+        <div class="work">
+          <!-- 1. Centro Emovere -->
+          <article class="card featured">
+            <div class="shots">
+              <img class="desk" src="img/emovere-desktop.webp" width="1440" height="900" alt="Home page del sito Centro Emovere su desktop" loading="lazy" />
+              <img class="phone" src="img/emovere-mobile.webp" width="780" height="1688" alt="Il sito Centro Emovere su smartphone" loading="lazy" />
+            </div>
+            <div class="body">
+              <span class="kicker">Sito web · Centro terapeutico, Alghero</span>
+              <h3>Centro Emovere</h3>
+              <p>Sito completo per un centro multidisciplinare di psicologia, logopedia, neuropsicomotricità e fisioterapia.</p>
+              <ul class="points">
+                <li>Design su misura, pensato prima per lo smartphone</li>
+                <li>Pagine servizi, schede dell'équipe e blog</li>
+                <li>Modulo contatti con invio email e SEO locale</li>
+                <li>Privacy e cookie a norma GDPR, con banner di consenso</li>
+              </ul>
+              <div class="tags"><span class="tag">Next.js</span><span class="tag">React</span><span class="tag">Tailwind CSS</span><span class="tag">Vercel</span></div>
+              <a class="btn btn-ghost card-link" href="https://www.centroemovere.it" target="_blank" rel="noopener">Visita il sito ↗</a>
+            </div>
+          </article>
+
+          <!-- 5. Gestionale Amazon -->
+          <article class="card wide">
+            <div class="visual v4" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5h17"/><rect x="5" y="12" width="3" height="6" rx=".6"/><rect x="10.5" y="8" width="3" height="10" rx=".6"/><rect x="16" y="4" width="3" height="14" rx=".6"/></svg>
+            </div>
+            <div class="body">
+              <span class="badge">Il progetto più grande</span>
+              <span class="kicker">Gestionale su misura · E-commerce</span>
+              <h3>Piattaforma gestionale per un venditore Amazon europeo</h3>
+              <p>Software interno che collega i dati di vendita di Amazon su più paesi alla produzione, al magazzino e alla contabilità dell'azienda.</p>
+              <ul class="points">
+                <li>Integrazione con le API ufficiali di Amazon (Selling Partner API) e sincronizzazioni pianificate</li>
+                <li>Conto economico mensile e margini per prodotto, pronti per il commercialista</li>
+                <li>Magazzino, produzione, spedizioni, documenti di trasporto ed etichette in PDF</li>
+                <li>Pubblicità, monitoraggio dei concorrenti e previsioni di vendita</li>
+                <li>Accesso protetto con autenticazione a due fattori</li>
+              </ul>
+              <div class="tags"><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">SQLite</span><span class="tag">Amazon SP-API</span><span class="tag">AWS</span></div>
+              <span class="private"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> Software riservato: nomi e dati aziendali non vengono mostrati.</span>
+            </div>
+          </article>
+
+          <div class="grid3">
+            <!-- 2. Case vacanze -->
+            <article class="card">
+              <div class="visual v1" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/><path d="M10 19.5v-5h4v5"/><path d="M2 21.5c2 0 2-1 4-1s2 1 4 1 2-1 4-1 2 1 4 1 2-1 4-1"/></svg>
+              </div>
+              <div class="body">
+                <span class="kicker">Sito web · Turismo, Sardegna</span>
+                <h3>Case vacanze sul mare</h3>
+                <p>Sito vetrina per due case vacanze tra Stintino e Alghero, pensato per ricevere prenotazioni dirette.</p>
+                <ul class="points">
+                  <li>In 4 lingue: italiano, inglese, tedesco e francese</li>
+                  <li>Calendario disponibilità sincronizzato con Airbnb</li>
+                  <li>Gallerie fotografiche ottimizzate e caricamento veloce</li>
+                </ul>
+                <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Python</span></div>
+              </div>
+            </article>
+
+            <!-- 3. App desktop -->
+            <article class="card">
+              <div class="visual v2" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="13" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M6.5 8.5h5M6.5 11h7.5M6.5 13.5h4"/><circle cx="17" cy="11" r="1.6"/></svg>
+              </div>
+              <div class="body">
+                <span class="kicker">App desktop · Windows</span>
+                <h3>Libreria preset per musicisti</h3>
+                <p>Programma per Windows che organizza, cataloga e rende ricercabile la libreria di preset di un multieffetto per chitarra.</p>
+                <ul class="points">
+                  <li>Catalogazione e ricerca dei file già presenti sul computer</li>
+                  <li>Installer e aggiornamenti automatici</li>
+                  <li>Prodotto in vendita, con sito e licenze</li>
+                </ul>
+                <div class="tags"><span class="tag">App desktop</span><span class="tag">Windows</span></div>
+              </div>
+            </article>
+
+            <!-- 4. Awareness -->
+            <article class="card">
+              <div class="visual v3" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10 18.5h4"/><path d="M9 13l2-2 2 1.5 2.5-3.5"/></svg>
+              </div>
+              <div class="body">
+                <span class="kicker">Web app e app Android · Finanza personale</span>
+                <h3>Awareness</h3>
+                <p>App per gestire l'economia di casa in famiglia: sapere ogni giorno quanto si può davvero spendere.</p>
+                <ul class="points">
+                  <li>Previsione del saldo a 90 giorni, spese ricorrenti e obiettivi di risparmio</li>
+                  <li>Import dell'estratto conto e lettura degli scontrini da foto</li>
+                  <li>Fatture elettroniche e accantonamento tasse per le partite IVA</li>
+                  <li>Più utenti per famiglia, aggiornamenti in tempo reale e notifiche</li>
+                </ul>
+                <div class="tags"><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">PostgreSQL</span><span class="tag">Prisma</span><span class="tag">Capacitor</span></div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="servizi">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="eyebrow">Cosa faccio</span>
+          <h2>Dal sito vetrina al gestionale</h2>
+        </div>
+        <div class="services">
+          <div class="card svc">
+            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg></div>
+            <h3>Siti per studi e attività</h3>
+            <p>Veloci, curati e facili da trovare su Google, con i testi e le foto della tua attività.</p>
+          </div>
+          <div class="card svc">
+            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg></div>
+            <h3>Privacy e cookie a norma</h3>
+            <p>Informative, banner di consenso e statistiche configurate nel rispetto del GDPR.</p>
+          </div>
+          <div class="card svc">
+            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg></div>
+            <h3>Web app e gestionali</h3>
+            <p>Software su misura che collega i tuoi dati e automatizza il lavoro ripetitivo.</p>
+          </div>
+          <div class="card svc">
+            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg></div>
+            <h3>Assistenza nel tempo</h3>
+            <p>Aggiornamenti, modifiche ai contenuti e nuove funzioni quando servono.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contatti">
+      <div class="wrap">
+        <div class="card contact">
+          <span class="eyebrow">Contatti</span>
+          <h2>Hai un progetto in mente?</h2>
+          <p>Raccontami in due righe di cosa hai bisogno: ti rispondo con un'idea concreta e un preventivo, senza impegno.</p>
+          <div class="cta-row">
+            <a class="btn btn-wa" href="https://wa.me/393403689635?text=Ciao%20Alessio%2C%20ti%20scrivo%20per%20un%20progetto" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-.8-.4-2.1-1-3.1-2.8-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s1 2.5 1.1 2.7c.1.2 1.9 2.9 4.6 4 1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2 0-.1-.2-.2-.4-.3z"/></svg>
+              Scrivimi su WhatsApp
+            </a>
+            <a class="btn btn-ghost" href="mailto:alessio.vinci87@gmail.com?subject=Nuovo%20progetto">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg>
+              alessio.vinci87@gmail.com
+            </a>
+          </div>
+          <p class="alt">Oppure chiama il <a href="tel:+393403689635">340 368 9635</a> · <a href="https://www.linkedin.com/in/alessio-vinci-jr-full-dev/" target="_blank" rel="noopener">LinkedIn</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>© 2026 Alessio Vinci · Sviluppatore web, Sardegna</p>
+      <p>Questo sito non usa cookie né strumenti di tracciamento. Il provider di hosting registra i dati tecnici di navigazione (come l'indirizzo IP) per sicurezza e funzionamento. Se mi scrivi, uso i tuoi dati solo per risponderti.</p>
+    </div>
+  </footer>
+</body>
+</html>
