@@ -5,161 +5,181 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Alessio Vinci — Sviluppatore web</title>
   <meta name="description" content="Alessio Vinci, sviluppatore web full stack in Sardegna. Siti per studi e attività, web app e gestionali su misura." />
-  <meta name="theme-color" content="#f6f5f1" />
+  <meta name="theme-color" content="#0c0f13" />
+  <meta name="color-scheme" content="dark" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="it_IT" />
   <meta property="og:title" content="Alessio Vinci — Sviluppatore web" />
   <meta property="og:description" content="Siti per studi e attività, web app e gestionali su misura." />
-  <meta property="og:image" content="/img/emovere-desktop.webp" />
+  <meta property="og:image" content="/img/gestionale-ads.webp" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="preload" href="fonts/unbounded-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/onest-latin.woff2" as="font" type="font/woff2" crossorigin />
   <style>
+    @font-face { font-family: "Unbounded"; font-style: normal; font-weight: 500 700; font-display: swap; src: url(fonts/unbounded-latin.woff2) format("woff2"); }
+    @font-face { font-family: "Onest"; font-style: normal; font-weight: 400 600; font-display: swap; src: url(fonts/onest-latin.woff2) format("woff2"); }
     :root {
-      --bg: #f6f5f1;
-      --surface: #ffffff;
-      --fg: #16181d;
-      --muted: #5b606b;
-      --border: #e3e1da;
-      --accent: #2f5bea;
-      --accent-soft: #e8eeff;
-      --accent-ink: #1d3fb3;
-      --wa: #1f9d55;
-      --radius: 18px;
-      --shadow: 0 1px 2px rgba(22,24,29,.04), 0 8px 24px rgba(22,24,29,.06);
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #111317;
-        --surface: #181b21;
-        --fg: #eef0f4;
-        --muted: #a2a8b4;
-        --border: #2a2e37;
-        --accent: #7b9bff;
-        --accent-soft: #1d2640;
-        --accent-ink: #a9bcff;
-        --wa: #3cc97a;
-        --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
-      }
+      color-scheme: dark;
+      --bg: #0c0f13;
+      --panel: #11151b;
+      --panel-2: #161b22;
+      --line: #1e242d;
+      --line-2: #2a323d;
+      --fg: #e7ebf0;
+      --muted: #9aa4b2;
+      --dim: #8b95a3;
+      --sky: #7cc4e4;
+      --sage: #b9e0c9;
+      --chip: #1a212b;
+      --chip-fg: #c9d3de;
+      --wa: #2fbf71;
+      --amber: #f0c36a;
+      --display: "Unbounded", "Segoe UI", system-ui, sans-serif;
+      --body: "Onest", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-    body {
-      margin: 0; background: var(--bg); color: var(--fg);
-      font: 16px/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      -webkit-font-smoothing: antialiased;
-    }
+    body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.6 var(--body); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
     a { color: inherit; }
     img { max-width: 100%; height: auto; display: block; }
-    .wrap { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+    :focus-visible { outline: 2px solid var(--sky); outline-offset: 3px; border-radius: 6px; }
+    .wrap { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 20px; }
     .skip { position: absolute; left: -9999px; }
-    .skip:focus { left: 16px; top: 16px; background: var(--surface); padding: 8px 14px; border-radius: 999px; z-index: 10; }
+    .skip:focus { left: 16px; top: 16px; background: var(--panel-2); padding: 8px 14px; border-radius: 8px; z-index: 30; }
+
+    /* Glow di sfondo */
+    .glow { position: absolute; inset: 0 0 auto 0; height: 900px; overflow: hidden; pointer-events: none; z-index: 0; }
+    .glow::before { content: ""; position: absolute; width: 900px; height: 900px; right: -300px; top: -420px; background: radial-gradient(closest-side, rgba(124,196,228,.20), transparent); }
+    .glow::after { content: ""; position: absolute; width: 700px; height: 700px; left: -380px; top: 120px; background: radial-gradient(closest-side, rgba(185,224,201,.07), transparent); }
 
     /* Header */
-    header.top { padding: 22px 0; }
-    header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-    .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; text-decoration: none; letter-spacing: -.01em; }
-    .mono { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 10px; background: var(--fg); color: var(--bg); font-size: 14px; font-weight: 800; letter-spacing: .02em; }
-    nav.links { display: flex; gap: 22px; font-size: 15px; }
-    nav.links a { text-decoration: none; color: var(--muted); }
+    header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: rgba(12,15,19,.72); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid transparent; }
+    header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 68px; }
+    .brand { font-family: var(--display); font-weight: 700; font-size: 15px; letter-spacing: .03em; text-decoration: none; }
+    nav.links { display: flex; align-items: center; gap: 26px; font-size: 15px; }
+    nav.links a { text-decoration: none; color: var(--dim); }
     nav.links a:hover { color: var(--fg); }
-    @media (max-width: 560px) { nav.links { display: none; } }
+    nav.links a.nav-cta { color: var(--bg); background: var(--fg); padding: 8px 16px; border-radius: 9px; font-weight: 600; }
+    @media (max-width: 640px) { nav.links a:not(.nav-cta) { display: none; } }
+
+    main { position: relative; z-index: 1; }
 
     /* Buttons */
-    .btn { display: inline-flex; align-items: center; gap: 8px; border-radius: 999px; padding: 12px 20px; font-weight: 600; font-size: 15px; text-decoration: none; border: 1px solid transparent; transition: transform .15s ease, background .15s ease, border-color .15s ease; white-space: nowrap; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; border-radius: 10px; padding: 12px 20px; font-weight: 600; font-size: 15px; text-decoration: none; border: 1px solid transparent; transition: transform .15s ease, background .15s ease, border-color .15s ease; white-space: nowrap; }
     .btn:hover { transform: translateY(-1px); }
     .btn svg { width: 18px; height: 18px; flex: none; }
-    .btn-primary { background: var(--accent); color: #fff; }
-    .btn-primary:hover { background: var(--accent-ink); }
-    .btn-ghost { background: var(--surface); border-color: var(--border); }
-    .btn-ghost:hover { border-color: var(--muted); }
-    .btn-wa { background: var(--wa); color: #fff; }
+    .btn-primary { background: var(--fg); color: var(--bg); }
+    .btn-primary:hover { background: #fff; }
+    .btn-ghost { border-color: var(--line-2); font-weight: 500; }
+    .btn-ghost:hover { border-color: var(--dim); }
+    .btn-wa { background: var(--wa); color: #06140c; }
 
     /* Hero */
-    .hero { padding-top: 56px; padding-bottom: 72px; }
-    .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-ink); }
-    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--wa); box-shadow: 0 0 0 4px color-mix(in srgb, var(--wa) 20%, transparent); }
-    h1 { font-size: clamp(34px, 6vw, 58px); line-height: 1.06; letter-spacing: -.03em; margin: 18px 0 18px; max-width: 16ch; }
-    h1 em { font-style: normal; color: var(--accent); }
-    .lead { font-size: clamp(17px, 2.2vw, 20px); color: var(--muted); max-width: 58ch; margin: 0; }
+    .hero { display: grid; gap: 48px; padding-top: 64px; padding-bottom: 20px; }
+    @media (min-width: 940px) { .hero { grid-template-columns: 1fr 1fr; align-items: center; padding-top: 80px; } }
+    .kick { display: inline-flex; align-items: center; gap: 8px; font-size: 13.5px; color: var(--sky); font-weight: 500; letter-spacing: .03em; }
+    .kick .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--wa); box-shadow: 0 0 0 4px rgba(47,191,113,.18); }
+    h1 { font-family: var(--display); font-weight: 700; font-size: clamp(32px, 5vw, 58px); line-height: 1.06; letter-spacing: -.025em; margin: 18px 0 20px; text-wrap: balance; }
+    .grad { background: linear-gradient(90deg, var(--sky), var(--sage)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .lead { font-size: clamp(16.5px, 2vw, 18.5px); color: var(--muted); margin: 0; max-width: 48ch; }
     .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
 
-    /* Sections */
-    section { padding: 64px 0; }
-    .sec-head { margin-bottom: 28px; }
-    h2 { font-size: clamp(26px, 3.6vw, 36px); letter-spacing: -.02em; line-height: 1.15; margin: 8px 0 8px; }
-    .sec-head p { color: var(--muted); margin: 0; max-width: 60ch; }
-
-    /* Work */
-    .work { display: grid; gap: 24px; }
-    .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
-    .project { display: grid; }
-    @media (min-width: 900px) { .project { grid-template-columns: 1.25fr 1fr; } }
-    .shots { position: relative; display: flex; align-items: center; justify-content: center; padding: 28px; min-height: 280px; }
-    .shots .desk { width: 100%; border-radius: 10px; box-shadow: 0 12px 32px rgba(0,0,0,.2); }
-    .shots.with-phone { justify-content: flex-start; padding-bottom: 40px; }
-    .shots.with-phone .desk { width: 86%; }
-    .shots .phone { position: absolute; right: 22px; bottom: 22px; width: 25%; max-width: 150px; border-radius: 16px; border: 4px solid #16181d; box-shadow: 0 12px 30px rgba(0,0,0,.28); }
-    .shots .phone-solo { width: 46%; max-width: 250px; border-radius: 26px; border: 6px solid #16181d; box-shadow: 0 16px 40px rgba(0,0,0,.28); }
-    .shots.fill { display: block; min-height: 0; aspect-ratio: 4 / 3; padding: 0; overflow: hidden; }
-    @media (min-width: 900px) { .shots.fill { aspect-ratio: auto; min-height: 380px; } }
-    .shots.fill .desk { position: absolute; top: 28px; left: 28px; width: calc(100% - 28px); height: calc(100% - 28px); max-width: none; object-fit: cover; object-position: left top; border-radius: 10px 0 0 0; }
-    .shots.fill.center .desk { object-position: center top; }
-    .shots.g-green .desk { max-width: 460px; }
-    .g-emovere { background: linear-gradient(135deg, #e9e5da, #dcd6c6); }
-    .g-slate { background: linear-gradient(135deg, #dfe4ee, #cbd3e2); }
-    .g-violet { background: linear-gradient(135deg, #ebe6fb, #d8cff3); }
-    .g-green { background: linear-gradient(135deg, #e3f2e6, #c9e3cf); color: #1f7a45; }
-    .g-sage { background: linear-gradient(135deg, #e7ecdf, #d2dcc4); }
-    .g-sea { background: linear-gradient(135deg, #dcf0f6, #c3e2ec); }
-    .g-garden { background: linear-gradient(135deg, #eef0df, #dde2c3); }
-    .g-night { background: linear-gradient(135deg, #2a2f45, #1a1d2b); }
-    @media (prefers-color-scheme: dark) {
-      .g-emovere { background: linear-gradient(135deg, #2a2822, #221f19); }
-      .g-slate { background: linear-gradient(135deg, #222735, #1b1f2b); }
-      .g-violet { background: linear-gradient(135deg, #272238, #1e1a2d); }
-      .g-green { background: linear-gradient(135deg, #16301f, #11281a); color: #7fdca3; }
-      .g-sage { background: linear-gradient(135deg, #232a1e, #1b2118); }
-      .g-sea { background: linear-gradient(135deg, #15303a, #10262e); }
-      .g-garden { background: linear-gradient(135deg, #262b1a, #1d2114); }
+    .stack { position: relative; width: 100%; aspect-ratio: 1.2; }
+    .stack .d { position: absolute; border-radius: 10px; overflow: hidden; border: 1px solid var(--line-2); box-shadow: 0 30px 60px rgba(0,0,0,.55); background: var(--panel); }
+    .stack .d img { width: 100%; height: 100%; object-fit: cover; object-position: left top; }
+    .stack .d1 { width: 84%; aspect-ratio: 1904 / 911; left: 0; top: 4%; }
+    .stack .d2 { width: 72%; aspect-ratio: 1901 / 788; right: 0; top: 40%; }
+    .stack .d3 { width: 22%; aspect-ratio: 385 / 907; left: 7%; bottom: 0; border-radius: 16px; border: 3px solid var(--line-2); }
+    @media (prefers-reduced-motion: no-preference) {
+      .stack .d { animation: rise .8s cubic-bezier(.2,.7,.2,1) both; }
+      .stack .d2 { animation-delay: .12s; }
+      .stack .d3 { animation-delay: .24s; }
+      @keyframes rise { from { transform: translateY(18px); } to { transform: none; } }
     }
-    .body { padding: 26px 26px 28px; display: flex; flex-direction: column; }
-    @media (min-width: 900px) { .body { padding: 30px 30px 32px; } }
-    .kicker { font-size: 13px; color: var(--muted); }
-    h3 { font-size: 22px; letter-spacing: -.01em; margin: 4px 0 10px; line-height: 1.25; }
-    .body p { margin: 0 0 14px; color: var(--muted); }
-    ul.points { margin: 0 0 18px; padding: 0; list-style: none; display: grid; gap: 7px; font-size: 15px; }
+
+    /* Stats */
+    .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; margin-top: 56px; }
+    @media (min-width: 760px) { .stats { grid-template-columns: repeat(4, 1fr); } }
+    .stats div { background: var(--panel); padding: 20px 22px; }
+    .stats b { font-family: var(--display); font-size: clamp(24px, 3vw, 30px); font-weight: 500; display: block; font-variant-numeric: tabular-nums; line-height: 1.2; }
+    .stats span { font-size: 13.5px; color: var(--dim); }
+
+    /* Sections */
+    section { padding: 88px 0 0; }
+    .sec-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px 32px; margin-bottom: 32px; }
+    .eyebrow { font-size: 12.5px; color: var(--sky); letter-spacing: .08em; text-transform: uppercase; font-weight: 600; }
+    h2 { font-family: var(--display); font-weight: 500; font-size: clamp(24px, 3.4vw, 36px); letter-spacing: -.015em; line-height: 1.15; margin: 8px 0 0; text-wrap: balance; }
+    .sec-head p { color: var(--muted); margin: 0; max-width: 46ch; font-size: 15px; }
+
+    /* Casi di studio */
+    .work { display: grid; gap: 22px; }
+    .case { display: grid; background: var(--panel); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
+    @media (min-width: 900px) {
+      .case { grid-template-columns: 1.2fr 1fr; }
+      .case.flip .media { order: 2; }
+    }
+    .media { position: relative; min-height: 260px; overflow: hidden; background: linear-gradient(135deg, #1b2230, #121821); }
+    @media (min-width: 900px) { .media { min-height: 400px; } }
+    .media.fill img.desk { position: absolute; top: 28px; left: 28px; width: calc(100% - 28px); height: calc(100% - 28px); max-width: none; object-fit: cover; object-position: left top; border-radius: 8px 0 0 0; box-shadow: 0 20px 50px rgba(0,0,0,.5); }
+    .case.flip .media.fill img.desk { left: 0; width: calc(100% - 28px); object-position: left top; border-radius: 0 8px 0 0; }
+    .media.center img.desk { object-position: center top !important; }
+    .media.solo { display: grid; place-items: center; padding: 32px; }
+    .media.solo img { border-radius: 12px; box-shadow: 0 24px 50px rgba(0,0,0,.5); }
+    .media .phone-solo { width: 44%; max-width: 230px; border-radius: 26px !important; border: 5px solid var(--line-2); }
+    .media .square { width: 100%; max-width: 440px; }
+    .media .phone { position: absolute; right: 24px; bottom: 24px; width: 22%; max-width: 140px; border-radius: 16px; border: 4px solid var(--line-2); box-shadow: 0 16px 40px rgba(0,0,0,.6); }
+    .m-sea { background: linear-gradient(135deg, #15303a, #0f1f27); }
+    .m-sand { background: linear-gradient(135deg, #2b2923, #1b1a16); }
+    .m-violet { background: linear-gradient(135deg, #252238, #17151f); }
+    .m-green { background: linear-gradient(135deg, #16301f, #0f1f15); }
+    .m-sage { background: linear-gradient(135deg, #1f2a1f, #141a14); }
+    .m-garden { background: linear-gradient(135deg, #262b1a, #181b11); }
+
+    .txt { padding: 28px 28px 30px; display: flex; flex-direction: column; }
+    .labels { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+    .badge { font-size: 11.5px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; padding: 4px 9px; border-radius: 6px; background: rgba(124,196,228,.14); color: var(--sky); }
+    .badge.soon { background: rgba(240,195,106,.14); color: var(--amber); }
+    .kicker { color: var(--sky); font-size: 12.5px; letter-spacing: .05em; text-transform: uppercase; font-weight: 600; }
+    h3 { font-family: var(--display); font-weight: 500; font-size: clamp(19px, 2.2vw, 23px); line-height: 1.25; margin: 8px 0 12px; letter-spacing: -.01em; text-wrap: balance; }
+    .txt > p { color: var(--muted); margin: 0 0 16px; font-size: 15.5px; }
+    .txt > p strong { color: var(--fg); font-weight: 600; }
+    details { border-top: 1px solid var(--line); margin: 0 0 18px; }
+    summary { cursor: pointer; list-style: none; padding: 12px 0 0; font-size: 14px; font-weight: 500; color: var(--fg); display: flex; align-items: center; gap: 8px; }
+    summary::-webkit-details-marker { display: none; }
+    summary::before { content: "+"; display: grid; place-items: center; width: 20px; height: 20px; border-radius: 6px; background: var(--chip); color: var(--sky); font-size: 14px; line-height: 1; }
+    details[open] summary::before { content: "–"; }
+    ul.points { margin: 12px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; font-size: 14.5px; color: var(--muted); }
     ul.points li { display: flex; gap: 10px; }
-    ul.points li::before { content: ""; flex: none; width: 6px; height: 6px; margin-top: 9px; border-radius: 50%; background: var(--accent); }
+    ul.points li::before { content: "→"; flex: none; color: var(--sky); }
     .tags { display: flex; flex-wrap: wrap; gap: 6px; }
-    .tag { font-size: 12.5px; padding: 4px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent-ink); font-weight: 500; }
-    .card-link { margin-top: 18px; align-self: flex-start; }
-    .labels { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
-    .badge, .soon { font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; padding: 3px 9px; border-radius: 6px; }
-    .badge { background: var(--fg); color: var(--bg); }
-    .soon { background: #fff4d6; color: #8a5a00; }
-    @media (prefers-color-scheme: dark) { .soon { background: #3a2e12; color: #f5c96a; } }
-    .private { font-size: 13px; color: var(--muted); margin-top: 14px; display: flex; gap: 6px; align-items: center; }
-    .private svg { width: 14px; height: 14px; flex: none; }
+    .tag { font-size: 12.5px; padding: 5px 10px; border-radius: 6px; background: var(--chip); color: var(--chip-fg); }
+    .foot { margin-top: auto; padding-top: 20px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; }
+    .private { font-size: 13px; color: var(--dim); display: flex; gap: 7px; align-items: flex-start; }
+    .private svg { width: 14px; height: 14px; flex: none; margin-top: 3px; }
+    .visit { font-size: 14.5px; font-weight: 600; text-decoration: none; color: var(--sky); border-bottom: 1px solid rgba(124,196,228,.35); padding-bottom: 1px; }
+    .visit:hover { border-color: var(--sky); }
 
     /* Services */
-    .services { display: grid; gap: 16px; }
+    .services { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
     @media (min-width: 700px) { .services { grid-template-columns: repeat(2, 1fr); } }
-    @media (min-width: 1000px) { .services { grid-template-columns: repeat(4, 1fr); } }
-    .svc { padding: 22px; }
-    .svc h3 { font-size: 18px; margin: 12px 0 6px; }
-    .svc p { margin: 0; color: var(--muted); font-size: 15px; }
-    .svc .ic { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent-ink); }
+    @media (min-width: 1040px) { .services { grid-template-columns: repeat(4, 1fr); } }
+    .svc { background: var(--panel); padding: 26px 24px 28px; }
+    .svc .ic { width: 42px; height: 42px; border-radius: 11px; display: grid; place-items: center; background: var(--chip); color: var(--sky); }
     .svc .ic svg { width: 22px; height: 22px; }
+    .svc h3 { font-size: 16.5px; margin: 18px 0 8px; }
+    .svc p { margin: 0; color: var(--muted); font-size: 14.5px; }
 
     /* Contact */
-    .contact { padding: 34px 28px; text-align: center; }
-    .contact h2 { margin-top: 0; }
-    .contact p { color: var(--muted); max-width: 52ch; margin: 0 auto; }
-    .contact .cta-row { justify-content: center; }
-    .contact .alt { margin-top: 18px; font-size: 14px; color: var(--muted); }
+    .contact { position: relative; overflow: hidden; border: 1px solid var(--line-2); border-radius: 22px; padding: clamp(32px, 6vw, 64px) clamp(22px, 5vw, 56px); background: radial-gradient(120% 140% at 100% 0%, rgba(124,196,228,.16), transparent 55%), var(--panel); display: grid; gap: 28px; }
+    @media (min-width: 900px) { .contact { grid-template-columns: 1.1fr 1fr; align-items: end; } }
+    .contact h2 { font-size: clamp(26px, 4vw, 44px); font-weight: 700; margin-top: 10px; }
+    .contact p { color: var(--muted); margin: 14px 0 0; max-width: 46ch; }
+    .contact .cta-row { margin-top: 0; }
+    .contact .alt { margin-top: 16px; font-size: 14px; color: var(--dim); }
     .contact .alt a { color: var(--fg); }
 
-    footer { padding: 28px 0 40px; color: var(--muted); font-size: 13.5px; }
-    footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: space-between; }
+    footer { padding: 56px 0 44px; color: var(--dim); font-size: 13.5px; }
+    footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 28px; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 24px; }
     footer p { margin: 0; max-width: 70ch; }
 
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } .btn:hover { transform: none; } }
@@ -167,202 +187,245 @@
 </head>
 <body>
   <a href="#lavori" class="skip">Vai ai lavori</a>
+  <div class="glow" aria-hidden="true"></div>
 
   <header class="top">
     <div class="wrap">
-      <a href="/" class="brand"><span class="mono">AV</span> Alessio Vinci</a>
+      <a href="/" class="brand">ALESSIO VINCI</a>
       <nav class="links" aria-label="Sezioni">
         <a href="#lavori">Lavori</a>
         <a href="#servizi">Cosa faccio</a>
-        <a href="#contatti">Contatti</a>
+        <a href="#contatti" class="nav-cta">Contatti</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <div class="wrap hero">
-      <span class="eyebrow"><span class="dot" aria-hidden="true"></span> Disponibile per nuovi progetti</span>
-      <h1>Siti e software su misura, <em>fatti bene</em>.</h1>
-      <p class="lead">Sono Alessio Vinci, sviluppatore web full stack in Sardegna. Realizzo siti per studi professionali e attività, web app e gestionali: dal design alla messa online, con attenzione a velocità, SEO e privacy.</p>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="#contatti">Parliamo del tuo progetto</a>
-        <a class="btn btn-ghost" href="#lavori">Guarda i lavori</a>
+    <div class="wrap">
+      <div class="hero">
+        <div>
+          <span class="kick"><span class="dot" aria-hidden="true"></span> Full stack developer · Sardegna</span>
+          <h1>Siti e software su misura, <span class="grad">fatti bene.</span></h1>
+          <p class="lead">Sono Alessio Vinci. Realizzo siti per studi professionali e attività, web app e gestionali: dal design alla messa online, con attenzione a velocità, SEO e privacy.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#contatti">Parliamo del tuo progetto</a>
+            <a class="btn btn-ghost" href="#lavori">Guarda i lavori</a>
+          </div>
+        </div>
+        <div class="stack" aria-hidden="true">
+          <div class="d d1"><img src="img/gestionale.webp" width="1904" height="911" alt="" /></div>
+          <div class="d d2"><img src="img/gestionale-ads.webp" width="1901" height="788" alt="" /></div>
+          <div class="d d3"><img src="img/quitfresh.webp" width="385" height="907" alt="" /></div>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div><b>8</b><span>progetti realizzati</span></div>
+        <div><b>4</b><span>web app e gestionali</span></div>
+        <div><b>3</b><span>siti per attività in Sardegna</span></div>
+        <div><b>5</b><span>lingue sul sito più grande</span></div>
       </div>
     </div>
 
     <section id="lavori">
       <div class="wrap">
         <div class="sec-head">
-          <span class="eyebrow">Lavori</span>
-          <h2>Alcuni progetti realizzati</h2>
+          <div>
+            <span class="eyebrow">Lavori</span>
+            <h2>Progetti realizzati</h2>
+          </div>
           <p>Siti pubblici, app e software interni. Per i progetti riservati non mostro nomi né dati dei clienti.</p>
         </div>
 
         <div class="work">
           <!-- Centro Emovere -->
-          <article class="card project">
-            <div class="shots with-phone g-emovere">
-              <img class="desk" src="img/emovere-desktop.webp" width="1440" height="900" alt="Home page del sito Centro Emovere su desktop" loading="lazy" />
+          <article class="case">
+            <div class="media m-sand" style="padding: 28px 28px 44px;">
+              <img class="desk" style="border-radius: 8px; box-shadow: 0 20px 50px rgba(0,0,0,.5); width: 88%;" src="img/emovere-desktop.webp" width="1440" height="900" alt="Home page del sito Centro Emovere su desktop" loading="lazy" />
               <img class="phone" src="img/emovere-mobile.webp" width="780" height="1688" alt="Il sito Centro Emovere su smartphone" loading="lazy" />
             </div>
-            <div class="body">
+            <div class="txt">
               <span class="kicker">Sito web · Centro terapeutico, Alghero</span>
               <h3>Centro Emovere</h3>
               <p>Sito completo per un centro multidisciplinare di psicologia, logopedia, neuropsicomotricità e fisioterapia.</p>
-              <ul class="points">
-                <li>Design su misura, pensato prima per lo smartphone</li>
-                <li>Pagine servizi, schede dell'équipe e blog</li>
-                <li>Modulo contatti con invio email e SEO locale</li>
-                <li>Privacy e cookie a norma GDPR, con banner di consenso</li>
-              </ul>
+              <details>
+                <summary>Cosa ho fatto</summary>
+                <ul class="points">
+                  <li>Design su misura, pensato prima per lo smartphone</li>
+                  <li>Pagine servizi, schede dell'équipe e blog</li>
+                  <li>Modulo contatti con invio email e SEO locale</li>
+                  <li>Privacy e cookie a norma GDPR, con banner di consenso</li>
+                </ul>
+              </details>
               <div class="tags"><span class="tag">Next.js</span><span class="tag">React</span><span class="tag">Tailwind CSS</span><span class="tag">Vercel</span></div>
-              <a class="btn btn-ghost card-link" href="https://www.centroemovere.it" target="_blank" rel="noopener">Visita il sito ↗</a>
+              <div class="foot"><a class="visit" href="https://www.centroemovere.it" target="_blank" rel="noopener">Visita il sito ↗</a></div>
             </div>
           </article>
 
           <!-- Gestionale Amazon -->
-          <article class="card project">
-            <div class="shots fill g-slate">
+          <article class="case flip">
+            <div class="media fill">
               <img class="desk" src="img/gestionale.webp" width="1904" height="911" alt="Pagina Profitto del gestionale, con dati di esempio" loading="lazy" />
             </div>
-            <div class="body">
+            <div class="txt">
               <div class="labels"><span class="badge">Il progetto più grande</span></div>
               <span class="kicker">Gestionale su misura · E-commerce</span>
               <h3>Piattaforma gestionale per un venditore Amazon europeo</h3>
               <p>Software interno che collega i dati di vendita di Amazon su più paesi alla produzione, al magazzino e alla contabilità dell'azienda.</p>
-              <ul class="points">
-                <li>Integrazione con le API ufficiali di Amazon (Selling Partner API) e sincronizzazioni pianificate</li>
-                <li>Conto economico mensile e margini per prodotto, pronti per il commercialista</li>
-                <li>Magazzino, produzione, spedizioni, documenti di trasporto ed etichette in PDF</li>
-                <li>Pubblicità, monitoraggio dei concorrenti e previsioni di vendita</li>
-                <li>Accesso protetto con autenticazione a due fattori</li>
-              </ul>
+              <details>
+                <summary>Cosa ho fatto</summary>
+                <ul class="points">
+                  <li>Integrazione con le API ufficiali di Amazon (Selling Partner API) e sincronizzazioni pianificate</li>
+                  <li>Conto economico mensile e margini per prodotto, pronti per il commercialista</li>
+                  <li>Magazzino, produzione, spedizioni, documenti di trasporto ed etichette in PDF</li>
+                  <li>Pubblicità, monitoraggio dei concorrenti e previsioni di vendita</li>
+                  <li>Accesso protetto con autenticazione a due fattori</li>
+                </ul>
+              </details>
               <div class="tags"><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">SQLite</span><span class="tag">Amazon SP-API</span><span class="tag">AWS</span></div>
-              <span class="private"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> Software riservato: nello screenshot solo dati di esempio, senza nomi aziendali.</span>
+              <div class="foot"><span class="private"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> Software riservato: nello screenshot solo dati di esempio, senza nomi aziendali.</span></div>
             </div>
           </article>
 
           <!-- Gestionale Amazon Ads -->
-          <article class="card project">
-            <div class="shots fill g-violet">
+          <article class="case">
+            <div class="media fill m-violet">
               <img class="desk" src="img/gestionale-ads.webp" width="1901" height="788" alt="Dashboard PPC del gestionale Amazon Ads con i dati per paese" loading="lazy" />
             </div>
-            <div class="body">
+            <div class="txt">
               <span class="kicker">Software su misura · Pubblicità Amazon</span>
               <h3>Gestionale Amazon Ads</h3>
               <p>Gestore delle campagne pubblicitarie Amazon su più paesi europei, con un motore decisionale, il Brain, che analizza i dati ogni giorno e propone cosa cambiare: offerte, budget e parole chiave.</p>
-              <ul class="points">
-                <li>Dashboard con spesa, vendite, ACoS, ROAS e risultati paese per paese</li>
-                <li>Il Brain propone le azioni sulle campagne, da approvare con un clic</li>
-                <li>Regolazione automatica delle offerte, ritmo del budget e fasce orarie</li>
-                <li>Creazione guidata delle campagne, ricerca keyword e monitoraggio dei concorrenti</li>
-                <li>Collegato ad Amazon Ads API, Selling Partner API e al gestionale vendite</li>
-              </ul>
+              <details>
+                <summary>Cosa ho fatto</summary>
+                <ul class="points">
+                  <li>Dashboard con spesa, vendite, ACoS, ROAS e risultati paese per paese</li>
+                  <li>Il Brain propone le azioni sulle campagne, da approvare con un clic</li>
+                  <li>Regolazione automatica delle offerte, ritmo del budget e fasce orarie</li>
+                  <li>Creazione guidata delle campagne, ricerca keyword e monitoraggio dei concorrenti</li>
+                  <li>Collegato ad Amazon Ads API, Selling Partner API e al gestionale vendite</li>
+                </ul>
+              </details>
               <div class="tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">Celery</span><span class="tag">Redis</span><span class="tag">Docker</span></div>
-              <span class="private"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> Software riservato: nomi aziendali oscurati.</span>
+              <div class="foot"><span class="private"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> Software riservato: nomi aziendali oscurati.</span></div>
             </div>
           </article>
 
           <!-- Awareness -->
-          <article class="card project">
-            <div class="shots g-green">
-              <img class="desk" src="img/awareness.webp" width="695" height="690" alt="Home di Awareness con il Disponibile reale, dati di esempio" loading="lazy" />
+          <article class="case flip">
+            <div class="media solo m-green">
+              <img class="square" src="img/awareness.webp" width="695" height="690" alt="Home di Awareness con il Disponibile reale, dati di esempio" loading="lazy" />
             </div>
-            <div class="body">
+            <div class="txt">
               <span class="kicker">Web app · Finanza personale e familiare</span>
               <h3>Awareness</h3>
-              <p>Una web app che risponde a una domanda semplice: <strong>quanto posso spendere davvero oggi?</strong> Parte dal saldo del conto e toglie da sola quello che è già impegnato (bollette e rate in arrivo, soldi messi da parte per gli obiettivi, tasse da accantonare), così il numero che vedi è quello realmente disponibile.</p>
-              <ul class="points">
-                <li>"Disponibile reale" sempre aggiornato, con il dettaglio di come è calcolato</li>
-                <li>Previsione del saldo a 90 giorni, che avvisa in anticipo se una settimana andrà sotto zero</li>
-                <li>Spese ricorrenti registrate da sole e obiettivi di risparmio con la quota mensile da versare</li>
-                <li>Import dell'estratto conto con categorie automatiche e lettura degli scontrini da foto</li>
-                <li>Per chi ha la partita IVA: fatture elettroniche, accantonamento delle tasse e promemoria delle scadenze</li>
-                <li>Condivisa in famiglia: più persone sugli stessi conti, aggiornamenti in tempo reale e notifiche</li>
-              </ul>
+              <p>Una web app che risponde a una domanda semplice: <strong>quanto posso spendere davvero oggi?</strong> Parte dal saldo del conto e toglie da sola quello che è già impegnato, così il numero che vedi è quello realmente disponibile.</p>
+              <details>
+                <summary>Cosa ho fatto</summary>
+                <ul class="points">
+                  <li>"Disponibile reale" sempre aggiornato, con il dettaglio di come è calcolato</li>
+                  <li>Previsione del saldo a 90 giorni, che avvisa in anticipo se una settimana andrà sotto zero</li>
+                  <li>Spese ricorrenti registrate da sole e obiettivi di risparmio con la quota mensile da versare</li>
+                  <li>Import dell'estratto conto con categorie automatiche e lettura degli scontrini da foto</li>
+                  <li>Per chi ha la partita IVA: fatture elettroniche, accantonamento delle tasse e promemoria delle scadenze</li>
+                  <li>Condivisa in famiglia: più persone sugli stessi conti, aggiornamenti in tempo reale e notifiche</li>
+                </ul>
+              </details>
               <div class="tags"><span class="tag">React</span><span class="tag">Vite</span><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">PostgreSQL</span><span class="tag">Prisma</span><span class="tag">WebSocket</span></div>
-              <span class="private"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> Nello screenshot importi e voci di esempio.</span>
+              <div class="foot"><span class="private"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> Nello screenshot importi e voci di esempio.</span></div>
             </div>
           </article>
 
           <!-- QuitFresh -->
-          <article class="card project">
-            <div class="shots g-sage">
+          <article class="case">
+            <div class="media solo m-sage">
               <img class="phone-solo" src="img/quitfresh.webp" width="385" height="907" alt="Schermata principale di QuitFresh su smartphone" loading="lazy" />
             </div>
-            <div class="body">
+            <div class="txt">
               <span class="kicker">Web app per smartphone · Salute e benessere</span>
               <h3>QuitFresh</h3>
               <p>Web app per smettere di fumare che accompagna la persona giorno per giorno, soprattutto nei momenti in cui la voglia di fumare è più forte.</p>
-              <ul class="points">
-                <li>Pulsante "Ho bisogno ORA" con supporto AI nel momento del craving</li>
-                <li>Promemoria e tracciamento della terapia, dose per dose</li>
-                <li>Diario, progressi, traguardi e conteggio dei giorni senza fumo</li>
-                <li>Installabile sul telefono come un'app, con notifiche push</li>
-                <li>Abbonamento premium con pagamenti online</li>
-              </ul>
+              <details>
+                <summary>Cosa ho fatto</summary>
+                <ul class="points">
+                  <li>Pulsante "Ho bisogno ORA" con supporto AI nel momento del craving</li>
+                  <li>Promemoria e tracciamento della terapia, dose per dose</li>
+                  <li>Diario, progressi, traguardi e conteggio dei giorni senza fumo</li>
+                  <li>Installabile sul telefono come un'app, con notifiche push</li>
+                  <li>Abbonamento premium con pagamenti online</li>
+                </ul>
+              </details>
               <div class="tags"><span class="tag">React</span><span class="tag">Vite</span><span class="tag">Tailwind CSS</span><span class="tag">Node.js</span><span class="tag">PostgreSQL</span><span class="tag">OpenAI</span><span class="tag">Stripe</span></div>
-              <a class="btn btn-ghost card-link" href="https://quitfresh.it" target="_blank" rel="noopener">Visita il sito ↗</a>
+              <div class="foot"><a class="visit" href="https://quitfresh.it" target="_blank" rel="noopener">Visita il sito ↗</a></div>
             </div>
           </article>
 
           <!-- Le Porte di Sardegna -->
-          <article class="card project">
-            <div class="shots fill center g-sea">
+          <article class="case flip">
+            <div class="media fill center m-sea">
               <img class="desk" src="img/casevacanze.webp" width="1901" height="869" alt="Home page del sito Le Porte di Sardegna" loading="lazy" />
             </div>
-            <div class="body">
+            <div class="txt">
               <span class="kicker">Sito web · Turismo, Sardegna</span>
               <h3>Le Porte di Sardegna</h3>
               <p>Sito vetrina per due case vacanze tra Stintino e Alghero, pensato per ricevere prenotazioni dirette.</p>
-              <ul class="points">
-                <li>In 5 lingue: italiano, inglese, francese, tedesco e spagnolo</li>
-                <li>Calendario disponibilità sincronizzato con Airbnb</li>
-                <li>Gallerie fotografiche ottimizzate e caricamento veloce</li>
-              </ul>
+              <details>
+                <summary>Cosa ho fatto</summary>
+                <ul class="points">
+                  <li>In 5 lingue: italiano, inglese, francese, tedesco e spagnolo</li>
+                  <li>Calendario disponibilità sincronizzato con Airbnb</li>
+                  <li>Gallerie fotografiche ottimizzate e caricamento veloce</li>
+                </ul>
+              </details>
               <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Python</span></div>
-              <a class="btn btn-ghost card-link" href="https://www.leportedisardegna.com/" target="_blank" rel="noopener">Visita il sito ↗</a>
+              <div class="foot"><a class="visit" href="https://www.leportedisardegna.com/" target="_blank" rel="noopener">Visita il sito ↗</a></div>
             </div>
           </article>
 
           <!-- Il Giardino di Bruna -->
-          <article class="card project">
-            <div class="shots fill g-garden">
+          <article class="case">
+            <div class="media fill m-garden">
               <img class="desk" style="object-position: 26% top" src="img/giardinodibruna.webp" width="1897" height="805" alt="Home page del sito Il Giardino di Bruna" loading="lazy" />
             </div>
-            <div class="body">
+            <div class="txt">
               <span class="kicker">Sito web · Casa vacanze, Alghero</span>
               <h3>Il Giardino di Bruna</h3>
               <p>Sito per una dependance immersa nel verde a due passi dall'aeroporto di Alghero, costruito attorno a quello che la rende speciale per le famiglie: il giardino, la piccola fattoria e il parco giochi.</p>
-              <ul class="points">
-                <li>Tradotto in 4 lingue: italiano, inglese, francese e spagnolo</li>
-                <li>Disponibilità aggiornata in automatico dal calendario Airbnb</li>
-                <li>Sezioni dedicate a giardino e bambini, dintorni e recensioni degli ospiti</li>
-                <li>Richiesta di prenotazione diretta e contatto rapido su WhatsApp</li>
-              </ul>
+              <details>
+                <summary>Cosa ho fatto</summary>
+                <ul class="points">
+                  <li>Tradotto in 4 lingue: italiano, inglese, francese e spagnolo</li>
+                  <li>Disponibilità aggiornata in automatico dal calendario Airbnb</li>
+                  <li>Sezioni dedicate a giardino e bambini, dintorni e recensioni degli ospiti</li>
+                  <li>Richiesta di prenotazione diretta e contatto rapido su WhatsApp</li>
+                </ul>
+              </details>
               <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
-              <a class="btn btn-ghost card-link" href="https://ilgiardinodibruna.com/" target="_blank" rel="noopener">Visita il sito ↗</a>
+              <div class="foot"><a class="visit" href="https://ilgiardinodibruna.com/" target="_blank" rel="noopener">Visita il sito ↗</a></div>
             </div>
           </article>
 
           <!-- PresetDock -->
-          <article class="card project">
-            <div class="shots fill g-night">
+          <article class="case flip">
+            <div class="media fill">
               <img class="desk" src="img/presetdock.webp" width="1904" height="990" alt="Schermata principale di PresetDock" loading="lazy" />
             </div>
-            <div class="body">
-              <div class="labels"><span class="soon">In arrivo</span></div>
+            <div class="txt">
+              <div class="labels"><span class="badge soon">In arrivo</span></div>
               <span class="kicker">App desktop · Windows · Musicisti</span>
               <h3>PresetDock</h3>
               <p>Programma per Windows che organizza, cataloga e rende ricercabile la libreria di preset di un multieffetto per chitarra.</p>
-              <ul class="points">
-                <li>Cerca i preset descrivendo il suono a parole</li>
-                <li>Catalogazione per genere, ampli, cabinet e artista</li>
-                <li>Riconoscimento dei duplicati e statistiche della libreria</li>
-                <li>Installer e aggiornamenti automatici</li>
-              </ul>
+              <details>
+                <summary>Cosa ho fatto</summary>
+                <ul class="points">
+                  <li>Cerca i preset descrivendo il suono a parole</li>
+                  <li>Catalogazione per genere, ampli, cabinet e artista</li>
+                  <li>Riconoscimento dei duplicati e statistiche della libreria</li>
+                  <li>Installer e aggiornamenti automatici</li>
+                </ul>
+              </details>
               <div class="tags"><span class="tag">App desktop</span><span class="tag">Windows</span></div>
-              <a class="btn btn-ghost card-link" href="https://presetdock.com/" target="_blank" rel="noopener">Scopri PresetDock ↗</a>
+              <div class="foot"><a class="visit" href="https://presetdock.com/" target="_blank" rel="noopener">Scopri PresetDock ↗</a></div>
             </div>
           </article>
         </div>
@@ -372,26 +435,28 @@
     <section id="servizi">
       <div class="wrap">
         <div class="sec-head">
-          <span class="eyebrow">Cosa faccio</span>
-          <h2>Dal sito vetrina al gestionale</h2>
+          <div>
+            <span class="eyebrow">Cosa faccio</span>
+            <h2>Dal sito vetrina al gestionale</h2>
+          </div>
         </div>
         <div class="services">
-          <div class="card svc">
+          <div class="svc">
             <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg></div>
             <h3>Siti per studi e attività</h3>
             <p>Veloci, curati e facili da trovare su Google, con i testi e le foto della tua attività.</p>
           </div>
-          <div class="card svc">
+          <div class="svc">
             <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg></div>
             <h3>Privacy e cookie a norma</h3>
             <p>Informative, banner di consenso e statistiche configurate nel rispetto del GDPR.</p>
           </div>
-          <div class="card svc">
+          <div class="svc">
             <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg></div>
             <h3>Web app e gestionali</h3>
             <p>Software su misura che collega i tuoi dati e automatizza il lavoro ripetitivo.</p>
           </div>
-          <div class="card svc">
+          <div class="svc">
             <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg></div>
             <h3>Assistenza nel tempo</h3>
             <p>Aggiornamenti, modifiche ai contenuti e nuove funzioni quando servono.</p>
@@ -402,21 +467,25 @@
 
     <section id="contatti">
       <div class="wrap">
-        <div class="card contact">
-          <span class="eyebrow">Contatti</span>
-          <h2>Hai un progetto in mente?</h2>
-          <p>Raccontami in due righe di cosa hai bisogno: ti rispondo con un'idea concreta e un preventivo, senza impegno.</p>
-          <div class="cta-row">
-            <a class="btn btn-wa" href="https://wa.me/393403689635?text=Ciao%20Alessio%2C%20ti%20scrivo%20per%20un%20progetto" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-.8-.4-2.1-1-3.1-2.8-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s1 2.5 1.1 2.7c.1.2 1.9 2.9 4.6 4 1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2 0-.1-.2-.2-.4-.3z"/></svg>
-              Scrivimi su WhatsApp
-            </a>
-            <a class="btn btn-ghost" href="mailto:alessio.vinci87@gmail.com?subject=Nuovo%20progetto">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg>
-              alessio.vinci87@gmail.com
-            </a>
+        <div class="contact">
+          <div>
+            <span class="eyebrow">Contatti</span>
+            <h2>Hai un progetto <span class="grad">in mente?</span></h2>
+            <p>Raccontami in due righe di cosa hai bisogno: ti rispondo con un'idea concreta e un preventivo, senza impegno.</p>
           </div>
-          <p class="alt">Oppure chiama il <a href="tel:+393403689635">340 368 9635</a> · <a href="https://www.linkedin.com/in/alessio-vinci-jr-full-dev/" target="_blank" rel="noopener">LinkedIn</a></p>
+          <div>
+            <div class="cta-row">
+              <a class="btn btn-wa" href="https://wa.me/393403689635?text=Ciao%20Alessio%2C%20ti%20scrivo%20per%20un%20progetto" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-.8-.4-2.1-1-3.1-2.8-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s1 2.5 1.1 2.7c.1.2 1.9 2.9 4.6 4 1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2 0-.1-.2-.2-.4-.3z"/></svg>
+                Scrivimi su WhatsApp
+              </a>
+              <a class="btn btn-ghost" href="mailto:alessio.vinci87@gmail.com?subject=Nuovo%20progetto">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg>
+                alessio.vinci87@gmail.com
+              </a>
+            </div>
+            <p class="alt">Oppure chiama il <a href="tel:+393403689635">340 368 9635</a> · <a href="https://www.linkedin.com/in/alessio-vinci-jr-full-dev/" target="_blank" rel="noopener">LinkedIn</a></p>
+          </div>
         </div>
       </div>
     </section>
