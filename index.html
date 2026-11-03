@@ -3,15 +3,22 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Alessio Vinci — Sviluppatore web</title>
-  <meta name="description" content="Alessio Vinci, sviluppatore web full stack in Sardegna. Siti per studi e attività, web app e gestionali su misura." />
+  <title>AV Web — Siti e software su misura, fatti bene</title>
+  <meta name="description" content="AV Web realizza siti e software su misura per attività, professionisti e aziende: siti veloci, gestionali, automazioni e assistenza continuativa. Sassari e Sardegna." />
+  <link rel="canonical" href="https://avweb.it/" />
   <meta name="theme-color" content="#0c0f13" />
   <meta name="color-scheme" content="dark" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="it_IT" />
-  <meta property="og:title" content="Alessio Vinci — Sviluppatore web" />
-  <meta property="og:description" content="Siti per studi e attività, web app e gestionali su misura." />
-  <meta property="og:image" content="/img/gestionale-ads.webp" />
+  <meta property="og:site_name" content="AV Web" />
+  <meta property="og:url" content="https://avweb.it/" />
+  <meta property="og:title" content="AV Web — Siti e software su misura, fatti bene" />
+  <meta property="og:description" content="Siti, gestionali e automazioni su misura per attività, professionisti e aziende. Preventivo gratuito in 24 ore." />
+  <meta property="og:image" content="https://avweb.it/img/emovere-desktop.webp" />
+  <meta property="og:image:width" content="1440" />
+  <meta property="og:image:height" content="900" />
+  <meta property="og:image:alt" content="Un sito realizzato da AV Web visto su desktop" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="preload" href="fonts/unbounded-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/onest-latin.woff2" as="font" type="font/woff2" crossorigin />
@@ -55,17 +62,17 @@
     /* Header */
     header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: rgba(12,15,19,.72); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid transparent; }
     header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 68px; }
-    .brand { font-family: var(--display); font-weight: 700; font-size: 15px; letter-spacing: .03em; text-decoration: none; }
+    .brand { display: inline-flex; align-items: center; gap: .4em; min-height: 44px; font-family: var(--display); font-weight: 700; font-size: 15px; letter-spacing: .03em; text-decoration: none; }
     nav.links { display: flex; align-items: center; gap: 26px; font-size: 15px; }
-    nav.links a { text-decoration: none; color: var(--dim); }
+    nav.links a { text-decoration: none; color: var(--dim); display: inline-flex; align-items: center; justify-content: center; min-height: 44px; min-width: 44px; }
     nav.links a:hover { color: var(--fg); }
-    nav.links a.nav-cta { color: var(--bg); background: var(--fg); padding: 8px 16px; border-radius: 9px; font-weight: 600; }
-    @media (max-width: 640px) { nav.links a:not(.nav-cta) { display: none; } }
+    nav.links a.nav-cta { display: inline-flex; align-items: center; min-height: 44px; color: var(--bg); background: var(--fg); padding: 8px 16px; border-radius: 9px; font-weight: 600; }
+    @media (max-width: 780px) { nav.links a:not(.nav-cta) { display: none; } }
 
     main { position: relative; z-index: 1; }
 
     /* Buttons */
-    .btn { display: inline-flex; align-items: center; gap: 8px; border-radius: 10px; padding: 12px 20px; font-weight: 600; font-size: 15px; text-decoration: none; border: 1px solid transparent; transition: transform .15s ease, background .15s ease, border-color .15s ease; white-space: nowrap; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; border-radius: 10px; padding: 12px 20px; font-weight: 600; font-size: 15px; text-decoration: none; border: 1px solid transparent; transition: transform .15s ease, background .15s ease, border-color .15s ease; white-space: nowrap; }
     .btn:hover { transform: translateY(-1px); }
     .btn svg { width: 18px; height: 18px; flex: none; }
     .btn-primary { background: var(--fg); color: var(--bg); }
@@ -88,7 +95,7 @@
     .stack .d { position: absolute; border-radius: 10px; overflow: hidden; border: 1px solid var(--line-2); box-shadow: 0 30px 60px rgba(0,0,0,.55); background: var(--panel); }
     .stack .d img { width: 100%; height: 100%; object-fit: cover; object-position: left top; }
     .stack .d1 { width: 84%; aspect-ratio: 1904 / 911; left: 0; top: 4%; }
-    .stack .d2 { width: 72%; aspect-ratio: 1901 / 788; right: 0; top: 40%; }
+    .stack .d2 { width: 72%; aspect-ratio: 1897 / 805; right: 0; top: 40%; }
     .stack .d3 { width: 22%; aspect-ratio: 385 / 907; left: 7%; bottom: 0; border-radius: 16px; border: 3px solid var(--line-2); }
     @media (prefers-reduced-motion: no-preference) {
       .stack .d { animation: rise .8s cubic-bezier(.2,.7,.2,1) both; }
@@ -128,6 +135,9 @@
     .media .phone-solo { width: 44%; max-width: 230px; border-radius: 26px !important; border: 5px solid var(--line-2); }
     .media .square { width: 100%; max-width: 440px; }
     .media .phone { position: absolute; right: 24px; bottom: 24px; width: 22%; max-width: 140px; border-radius: 16px; border: 4px solid var(--line-2); box-shadow: 0 16px 40px rgba(0,0,0,.6); }
+    .media.placeholder { display: grid; place-items: center; padding: 32px; }
+    .media.placeholder p { margin: 0; padding: 14px 22px; border: 1px dashed var(--line-2); border-radius: 12px; color: var(--muted); font-size: 15px; font-weight: 500; text-align: center; }
+    .txt > p.credit { font-size: 14px; color: var(--dim); margin-top: -6px; }
     .m-sea { background: linear-gradient(135deg, #15303a, #0f1f27); }
     .m-sand { background: linear-gradient(135deg, #2b2923, #1b1a16); }
     .m-violet { background: linear-gradient(135deg, #252238, #17151f); }
@@ -144,7 +154,7 @@
     .txt > p { color: var(--muted); margin: 0 0 16px; font-size: 15.5px; }
     .txt > p strong { color: var(--fg); font-weight: 600; }
     details { border-top: 1px solid var(--line); margin: 0 0 18px; }
-    summary { cursor: pointer; list-style: none; padding: 12px 0 0; font-size: 14px; font-weight: 500; color: var(--fg); display: flex; align-items: center; gap: 8px; }
+    summary { cursor: pointer; list-style: none; padding: 10px 0 0; min-height: 44px; font-size: 14px; font-weight: 500; color: var(--fg); display: flex; align-items: center; gap: 8px; }
     summary::-webkit-details-marker { display: none; }
     summary::before { content: "+"; display: grid; place-items: center; width: 20px; height: 20px; border-radius: 6px; background: var(--chip); color: var(--sky); font-size: 14px; line-height: 1; }
     details[open] summary::before { content: "–"; }
@@ -153,21 +163,40 @@
     ul.points li::before { content: "→"; flex: none; color: var(--sky); }
     .tags { display: flex; flex-wrap: wrap; gap: 6px; }
     .tag { font-size: 12.5px; padding: 5px 10px; border-radius: 6px; background: var(--chip); color: var(--chip-fg); }
-    .foot { margin-top: auto; padding-top: 20px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; }
+    .foot { margin-top: auto; padding-top: 8px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; }
     .private { font-size: 13px; color: var(--dim); display: flex; gap: 7px; align-items: flex-start; }
     .private svg { width: 14px; height: 14px; flex: none; margin-top: 3px; }
-    .visit { font-size: 14.5px; font-weight: 600; text-decoration: none; color: var(--sky); border-bottom: 1px solid rgba(124,196,228,.35); padding-bottom: 1px; }
-    .visit:hover { border-color: var(--sky); }
+    .visit { display: inline-block; padding: 12px 0; font-size: 14.5px; font-weight: 600; color: var(--sky); text-decoration: underline; text-decoration-color: rgba(124,196,228,.35); text-underline-offset: 5px; }
+    .visit:hover { text-decoration-color: var(--sky); }
 
     /* Services */
     .services { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
     @media (min-width: 700px) { .services { grid-template-columns: repeat(2, 1fr); } }
     @media (min-width: 1040px) { .services { grid-template-columns: repeat(4, 1fr); } }
+    ol.steps { list-style: none; margin: 0; padding: 0; }
+    .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
     .svc { background: var(--panel); padding: 26px 24px 28px; }
     .svc .ic { width: 42px; height: 42px; border-radius: 11px; display: grid; place-items: center; background: var(--chip); color: var(--sky); }
     .svc .ic svg { width: 22px; height: 22px; }
     .svc h3 { font-size: 16.5px; margin: 18px 0 8px; }
     .svc p { margin: 0; color: var(--muted); font-size: 14.5px; }
+
+    /* Come lavoro */
+    .svc .num { font-family: var(--display); font-size: 17px; font-weight: 600; }
+
+    /* Chi sono */
+    .about { display: grid; gap: 20px 56px; background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: clamp(26px, 5vw, 48px); }
+    @media (min-width: 900px) { .about { grid-template-columns: 1fr 1.4fr; } }
+    .about h2 { margin-top: 10px; }
+    .about p { margin: 0 0 16px; color: var(--muted); font-size: 16.5px; max-width: 62ch; }
+    .about p:last-child { margin-bottom: 0; }
+
+    /* Domande frequenti */
+    .faq { max-width: 860px; border-bottom: 1px solid var(--line); }
+    .faq details { margin: 0; }
+    .faq summary { padding: 18px 0; min-height: 44px; font-size: 16.5px; font-weight: 600; gap: 14px; }
+    .faq summary::before { flex: none; width: 24px; height: 24px; }
+    .faq details p { margin: -4px 0 20px 38px; color: var(--muted); font-size: 15.5px; max-width: 64ch; }
 
     /* Contact */
     .contact { position: relative; overflow: hidden; border: 1px solid var(--line-2); border-radius: 22px; padding: clamp(32px, 6vw, 64px) clamp(22px, 5vw, 56px); background: radial-gradient(120% 140% at 100% 0%, rgba(124,196,228,.16), transparent 55%), var(--panel); display: grid; gap: 28px; }
@@ -175,46 +204,52 @@
     .contact h2 { font-size: clamp(26px, 4vw, 44px); font-weight: 700; margin-top: 10px; }
     .contact p { color: var(--muted); margin: 14px 0 0; max-width: 46ch; }
     .contact .cta-row { margin-top: 0; }
-    .contact .alt { margin-top: 16px; font-size: 14px; color: var(--dim); }
-    .contact .alt a { color: var(--fg); }
+    .contact p strong { color: var(--fg); font-weight: 600; }
+    .contact .alt-row { margin-top: 12px; }
 
     footer { padding: 56px 0 44px; color: var(--dim); font-size: 13.5px; }
     footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 28px; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 24px; }
-    footer p { margin: 0; max-width: 70ch; }
+    footer p { margin: 0; max-width: 70ch; align-self: center; }
+    footer .legal { display: flex; flex-wrap: wrap; gap: 0 22px; }
+    footer .legal a { display: inline-flex; align-items: center; min-height: 44px; color: var(--muted); }
+    footer .legal a:hover { color: var(--fg); }
 
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } .btn:hover { transform: none; } }
   </style>
 </head>
 <body>
-  <a href="#lavori" class="skip">Vai ai lavori</a>
+  <a href="#contenuto" class="skip">Vai al contenuto</a>
   <div class="glow" aria-hidden="true"></div>
 
   <header class="top">
     <div class="wrap">
-      <a href="/" class="brand">ALESSIO VINCI</a>
+      <a href="/" class="brand" aria-label="AV Web, torna all'inizio">AV <span class="grad">WEB</span></a>
       <nav class="links" aria-label="Sezioni">
+        <a href="#servizi">Servizi</a>
         <a href="#lavori">Lavori</a>
-        <a href="#servizi">Cosa faccio</a>
+        <a href="#metodo">Come lavoro</a>
+        <a href="#chi-sono">Chi sono</a>
+        <a href="#faq">Domande</a>
         <a href="#contatti" class="nav-cta">Contatti</a>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main id="contenuto">
     <div class="wrap">
       <div class="hero">
         <div>
-          <span class="kick"><span class="dot" aria-hidden="true"></span> Full stack developer · Sardegna</span>
+          <span class="kick"><span class="dot" aria-hidden="true"></span> AV Web · Sassari e Sardegna</span>
           <h1>Siti e software su misura, <span class="grad">fatti bene.</span></h1>
-          <p class="lead">Sono Alessio Vinci. Realizzo siti per studi professionali e attività, web app e gestionali: dal design alla messa online, con attenzione a velocità, SEO e privacy.</p>
+          <p class="lead">AV Web realizza siti, gestionali e automazioni per attività, professionisti e aziende: strumenti semplici da usare, costruiti attorno a come lavori, con un unico referente dall'idea alla messa online.</p>
           <div class="cta-row">
-            <a class="btn btn-primary" href="#contatti">Parliamo del tuo progetto</a>
+            <a class="btn btn-primary" href="#contatti">Richiedi un preventivo gratuito</a>
             <a class="btn btn-ghost" href="#lavori">Guarda i lavori</a>
           </div>
         </div>
         <div class="stack" aria-hidden="true">
           <div class="d d1"><img src="img/gestionale.webp" width="1904" height="911" alt="" /></div>
-          <div class="d d2"><img src="img/gestionale-ads.webp" width="1901" height="788" alt="" /></div>
+          <div class="d d2"><img src="img/giardinodibruna.webp" width="1897" height="805" alt="" /></div>
           <div class="d d3"><img src="img/quitfresh.webp" width="385" height="907" alt="" /></div>
         </div>
       </div>
@@ -226,6 +261,39 @@
         <div><b>5</b><span>lingue sul sito più grande</span></div>
       </div>
     </div>
+
+    <section id="servizi">
+      <div class="wrap">
+        <div class="sec-head">
+          <div>
+            <span class="eyebrow">Di cosa mi occupo</span>
+            <h2>Dal sito vetrina al gestionale</h2>
+          </div>
+        </div>
+        <div class="services">
+          <div class="svc">
+            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg></div>
+            <h3>Siti per attività e professionisti</h3>
+            <p>Veloci, curati, in più lingue, pensati per farsi trovare su Google e ricevere contatti su WhatsApp. A norma di privacy e cookie.</p>
+          </div>
+          <div class="svc">
+            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg></div>
+            <h3>Gestionali e web app su misura</h3>
+            <p>Strumenti costruiti sul modo di lavorare del cliente, per smettere di usare fogli Excel e procedure a mano.</p>
+          </div>
+          <div class="svc">
+            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></div>
+            <h3>Automazioni e intelligenza artificiale</h3>
+            <p>Collegare i sistemi tra loro e far fare al software il lavoro ripetitivo.</p>
+          </div>
+          <div class="svc">
+            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg></div>
+            <h3>Assistenza continuativa</h3>
+            <p>Aggiornamenti, modifiche e nuove funzioni, con un unico referente.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section id="lavori">
       <div class="wrap">
@@ -271,7 +339,8 @@
               <div class="labels"><span class="badge">Il progetto più grande</span></div>
               <span class="kicker">Prodotto · E-commerce</span>
               <h3>Profit – Piattaforma di marginalità e operations per Amazon</h3>
-              <p>Piattaforma web basata su Amazon SP-API che raccoglie vendite, fee e costi e mostra la marginalità reale per prodotto e per marketplace, centralizzando le attività operative quotidiane. In uso in un contesto aziendale reale, dove ha sostituito una soluzione commerciale a pagamento.</p>
+              <p>Piattaforma web per chi vende su Amazon in più paesi europei. Si collega alle API ufficiali di Amazon, incrocia vendite, commissioni, costi logistici e pubblicità e calcola il margine reale per prodotto e per marketplace. Al posto di report sparsi e fogli Excel, un'unica vista chiara su dove si guadagna e dove no.</p>
+              <p class="credit">Progettazione, sviluppo e integrazione API: Alessio Vinci.</p>
               <details>
                 <summary>Cosa ho fatto</summary>
                 <ul class="points">
@@ -289,25 +358,25 @@
 
           <!-- Gestionale Amazon Ads -->
           <article class="case">
-            <div class="media fill m-violet">
-              <img class="desk" src="img/gestionale-ads.webp" width="1901" height="788" alt="Dashboard PPC del gestionale Amazon Ads con i dati per paese" loading="lazy" />
+            <div class="media placeholder m-violet">
+              <p>Screenshot in preparazione</p>
             </div>
             <div class="txt">
               <span class="kicker">Prodotto in sviluppo · Pubblicità Amazon</span>
               <h3>Gestionale Amazon Ads</h3>
-              <p>Prodotto in sviluppo, progettato e sviluppato in team: gestisce le campagne pubblicitarie Amazon su più paesi europei, con un motore decisionale, il Brain, che analizza i dati ogni giorno e propone cosa cambiare: offerte, budget e parole chiave.</p>
+              <p>Strumento per gestire campagne pubblicitarie Amazon su più paesi. Analizza i risultati e, con un motore di regole chiamato "Brain", suggerisce quali parole chiave potenziare, ridurre o escludere. In sviluppo.</p>
+              <p class="credit">Progetto sviluppato in team.</p>
               <details>
                 <summary>Cosa ho fatto</summary>
                 <ul class="points">
                   <li>Dashboard con spesa, vendite, ACoS, ROAS e risultati paese per paese</li>
                   <li>Il Brain propone le azioni sulle campagne, da approvare con un clic</li>
-                  <li>Regolazione automatica delle offerte, ritmo del budget e fasce orarie</li>
+                  <li>Suggerimenti su offerte e parole chiave</li>
                   <li>Creazione guidata delle campagne, ricerca keyword e monitoraggio dei concorrenti</li>
                   <li>Collegato ad Amazon Ads API, Selling Partner API e a Profit</li>
                 </ul>
               </details>
               <div class="tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">Celery</span><span class="tag">Redis</span><span class="tag">Docker</span></div>
-              <div class="foot"><span class="private"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> Nello screenshot solo dati di esempio.</span></div>
             </div>
           </article>
 
@@ -432,35 +501,87 @@
       </div>
     </section>
 
-    <section id="servizi">
+    <section id="metodo">
       <div class="wrap">
         <div class="sec-head">
           <div>
-            <span class="eyebrow">Cosa faccio</span>
-            <h2>Dal sito vetrina al gestionale</h2>
+            <span class="eyebrow">Come lavoro</span>
+            <h2>Quattro passi, senza sorprese</h2>
           </div>
         </div>
-        <div class="services">
-          <div class="svc">
-            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg></div>
-            <h3>Siti per studi e attività</h3>
-            <p>Veloci, curati e facili da trovare su Google, con i testi e le foto della tua attività.</p>
+        <ol class="services steps">
+          <li class="svc">
+            <div class="ic num" aria-hidden="true">1</div>
+            <h3><span class="sr">Passo 1: </span>Ascolto</h3>
+            <p>Capisco l'attività, gli obiettivi e cosa serve davvero.</p>
+          </li>
+          <li class="svc">
+            <div class="ic num" aria-hidden="true">2</div>
+            <h3><span class="sr">Passo 2: </span>Proposta</h3>
+            <p>Preventivo chiaro, con tempi e costi definiti, gratuito e senza impegno.</p>
+          </li>
+          <li class="svc">
+            <div class="ic num" aria-hidden="true">3</div>
+            <h3><span class="sr">Passo 3: </span>Realizzazione</h3>
+            <p>Prima versione da vedere e correggere insieme, poi la messa online.</p>
+          </li>
+          <li class="svc">
+            <div class="ic num" aria-hidden="true">4</div>
+            <h3><span class="sr">Passo 4: </span>Assistenza</h3>
+            <p>Resto il punto di riferimento anche dopo, per modifiche e aggiornamenti.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="chi-sono">
+      <div class="wrap">
+        <div class="about">
+          <div>
+            <span class="eyebrow">Chi sono</span>
+            <h2>Prima il problema, poi la tecnologia</h2>
           </div>
-          <div class="svc">
-            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg></div>
-            <h3>Privacy e cookie a norma</h3>
-            <p>Informative, banner di consenso e statistiche configurate nel rispetto del GDPR.</p>
+          <div>
+            <p>Sono Alessio. Per quattordici anni ho lavorato nella grande distribuzione, gli ultimi da responsabile di punto vendita: so cosa vuol dire gestire clienti, personale e numeri ogni giorno. Poi ho trasformato la passione per la programmazione in un lavoro, e oggi costruisco siti e software per attività e aziende.</p>
+            <p>Il mio punto di forza è capire prima il problema di chi fa impresa, e solo dopo la tecnologia. Lavoro con strumenti moderni, compresa l'intelligenza artificiale, per consegnare in tempi brevi soluzioni semplici da usare.</p>
           </div>
-          <div class="svc">
-            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg></div>
-            <h3>Web app e gestionali</h3>
-            <p>Software su misura che collega i tuoi dati e automatizza il lavoro ripetitivo.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="wrap">
+        <div class="sec-head">
+          <div>
+            <span class="eyebrow">Domande frequenti</span>
+            <h2>Le risposte alle domande di tutti</h2>
           </div>
-          <div class="svc">
-            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg></div>
-            <h3>Assistenza nel tempo</h3>
-            <p>Aggiornamenti, modifiche ai contenuti e nuove funzioni quando servono.</p>
-          </div>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>Quanto costa un sito?</summary>
+            <p>Dipende da cosa serve: dopo una breve chiacchierata ricevi un preventivo chiaro e gratuito, con tutto incluso e nessuna sorpresa.</p>
+          </details>
+          <details>
+            <summary>In quanto tempo è online?</summary>
+            <p>Un sito vetrina è pronto in circa 7 giorni dal ricevimento di testi e foto.</p>
+          </details>
+          <details>
+            <summary>Cosa devo preparare?</summary>
+            <p>Poco: le informazioni sull'attività, qualche foto e il logo se c'è. Al resto penso io.</p>
+          </details>
+          <details>
+            <summary>Ci sono costi dopo?</summary>
+            <p>Solo la gestione annuale, che comprende dominio, hosting, aggiornamenti e assistenza.</p>
+          </details>
+          <details>
+            <summary>Il sito è mio?</summary>
+            <p>Sì: dominio e contenuti sono intestati a te.</p>
+          </details>
+          <details>
+            <summary>Posso modificarlo da solo?</summary>
+            <p>Le modifiche le faccio io, in tempi rapidi. Se preferisci, si può prevedere un pannello per aggiornare tu alcuni contenuti.</p>
+          </details>
         </div>
       </div>
     </section>
@@ -471,20 +592,29 @@
           <div>
             <span class="eyebrow">Contatti</span>
             <h2>Hai un progetto <span class="grad">in mente?</span></h2>
-            <p>Raccontami in due righe di cosa hai bisogno: ti rispondo con un'idea concreta e un preventivo, senza impegno.</p>
+            <p><strong>Preventivo gratuito in 24 ore.</strong> Raccontami in poche righe cosa ti serve.</p>
           </div>
           <div>
             <div class="cta-row">
-              <a class="btn btn-wa" href="https://wa.me/393403689635?text=Ciao%20Alessio%2C%20ti%20scrivo%20per%20un%20progetto" target="_blank" rel="noopener">
+              <a class="btn btn-wa" href="https://wa.me/393403689635?text=Ciao%20Alessio%2C%20vorrei%20un%20preventivo%20per%20un%20progetto" target="_blank" rel="noopener">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-.8-.4-2.1-1-3.1-2.8-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s1 2.5 1.1 2.7c.1.2 1.9 2.9 4.6 4 1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2 0-.1-.2-.2-.4-.3z"/></svg>
                 Scrivimi su WhatsApp
               </a>
-              <a class="btn btn-ghost" href="mailto:alessio.vinci87@gmail.com?subject=Nuovo%20progetto">
+              <a class="btn btn-ghost" href="mailto:info@avweb.it?subject=Richiesta%20di%20preventivo">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg>
-                alessio.vinci87@gmail.com
+                info@avweb.it
               </a>
             </div>
-            <p class="alt">Oppure chiama il <a href="tel:+393403689635">340 368 9635</a> · <a href="https://www.linkedin.com/in/alessio-vinci-jr-full-dev/" target="_blank" rel="noopener">LinkedIn</a></p>
+            <div class="cta-row alt-row">
+              <a class="btn btn-ghost" href="tel:+393403689635">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+                <span><span class="sr">Chiama il </span>340 368 9635</span>
+              </a>
+              <a class="btn btn-ghost" href="https://www.linkedin.com/in/alessio-vinci-jr-full-dev/" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.4V9h3.4v1.6h.1c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.2zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM7.1 20.5H3.6V9h3.5v11.5zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"/></svg>
+                LinkedIn<span class="sr"> (si apre in una nuova scheda)</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -493,9 +623,10 @@
 
   <footer>
     <div class="wrap">
-      <p>© 2026 Alessio Vinci · Sviluppatore web, Sardegna</p>
-      <p>Questo sito non usa cookie né strumenti di tracciamento. Il provider di hosting registra i dati tecnici di navigazione (come l'indirizzo IP) per sicurezza e funzionamento. Se mi scrivi, uso i tuoi dati solo per risponderti.</p>
+      <p>© <span id="anno">2026</span> AV Web · Alessio Vinci · Alghero (SS) · P.IVA [DA INSERIRE]</p>
+      <nav class="legal" aria-label="Note legali"><a href="privacy.html">Privacy policy</a><a href="cookie.html">Cookie policy</a></nav>
     </div>
   </footer>
+  <script>document.getElementById("anno").textContent = new Date().getFullYear();</script>
 </body>
 </html>
