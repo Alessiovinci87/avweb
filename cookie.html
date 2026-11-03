@@ -9,7 +9,8 @@
   <meta name="robots" content="noindex" />
   <meta name="theme-color" content="#0c0f13" />
   <meta name="color-scheme" content="dark" />
-  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="apple-touch-icon-180.png" sizes="180x180" />
   <style>
     @font-face { font-family: "Unbounded"; font-style: normal; font-weight: 500 700; font-display: swap; src: url(fonts/unbounded-latin.woff2) format("woff2"); }
     @font-face { font-family: "Onest"; font-style: normal; font-weight: 400 600; font-display: swap; src: url(fonts/onest-latin.woff2) format("woff2"); }
@@ -23,7 +24,8 @@
     .wrap { width: 100%; max-width: 780px; margin: 0 auto; padding: 0 20px; }
     header { border-bottom: 1px solid var(--line); }
     header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 68px; }
-    .brand { display: inline-flex; align-items: center; gap: .4em; min-height: 44px; font-family: var(--display); font-weight: 700; font-size: 15px; letter-spacing: .03em; text-decoration: none; color: var(--fg); }
+    .brand { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; font-family: var(--display); font-weight: 700; font-size: 15px; letter-spacing: .03em; text-decoration: none; color: var(--fg); }
+    .brand-icon { width: 36px; height: 30px; flex: none; }
     .grad { background: linear-gradient(90deg, var(--sky), var(--sage)); -webkit-background-clip: text; background-clip: text; color: transparent; }
     .back { display: inline-flex; align-items: center; min-height: 44px; color: var(--muted); text-decoration: none; font-size: 15px; }
     .back:hover { color: var(--fg); }
@@ -46,7 +48,7 @@
 <body>
   <header>
     <div class="wrap">
-      <a href="/" class="brand" aria-label="AV Web, torna alla home">AV <span class="grad">WEB</span></a>
+      <a href="/" class="brand" aria-label="AV Web, torna alla home"><img class="brand-icon" src="avweb-icona.svg" width="36" height="30" alt="" /><span>AV <span class="grad">WEB</span></span></a>
       <a href="/" class="back">← Torna al sito</a>
     </div>
   </header>

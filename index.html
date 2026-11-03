@@ -19,7 +19,8 @@
   <meta property="og:image:height" content="900" />
   <meta property="og:image:alt" content="Un sito realizzato da AV Web visto su desktop" />
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="apple-touch-icon-180.png" sizes="180x180" />
   <link rel="preload" href="fonts/unbounded-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/onest-latin.woff2" as="font" type="font/woff2" crossorigin />
   <style>
@@ -62,7 +63,8 @@
     /* Header */
     header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: rgba(12,15,19,.72); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid transparent; }
     header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 68px; }
-    .brand { display: inline-flex; align-items: center; gap: .4em; min-height: 44px; font-family: var(--display); font-weight: 700; font-size: 15px; letter-spacing: .03em; text-decoration: none; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; font-family: var(--display); font-weight: 700; font-size: 15px; letter-spacing: .03em; text-decoration: none; }
+    .brand-icon { width: 36px; height: 30px; flex: none; }
     nav.links { display: flex; align-items: center; gap: 26px; font-size: 15px; }
     nav.links a { text-decoration: none; color: var(--dim); display: inline-flex; align-items: center; justify-content: center; min-height: 44px; min-width: 44px; }
     nav.links a:hover { color: var(--fg); }
@@ -223,7 +225,7 @@
 
   <header class="top">
     <div class="wrap">
-      <a href="/" class="brand" aria-label="AV Web, torna all'inizio">AV <span class="grad">WEB</span></a>
+      <a href="/" class="brand" aria-label="AV Web, torna all'inizio"><img class="brand-icon" src="avweb-icona.svg" width="36" height="30" alt="" /><span>AV <span class="grad">WEB</span></span></a>
       <nav class="links" aria-label="Sezioni">
         <a href="#servizi">Servizi</a>
         <a href="#lavori">Lavori</a>
