@@ -62,9 +62,57 @@
 
     <section style="padding-top: 48px">
       <div class="wrap">
+        <div class="form-box">
+          <h2 class="sr">Modulo di contatto</h2>
+          <form class="form" id="form-contatto" action="/api/contatto" method="post" novalidate>
+            <div class="two">
+              <div class="field">
+                <label for="f-nome">Nome <span class="req" aria-hidden="true">*</span><span class="sr"> (obbligatorio)</span></label>
+                <input id="f-nome" name="nome" type="text" autocomplete="name" maxlength="100" required aria-describedby="e-nome" />
+                <p class="err" id="e-nome" hidden></p>
+              </div>
+              <div class="field">
+                <label for="f-recapito">Email o telefono <span class="req" aria-hidden="true">*</span><span class="sr"> (obbligatorio)</span></label>
+                <input id="f-recapito" name="recapito" type="text" autocomplete="email" maxlength="150" required aria-describedby="e-recapito" />
+                <p class="err" id="e-recapito" hidden></p>
+              </div>
+            </div>
+            <fieldset class="field" aria-describedby="e-tipo">
+              <legend>Di cosa hai bisogno? <span class="req" aria-hidden="true">*</span><span class="sr"> (obbligatorio)</span></legend>
+              <div class="choices">
+                <label class="choice"><input type="radio" name="tipo" value="sito" required /><span>Sito</span></label>
+                <label class="choice"><input type="radio" name="tipo" value="gestionale" /><span>Gestionale o web app</span></label>
+                <label class="choice"><input type="radio" name="tipo" value="automazione" /><span>Automazione</span></label>
+                <label class="choice"><input type="radio" name="tipo" value="altro" /><span>Altro</span></label>
+              </div>
+              <p class="err" id="e-tipo" hidden></p>
+            </fieldset>
+            <div class="field">
+              <label for="f-messaggio">Messaggio <span class="opt">(facoltativo)</span></label>
+              <textarea id="f-messaggio" name="messaggio" rows="4" maxlength="2000" placeholder="Raccontami in due righe"></textarea>
+            </div>
+            <div class="hp" aria-hidden="true">
+              <label for="f-sito">Lascia vuoto questo campo</label>
+              <input id="f-sito" name="sito_web" type="text" tabindex="-1" autocomplete="off" />
+            </div>
+            <div class="ts" id="turnstile"></div>
+            <p class="consent">Inviando accetti il trattamento dei dati come descritto nella <a href="/privacy.html">privacy policy</a>.</p>
+            <button class="btn btn-primary" type="submit">Invia la richiesta</button>
+            <p class="form-msg" id="form-msg" role="alert"></p>
+          </form>
+          <noscript><p class="nojs">Per usare il modulo serve JavaScript attivo. Puoi scrivermi su WhatsApp o via email con i pulsanti qui sotto.</p></noscript>
+          <div class="form-ok" id="form-ok" hidden>
+            <h2 tabindex="-1">Grazie, ti rispondo entro 24 ore</h2>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding-top: 22px">
+      <div class="wrap">
         <div class="contact">
           <div>
-            <h2 class="sr">Come contattarmi</h2>
+            <h2 class="small">Oppure scrivimi direttamente</h2>
             <div class="cta-row">
               <a class="btn btn-wa" href="https://wa.me/393403689635?text=Ciao%20Alessio%2C%20vorrei%20un%20preventivo%20per%20un%20progetto" target="_blank" rel="noopener">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-.8-.4-2.1-1-3.1-2.8-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s1 2.5 1.1 2.7c.1.2 1.9 2.9 4.6 4 1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2 0-.1-.2-.2-.4-.3z"/></svg>

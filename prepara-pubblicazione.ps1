@@ -65,6 +65,17 @@ foreach ($u in $indirizzi) {
   if (-not (Test-Path (Join-Path $dist $p))) { Write-Host "ATTENZIONE: la sitemap contiene $u ma la pagina non esiste" -ForegroundColor Red; $problemi++ }
 }
 
+# Modulo di contatto: la Function sta in "functions" (fuori da dist) e wrangler la prende da li
+if (-not (Test-Path (Join-Path $root "functions\api\contatto.js"))) { Write-Host "ATTENZIONE: manca functions\api\contatto.js (modulo di contatto)" -ForegroundColor Red; $problemi++ }
+
+# Nessuna chiave Resend o Turnstile nei file pubblicati o nella Function: vanno solo nelle variabili di Cloudflare
+$daControllare = @(Get-ChildItem $dist -File -Recurse) + @(Get-ChildItem (Join-Path $root "functions") -File -Recurse)
+foreach ($f in $daControllare) {
+  if ($f.Extension -in @(".webp", ".jpg", ".png", ".woff2")) { continue }
+  $t = Get-Content $f.FullName -Raw -Encoding UTF8
+  if ($t -match "re_[A-Za-z0-9_]{20,}|0x4AAAA[A-Za-z0-9_-]{10,}") { Write-Host "ATTENZIONE: $($f.FullName) sembra contenere una chiave segreta" -ForegroundColor Red; $problemi++ }
+}
+
 $n = (Get-ChildItem $dist -Recurse -File).Count
 Write-Host ""
 Write-Host "Pagine HTML: $($html.Count) - indirizzi nella sitemap: $($indirizzi.Count)"

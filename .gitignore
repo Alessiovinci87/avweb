@@ -3,3 +3,7 @@ node_modules/
 
 .vercel
 dist/
+
+# Chiavi per le prove locali di wrangler: mai nel repository
+.dev.vars
+.wrangler/
