@@ -14,10 +14,22 @@ $files = @("index.html", "privacy.html", "cookie.html", "404.html",
            "avweb-icona.svg", "favicon-32.png", "apple-touch-icon-180.png",
            "_headers", "robots.txt", "sitemap.xml")
 foreach ($f in $files) { Copy-Item (Join-Path $root $f) $dist }
-$cartelle = @("fonts", "img", "css", "js", "servizi", "progetti", "chi-sono", "contatti")
+$cartelle = @("fonts", "img", "css", "js", "servizi", "settori", "progetti", "chi-sono", "contatti")
 foreach ($c in $cartelle) { Copy-Item (Join-Path $root $c) $dist -Recurse }
 
 function Rel($p) { return $p.Substring($dist.Length + 1).Replace("\", "/") }
+
+# Foto in Chi sono: finche img/alessio.webp non esiste, il blocco tra <!-- FOTO e <!-- /FOTO --> viene tolto
+$chiSono = Join-Path $dist "chi-sono\index.html"
+if (-not (Test-Path (Join-Path $root "img\alessio.webp"))) {
+  $t = [IO.File]::ReadAllText($chiSono)
+  $t = [regex]::Replace($t, "(?s)[ \t]*<!-- FOTO.*?<!-- /FOTO -->\r?\n", "")
+  [IO.File]::WriteAllText($chiSono, $t, (New-Object Text.UTF8Encoding $false))
+  Write-Host "Chi sono: img/alessio.webp non c'e, lo spazio della foto non viene pubblicato" -ForegroundColor Yellow
+}
+
+Add-Type -AssemblyName System.Web
+function Testo($s) { return [System.Web.HttpUtility]::HtmlDecode($s) }
 
 # Controlli
 $problemi = 0
@@ -46,6 +58,31 @@ foreach ($h in $html) {
     $p = $m.Groups[1].Value.TrimStart("/")
     if ($p -eq "" -or $p.EndsWith("/")) { $p = $p + "index.html" }
     if (-not (Test-Path (Join-Path $dist $p))) { Write-Host "ATTENZIONE: $nome punta a /$($m.Groups[1].Value.TrimStart('/')) che non esiste" -ForegroundColor Red; $problemi++ }
+  }
+
+  # Titoli: un solo H1 e nessun livello saltato (per esempio da H2 a H4)
+  $h1 = ([regex]::Matches($testo, "<h1[\s>]")).Count
+  if ($h1 -ne 1) { Write-Host "ATTENZIONE: $nome ha $h1 titoli H1 (deve essercene uno)" -ForegroundColor Red; $problemi++ }
+  $visibile = [regex]::Replace($testo, "(?s)<!--.*?-->", "")
+  $prec = 1
+  foreach ($m in [regex]::Matches($visibile, "<h([1-6])[\s>]")) {
+    $liv = [int]$m.Groups[1].Value
+    if ($liv -gt $prec + 1) { Write-Host "ATTENZIONE: $nome passa da H$prec a H$liv" -ForegroundColor Red; $problemi++ }
+    $prec = $liv
+  }
+
+  # Dati strutturati: ogni blocco JSON-LD deve essere JSON valido
+  foreach ($m in [regex]::Matches($testo, '(?s)<script type="application/ld\+json">(.*?)</script>')) {
+    try { $null = $m.Groups[1].Value | ConvertFrom-Json } catch { Write-Host "ATTENZIONE: $nome ha un blocco JSON-LD non valido" -ForegroundColor Red; $problemi++ }
+  }
+
+  # Title, description e canonical (privacy, cookie e 404 restano come sono)
+  if ($nome -notin @("privacy.html", "cookie.html", "404.html")) {
+    $titolo = Testo ([regex]::Match($testo, "<title>(.*?)</title>").Groups[1].Value)
+    $desc = Testo ([regex]::Match($testo, '<meta name="description" content="([^"]*)"').Groups[1].Value)
+    if ($titolo.Length -eq 0 -or $titolo.Length -gt 60) { Write-Host "ATTENZIONE: il title di $nome ha $($titolo.Length) caratteri (massimo 60)" -ForegroundColor Red; $problemi++ }
+    if ($desc.Length -lt 120 -or $desc.Length -gt 155) { Write-Host "ATTENZIONE: la description di $nome ha $($desc.Length) caratteri (tra 120 e 155)" -ForegroundColor Red; $problemi++ }
+    if ($testo -notmatch '<link rel="canonical" href="https://avweb\.it/[^"]*"') { Write-Host "ATTENZIONE: $nome non ha il canonical" -ForegroundColor Red; $problemi++ }
   }
 
   # Menu e footer identici in tutte le pagine (privacy e cookie hanno la loro testata)

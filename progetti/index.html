@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Progetti realizzati — AV Web</title>
-  <meta name="description" content="Siti per attività, gestionali, web app e prodotti software realizzati da AV Web: Centro Emovere, Le Porte di Sardegna, Profit, QuitFresh e altri." />
+  <title>Progetti realizzati: siti, gestionali e web app | AV Web</title>
+  <meta name="description" content="Siti per attività, gestionali, web app e prodotti software realizzati da AV Web, da Centro Emovere a Profit. Guarda i progetti e scopri com'è nato ognuno." />
   <link rel="canonical" href="https://avweb.it/progetti/" />
   <meta name="theme-color" content="#0c0f13" />
   <meta name="color-scheme" content="dark" />
@@ -12,8 +12,8 @@
   <meta property="og:locale" content="it_IT" />
   <meta property="og:site_name" content="AV Web" />
   <meta property="og:url" content="https://avweb.it/progetti/" />
-  <meta property="og:title" content="Progetti realizzati — AV Web" />
-  <meta property="og:description" content="Siti per attività, gestionali, web app e prodotti software realizzati da AV Web: Centro Emovere, Le Porte di Sardegna, Profit, QuitFresh e altri." />
+  <meta property="og:title" content="Progetti realizzati: siti, gestionali e web app | AV Web" />
+  <meta property="og:description" content="Siti per attività, gestionali, web app e prodotti software realizzati da AV Web, da Centro Emovere a Profit. Guarda i progetti e scopri com'è nato ognuno." />
   <meta property="og:image" content="https://avweb.it/img/og/centro-emovere.jpg" />
   <meta property="og:image:type" content="image/jpeg" />
   <meta property="og:image:width" content="1200" />
@@ -23,10 +23,29 @@
   <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
   <link rel="apple-touch-icon" href="/apple-touch-icon-180.png" sizes="180x180" />
   <link rel="preload" href="/fonts/unbounded-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/onest-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/css/stile.css" />
   <script>document.documentElement.classList.add("js")</script>
   <script src="/js/sito.js" defer></script>
+  <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://avweb.it/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Progetti",
+        "item": "https://avweb.it/progetti/"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <div class="glow" aria-hidden="true"></div>
@@ -44,6 +63,7 @@
       <nav class="links" id="menu" aria-label="Menu principale">
           <a href="/">Home</a>
           <a href="/servizi/">Servizi</a>
+          <a href="/settori/">Settori</a>
           <a href="/progetti/" aria-current="page">Progetti</a>
           <a href="/chi-sono/">Chi sono</a>
           <a href="/contatti/">Contatti</a>
@@ -72,7 +92,7 @@
         <ul class="cards">
         <li class="card" data-cat="siti">
           <div class="media fill m-sand">
-            <img class="desk" src="/img/emovere-desktop.webp" width="1440" height="900" alt="Home page del sito Centro Emovere su desktop" loading="lazy" />
+            <img class="desk" src="/img/schede/emovere-desktop.webp" width="800" height="500" alt="Home page del sito Centro Emovere su desktop" loading="lazy" />
           </div>
           <div class="card-body">
             <span class="kicker">Siti</span>
@@ -83,7 +103,7 @@
         </li>
         <li class="card" data-cat="siti">
           <div class="media fill center m-sea">
-            <img class="desk" src="/img/casevacanze.webp" width="1901" height="869" alt="Home page del sito Le Porte di Sardegna" loading="lazy" />
+            <img class="desk" src="/img/schede/casevacanze.webp" width="800" height="366" alt="Home page del sito Le Porte di Sardegna" loading="lazy" />
           </div>
           <div class="card-body">
             <span class="kicker">Siti</span>
@@ -94,7 +114,7 @@
         </li>
         <li class="card" data-cat="siti">
           <div class="media fill m-garden">
-            <img class="desk" style="object-position: 26% top" src="/img/giardinodibruna.webp" width="1897" height="805" alt="Home page del sito Il Giardino di Bruna" loading="lazy" />
+            <img class="desk" style="object-position: 26% top" src="/img/schede/giardinodibruna.webp" width="800" height="339" alt="Home page del sito Il Giardino di Bruna" loading="lazy" />
           </div>
           <div class="card-body">
             <span class="kicker">Siti</span>
@@ -105,7 +125,7 @@
         </li>
         <li class="card" data-cat="gestionali">
           <div class="media fill">
-            <img class="desk" src="/img/gestionale.webp" width="1904" height="911" alt="Pagina Profitto di Profit con la marginalità per prodotto, dati di esempio" loading="lazy" />
+            <img class="desk" src="/img/schede/gestionale.webp" width="800" height="383" alt="Pagina Profitto di Profit con la marginalità per prodotto, dati di esempio" loading="lazy" />
           </div>
           <div class="card-body">
             <span class="kicker">Gestionali e web app</span>
@@ -149,7 +169,7 @@
         </li>
         <li class="card" data-cat="prodotti">
           <div class="media fill">
-            <img class="desk" src="/img/presetdock.webp" width="1904" height="990" alt="Schermata principale di PresetDock" loading="lazy" />
+            <img class="desk" src="/img/schede/presetdock.webp" width="800" height="416" alt="Schermata principale di PresetDock" loading="lazy" />
           </div>
           <div class="card-body">
             <span class="kicker">Prodotti</span>
@@ -182,6 +202,10 @@
 
   <!-- FOOTER -->
   <footer>
+    <div class="wrap foot-sec">
+      <p class="foot-title">Settori</p>
+      <nav aria-label="Settori"><a href="/settori/ristoranti/">Ristoranti e bar</a><a href="/settori/strutture-ricettive/">B&amp;B e case vacanza</a><a href="/settori/bellezza/">Centri estetici e parrucchieri</a><a href="/settori/sport/">Palestre e personal trainer</a><a href="/settori/studi-professionali/">Studi professionali</a><a href="/settori/centri-terapeutici/">Centri terapeutici</a><a href="/settori/negozi-artigiani/">Negozi e artigiani</a><a href="/settori/agenzie-immobiliari/">Agenzie immobiliari</a><a href="/settori/ecommerce/">E-commerce e Amazon</a></nav>
+    </div>
     <div class="wrap">
       <p>© <span id="anno">2026</span> AV Web · Alessio Vinci · Alghero (SS) · P.IVA IT03014680908</p>
       <nav class="legal" aria-label="Note legali"><a href="/privacy.html">Privacy policy</a><a href="/cookie.html">Cookie policy</a></nav>

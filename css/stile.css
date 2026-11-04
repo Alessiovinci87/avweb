@@ -256,6 +256,12 @@ details[open] summary::before { content: "–"; }
 
 footer { padding: 56px 0 44px; color: var(--dim); font-size: 13.5px; }
 footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 28px; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 24px; }
+footer .wrap.foot-sec { display: block; padding-top: 20px; padding-bottom: 8px; }
+footer .foot-sec + .wrap { border-top: 0; padding-top: 8px; }
+footer .foot-title { margin: 0 0 2px; font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--dim); }
+footer .foot-sec nav { display: flex; flex-wrap: wrap; gap: 0 22px; }
+footer .foot-sec a { display: inline-flex; align-items: center; min-height: 44px; color: var(--muted); text-decoration: none; }
+footer .foot-sec a:hover { color: var(--fg); text-decoration: underline; text-underline-offset: 4px; }
 footer p { margin: 0; max-width: 70ch; align-self: center; }
 footer .legal { display: flex; flex-wrap: wrap; gap: 0 22px; }
 footer .legal a { display: inline-flex; align-items: center; min-height: 44px; color: var(--muted); }
@@ -334,3 +340,59 @@ html:not(.js) .form { display: none; }
 .form-ok h2:focus { outline: none; }
 .form-ok p { margin: 12px 0 0; color: var(--muted); }
 .contact h2.small { font-size: clamp(20px, 2.6vw, 26px); font-weight: 500; margin: 0 0 20px; }
+
+/* Settori: schede, pagina settore */
+.tiles { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
+@media (min-width: 640px) { .tiles { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) { .tiles { grid-template-columns: repeat(3, 1fr); } }
+.tile { position: relative; display: flex; gap: 16px; align-items: flex-start; padding: 22px; background: var(--panel); border: 1px solid var(--line); border-radius: 16px; transition: border-color .15s ease, transform .15s ease; }
+.tile:hover { border-color: var(--line-2); transform: translateY(-2px); }
+.tile:has(a:focus-visible) { outline: 2px solid var(--sky); outline-offset: 3px; }
+.tile .ic { flex: none; width: 44px; height: 44px; border-radius: 11px; display: grid; place-items: center; background: var(--chip); color: var(--sky); }
+.tile .ic svg { width: 22px; height: 22px; }
+.tile > div:last-child { display: flex; flex-direction: column; min-width: 0; }
+.tile h2, .tile h3 { font-size: 16.5px; line-height: 1.3; margin: 2px 0 6px; }
+.tile h2 a, .tile h3 a { text-decoration: none; }
+.tile h2 a::after, .tile h3 a::after { content: ""; position: absolute; inset: 0; z-index: 1; }
+.tile h2 a:focus-visible, .tile h3 a:focus-visible { outline: none; }
+.tile p { margin: 0 0 10px; color: var(--muted); font-size: 14.5px; }
+.tile .go { font-size: 14px; font-weight: 600; color: var(--sky); }
+.tile:hover .go { text-decoration: underline; text-underline-offset: 5px; }
+.tile.compact { align-items: center; padding: 16px 18px; }
+.tile.compact h2, .tile.compact h3 { margin: 0; }
+.tile.compact .go { display: none; }
+.sector-ic { width: 52px; height: 52px; margin-top: 18px; border-radius: 14px; display: grid; place-items: center; background: var(--chip); color: var(--sky); }
+.sector-ic svg { width: 26px; height: 26px; }
+.split { display: grid; gap: 22px; }
+@media (min-width: 900px) { .split { grid-template-columns: 1.25fr 1fr; align-items: start; } }
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: clamp(24px, 4vw, 40px); }
+.panel.accent { border-color: var(--line-2); background: radial-gradient(120% 140% at 100% 0%, rgba(124,196,228,.14), transparent 55%), var(--panel); }
+.panel h2 { font-size: clamp(21px, 2.4vw, 26px); margin: 0 0 16px; }
+.panel h3 { font-size: 17px; margin: 0 0 8px; }
+.panel p { margin: 0; color: var(--muted); font-size: 15.5px; }
+.panel ul.points { font-size: 15.5px; margin-top: 0; gap: 10px; }
+.panel .rel { margin: 22px 0 0; font-size: 12.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--sky); }
+
+/* Home: sottotitolo sotto il titolo */
+.sub { margin: -6px 0 16px; font-size: clamp(17px, 2.1vw, 20px); font-weight: 500; color: var(--fg); max-width: 40ch; }
+
+/* Testimonianze (sezione della home, attiva solo quando ci sono i testi veri) */
+.quotes { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
+@media (min-width: 900px) { .quotes { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); } }
+.quote { margin: 0; height: 100%; display: flex; flex-direction: column; gap: 18px; padding: 26px; background: var(--panel); border: 1px solid var(--line); border-radius: 16px; }
+.quote blockquote { margin: 0; }
+.quote blockquote p { margin: 0; font-size: 16.5px; line-height: 1.65; }
+.quote figcaption { margin-top: auto; display: flex; flex-direction: column; gap: 2px; font-size: 14.5px; }
+.quote figcaption span { color: var(--muted); }
+
+/* Chi sono: foto quadrata accanto al testo (il blocco esiste solo se c'e img/alessio.webp) */
+.bio { display: grid; gap: 28px; }
+.ritratto { margin: 0; width: min(100%, 200px); }
+.ritratto img { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; border-radius: 18px; border: 1px solid var(--line-2); }
+@media (min-width: 900px) {
+  .bio:has(.ritratto) { grid-template-columns: minmax(0, 68ch) 280px; gap: 56px; align-items: start; }
+  .bio .ritratto { order: 2; width: 280px; }
+}
+
+/* Pagine progetto: collegamento al settore */
+.rel-settore { margin: 0 0 22px; }

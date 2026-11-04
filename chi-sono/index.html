@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Chi sono: Alessio Vinci — AV Web</title>
-  <meta name="description" content="Sono Alessio Vinci: quattordici anni nella grande distribuzione, oggi siti e software su misura per attività e aziende. Prima il problema, poi la tecnologia." />
+  <title>Chi sono: Alessio Vinci | AV Web</title>
+  <meta name="description" content="Sono Alessio Vinci: quattordici anni nella grande distribuzione, oggi siti e software su misura per attività e aziende. Scopri come lavoro." />
   <link rel="canonical" href="https://avweb.it/chi-sono/" />
   <meta name="theme-color" content="#0c0f13" />
   <meta name="color-scheme" content="dark" />
@@ -12,8 +12,8 @@
   <meta property="og:locale" content="it_IT" />
   <meta property="og:site_name" content="AV Web" />
   <meta property="og:url" content="https://avweb.it/chi-sono/" />
-  <meta property="og:title" content="Chi sono: Alessio Vinci — AV Web" />
-  <meta property="og:description" content="Sono Alessio Vinci: quattordici anni nella grande distribuzione, oggi siti e software su misura per attività e aziende. Prima il problema, poi la tecnologia." />
+  <meta property="og:title" content="Chi sono: Alessio Vinci | AV Web" />
+  <meta property="og:description" content="Sono Alessio Vinci: quattordici anni nella grande distribuzione, oggi siti e software su misura per attività e aziende. Scopri come lavoro." />
   <meta property="og:image" content="https://avweb.it/img/og/centro-emovere.jpg" />
   <meta property="og:image:type" content="image/jpeg" />
   <meta property="og:image:width" content="1200" />
@@ -23,10 +23,29 @@
   <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
   <link rel="apple-touch-icon" href="/apple-touch-icon-180.png" sizes="180x180" />
   <link rel="preload" href="/fonts/unbounded-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/onest-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/css/stile.css" />
   <script>document.documentElement.classList.add("js")</script>
   <script src="/js/sito.js" defer></script>
+  <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://avweb.it/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Chi sono",
+        "item": "https://avweb.it/chi-sono/"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <div class="glow" aria-hidden="true"></div>
@@ -44,6 +63,7 @@
       <nav class="links" id="menu" aria-label="Menu principale">
           <a href="/">Home</a>
           <a href="/servizi/">Servizi</a>
+          <a href="/settori/">Settori</a>
           <a href="/progetti/">Progetti</a>
           <a href="/chi-sono/" aria-current="page">Chi sono</a>
           <a href="/contatti/">Contatti</a>
@@ -57,10 +77,15 @@
     <div class="wrap page-head">
       <span class="eyebrow">Chi sono</span>
       <h1>Prima il problema, <span class="grad">poi la tecnologia</span></h1>
-      <div class="prose">
+      <div class="bio">
+        <!-- FOTO: lo script di pubblicazione toglie questo blocco finche img/alessio.webp non esiste -->
+        <figure class="ritratto"><img src="/img/alessio.webp" width="560" height="560" alt="Alessio Vinci" /></figure>
+        <!-- /FOTO -->
+        <div class="prose">
         <p>Sono Alessio Vinci. Per quattordici anni ho lavorato nella grande distribuzione, gli ultimi quattro come responsabile di punto vendita: personale, fornitori, ordini, magazzino, numeri da far tornare ogni giorno. È lì che ho imparato a guardare un'attività dal punto di vista di chi la manda avanti.</p>
         <p>La programmazione è nata come passione ed è diventata il mio lavoro. Dopo un percorso di formazione in sviluppo web ho iniziato a lavorare nell'e-commerce, dove ho visto da vicino quanti problemi si risolvono con lo strumento giusto: dati sparsi da riunire, calcoli fatti a mano, procedure ripetitive. Da lì ho iniziato a costruire siti e software per risolverli.</p>
         <p>Oggi lavoro con strumenti moderni, compresa l'intelligenza artificiale, per consegnare in tempi brevi soluzioni semplici da usare. Il mio metodo resta lo stesso: ascolto, propongo una soluzione chiara con tempi e costi definiti, la costruisco insieme al cliente e resto il suo punto di riferimento anche dopo.</p>
+      </div>
       </div>
     </div>
 
@@ -111,6 +136,10 @@
 
   <!-- FOOTER -->
   <footer>
+    <div class="wrap foot-sec">
+      <p class="foot-title">Settori</p>
+      <nav aria-label="Settori"><a href="/settori/ristoranti/">Ristoranti e bar</a><a href="/settori/strutture-ricettive/">B&amp;B e case vacanza</a><a href="/settori/bellezza/">Centri estetici e parrucchieri</a><a href="/settori/sport/">Palestre e personal trainer</a><a href="/settori/studi-professionali/">Studi professionali</a><a href="/settori/centri-terapeutici/">Centri terapeutici</a><a href="/settori/negozi-artigiani/">Negozi e artigiani</a><a href="/settori/agenzie-immobiliari/">Agenzie immobiliari</a><a href="/settori/ecommerce/">E-commerce e Amazon</a></nav>
+    </div>
     <div class="wrap">
       <p>© <span id="anno">2026</span> AV Web · Alessio Vinci · Alghero (SS) · P.IVA IT03014680908</p>
       <nav class="legal" aria-label="Note legali"><a href="/privacy.html">Privacy policy</a><a href="/cookie.html">Cookie policy</a></nav>

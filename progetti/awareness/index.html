@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Awareness: web app per sapere quanto puoi spendere davvero — AV Web</title>
-  <meta name="description" content="Una web app che risponde a una domanda semplice: quanto posso spendere davvero oggi?" />
+  <title>Awareness: quanto puoi spendere davvero oggi | AV Web</title>
+  <meta name="description" content="Awareness è una web app che risponde a una domanda semplice: quanto posso spendere davvero oggi? Scopri come funziona e come è stata realizzata." />
   <link rel="canonical" href="https://avweb.it/progetti/awareness/" />
   <meta name="theme-color" content="#0c0f13" />
   <meta name="color-scheme" content="dark" />
@@ -12,8 +12,8 @@
   <meta property="og:locale" content="it_IT" />
   <meta property="og:site_name" content="AV Web" />
   <meta property="og:url" content="https://avweb.it/progetti/awareness/" />
-  <meta property="og:title" content="Awareness: web app per sapere quanto puoi spendere davvero — AV Web" />
-  <meta property="og:description" content="Una web app che risponde a una domanda semplice: quanto posso spendere davvero oggi?" />
+  <meta property="og:title" content="Awareness: quanto puoi spendere davvero oggi | AV Web" />
+  <meta property="og:description" content="Awareness è una web app che risponde a una domanda semplice: quanto posso spendere davvero oggi? Scopri come funziona e come è stata realizzata." />
   <meta property="og:image" content="https://avweb.it/img/og/awareness.jpg" />
   <meta property="og:image:type" content="image/jpeg" />
   <meta property="og:image:width" content="1200" />
@@ -23,10 +23,35 @@
   <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
   <link rel="apple-touch-icon" href="/apple-touch-icon-180.png" sizes="180x180" />
   <link rel="preload" href="/fonts/unbounded-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/onest-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/css/stile.css" />
   <script>document.documentElement.classList.add("js")</script>
   <script src="/js/sito.js" defer></script>
+  <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://avweb.it/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Progetti",
+        "item": "https://avweb.it/progetti/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Awareness",
+        "item": "https://avweb.it/progetti/awareness/"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <div class="glow" aria-hidden="true"></div>
@@ -44,6 +69,7 @@
       <nav class="links" id="menu" aria-label="Menu principale">
           <a href="/">Home</a>
           <a href="/servizi/">Servizi</a>
+          <a href="/settori/">Settori</a>
           <a href="/progetti/" aria-current="page">Progetti</a>
           <a href="/chi-sono/">Chi sono</a>
           <a href="/contatti/">Contatti</a>
@@ -127,6 +153,10 @@
 
   <!-- FOOTER -->
   <footer>
+    <div class="wrap foot-sec">
+      <p class="foot-title">Settori</p>
+      <nav aria-label="Settori"><a href="/settori/ristoranti/">Ristoranti e bar</a><a href="/settori/strutture-ricettive/">B&amp;B e case vacanza</a><a href="/settori/bellezza/">Centri estetici e parrucchieri</a><a href="/settori/sport/">Palestre e personal trainer</a><a href="/settori/studi-professionali/">Studi professionali</a><a href="/settori/centri-terapeutici/">Centri terapeutici</a><a href="/settori/negozi-artigiani/">Negozi e artigiani</a><a href="/settori/agenzie-immobiliari/">Agenzie immobiliari</a><a href="/settori/ecommerce/">E-commerce e Amazon</a></nav>
+    </div>
     <div class="wrap">
       <p>© <span id="anno">2026</span> AV Web · Alessio Vinci · Alghero (SS) · P.IVA IT03014680908</p>
       <nav class="legal" aria-label="Note legali"><a href="/privacy.html">Privacy policy</a><a href="/cookie.html">Cookie policy</a></nav>
