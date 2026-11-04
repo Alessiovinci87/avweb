@@ -58,6 +58,7 @@
     var ERR_GENERICO = "Non sono riuscito a inviare il messaggio. Riprova tra poco o scrivimi su WhatsApp o via email con i pulsanti qui sotto.";
     var EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
     var TELEFONO = /^\+?[0-9 ().\/-]{6,20}$/;
+    var LINK = /:\/\/|www\.|@|[a-z0-9-]\.[a-z]{2,}\b/i;
 
     var mostraAvviso = function (testo) { avviso.textContent = testo || ""; };
 
@@ -92,7 +93,8 @@
     var valida = function () {
       var nome = form.elements.nome, rec = form.elements.recapito, r = rec.value.trim();
       var recOk = EMAIL.test(r) || (TELEFONO.test(r) && r.replace(/\D/g, "").length >= 6);
-      var ok = segna(nome, "e-nome", nome.value.trim() ? "" : "Scrivi il tuo nome.");
+      var nomeVal = nome.value.trim();
+      var ok = segna(nome, "e-nome", !nomeVal ? "Scrivi il tuo nome." : (nomeVal.length > 60 || LINK.test(nomeVal)) ? "Scrivi solo il tuo nome, senza link (massimo 60 caratteri)." : "");
       ok = segna(rec, "e-recapito", !r ? "Scrivi un'email o un numero di telefono." : recOk ? "" : "Controlla l'email o il numero di telefono.") && ok;
       var tipoOk = segna(null, "e-tipo", form.querySelector('input[name="tipo"]:checked') ? "" : "Scegli di cosa hai bisogno.");
       if (!ok) form.querySelector('[aria-invalid="true"]').focus();

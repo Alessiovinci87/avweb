@@ -22,10 +22,12 @@ function Rel($p) { return $p.Substring($dist.Length + 1).Replace("\", "/") }
 # Controlli
 $problemi = 0
 
-# Immagini: solo .webp in img, solo .jpg (anteprime Open Graph) in img/og
+# Immagini: solo .webp in img, solo .jpg (anteprime Open Graph) in img/og, solo .png (logo delle email) in img/email
 foreach ($e in Get-ChildItem (Join-Path $dist "img") -File -Recurse) {
-  $inOg = $e.DirectoryName -like "*\img\og"
-  if (($inOg -and $e.Extension -ne ".jpg") -or (-not $inOg -and $e.Extension -ne ".webp")) {
+  $cartella = Split-Path $e.DirectoryName -Leaf
+  $atteso = @{ "og" = ".jpg"; "email" = ".png" }[$cartella]
+  if (-not $atteso) { $atteso = ".webp" }
+  if ($e.Extension -ne $atteso) {
     Write-Host "ATTENZIONE: file non previsto in img: $(Rel $e.FullName)" -ForegroundColor Red; $problemi++
   }
 }
