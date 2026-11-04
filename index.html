@@ -14,228 +14,44 @@
   <meta property="og:url" content="https://avweb.it/" />
   <meta property="og:title" content="AV Web — Siti e software su misura, fatti bene" />
   <meta property="og:description" content="Siti, gestionali e automazioni su misura per attività, professionisti e aziende. Preventivo gratuito in 24 ore." />
-  <meta property="og:image" content="https://avweb.it/img/emovere-desktop.webp" />
-  <meta property="og:image:width" content="1440" />
-  <meta property="og:image:height" content="900" />
+  <meta property="og:image" content="https://avweb.it/img/og/centro-emovere.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Un sito realizzato da AV Web visto su desktop" />
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32" />
-  <link rel="apple-touch-icon" href="apple-touch-icon-180.png" sizes="180x180" />
-  <link rel="preload" href="fonts/unbounded-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="fonts/onest-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <style>
-    @font-face { font-family: "Unbounded"; font-style: normal; font-weight: 500 700; font-display: swap; src: url(fonts/unbounded-latin.woff2) format("woff2"); }
-    @font-face { font-family: "Onest"; font-style: normal; font-weight: 400 600; font-display: swap; src: url(fonts/onest-latin.woff2) format("woff2"); }
-    :root {
-      color-scheme: dark;
-      --bg: #0c0f13;
-      --panel: #11151b;
-      --panel-2: #161b22;
-      --line: #1e242d;
-      --line-2: #2a323d;
-      --fg: #e7ebf0;
-      --muted: #9aa4b2;
-      --dim: #8b95a3;
-      --sky: #7cc4e4;
-      --sage: #b9e0c9;
-      --chip: #1a212b;
-      --chip-fg: #c9d3de;
-      --wa: #2fbf71;
-      --amber: #f0c36a;
-      --display: "Unbounded", "Segoe UI", system-ui, sans-serif;
-      --body: "Onest", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-    body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.6 var(--body); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-    a { color: inherit; }
-    img { max-width: 100%; height: auto; display: block; }
-    :focus-visible { outline: 2px solid var(--sky); outline-offset: 3px; border-radius: 6px; }
-    .wrap { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 20px; }
-    .skip { position: absolute; left: -9999px; }
-    .skip:focus { left: 16px; top: 16px; background: var(--panel-2); padding: 8px 14px; border-radius: 8px; z-index: 30; }
-
-    /* Glow di sfondo */
-    .glow { position: absolute; inset: 0 0 auto 0; height: 900px; overflow: hidden; pointer-events: none; z-index: 0; }
-    .glow::before { content: ""; position: absolute; width: 900px; height: 900px; right: -300px; top: -420px; background: radial-gradient(closest-side, rgba(124,196,228,.20), transparent); }
-    .glow::after { content: ""; position: absolute; width: 700px; height: 700px; left: -380px; top: 120px; background: radial-gradient(closest-side, rgba(185,224,201,.07), transparent); }
-
-    /* Header */
-    header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: rgba(12,15,19,.72); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid transparent; }
-    header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 68px; }
-    .brand { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; font-family: var(--display); font-weight: 700; font-size: 15px; letter-spacing: .03em; text-decoration: none; }
-    .brand-icon { width: 36px; height: 30px; flex: none; }
-    nav.links { display: flex; align-items: center; gap: 26px; font-size: 15px; }
-    nav.links a { text-decoration: none; color: var(--dim); display: inline-flex; align-items: center; justify-content: center; min-height: 44px; min-width: 44px; }
-    nav.links a:hover { color: var(--fg); }
-    nav.links a.nav-cta { display: inline-flex; align-items: center; min-height: 44px; color: var(--bg); background: var(--fg); padding: 8px 16px; border-radius: 9px; font-weight: 600; }
-    @media (max-width: 780px) { nav.links a:not(.nav-cta) { display: none; } }
-
-    main { position: relative; z-index: 1; }
-
-    /* Buttons */
-    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; border-radius: 10px; padding: 12px 20px; font-weight: 600; font-size: 15px; text-decoration: none; border: 1px solid transparent; transition: transform .15s ease, background .15s ease, border-color .15s ease; white-space: nowrap; }
-    .btn:hover { transform: translateY(-1px); }
-    .btn svg { width: 18px; height: 18px; flex: none; }
-    .btn-primary { background: var(--fg); color: var(--bg); }
-    .btn-primary:hover { background: #fff; }
-    .btn-ghost { border-color: var(--line-2); font-weight: 500; }
-    .btn-ghost:hover { border-color: var(--dim); }
-    .btn-wa { background: var(--wa); color: #06140c; }
-
-    /* Hero */
-    .hero { display: grid; gap: 48px; padding-top: 64px; padding-bottom: 20px; }
-    @media (min-width: 940px) { .hero { grid-template-columns: 1fr 1fr; align-items: center; padding-top: 80px; } }
-    .kick { display: inline-flex; align-items: center; gap: 8px; font-size: 13.5px; color: var(--sky); font-weight: 500; letter-spacing: .03em; }
-    .kick .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--wa); box-shadow: 0 0 0 4px rgba(47,191,113,.18); }
-    h1 { font-family: var(--display); font-weight: 700; font-size: clamp(32px, 5vw, 58px); line-height: 1.06; letter-spacing: -.025em; margin: 18px 0 20px; text-wrap: balance; }
-    .grad { background: linear-gradient(90deg, var(--sky), var(--sage)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    .lead { font-size: clamp(16.5px, 2vw, 18.5px); color: var(--muted); margin: 0; max-width: 48ch; }
-    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
-
-    .stack { position: relative; width: 100%; aspect-ratio: 1.2; }
-    .stack .d { position: absolute; border-radius: 10px; overflow: hidden; border: 1px solid var(--line-2); box-shadow: 0 30px 60px rgba(0,0,0,.55); background: var(--panel); }
-    .stack .d img { width: 100%; height: 100%; object-fit: cover; object-position: left top; }
-    .stack .d1 { width: 84%; aspect-ratio: 1904 / 911; left: 0; top: 4%; }
-    .stack .d2 { width: 72%; aspect-ratio: 1897 / 805; right: 0; top: 40%; }
-    .stack .d3 { width: 22%; aspect-ratio: 385 / 907; left: 7%; bottom: 0; border-radius: 16px; border: 3px solid var(--line-2); }
-    @media (prefers-reduced-motion: no-preference) {
-      .stack .d { animation: rise .8s cubic-bezier(.2,.7,.2,1) both; }
-      .stack .d2 { animation-delay: .12s; }
-      .stack .d3 { animation-delay: .24s; }
-      @keyframes rise { from { transform: translateY(18px); } to { transform: none; } }
-    }
-
-    /* Stats */
-    .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; margin-top: 56px; }
-    @media (min-width: 760px) { .stats { grid-template-columns: repeat(4, 1fr); } }
-    .stats div { background: var(--panel); padding: 20px 22px; }
-    .stats b { font-family: var(--display); font-size: clamp(24px, 3vw, 30px); font-weight: 500; display: block; font-variant-numeric: tabular-nums; line-height: 1.2; }
-    .stats span { font-size: 13.5px; color: var(--dim); }
-
-    /* Sections */
-    section { padding: 88px 0 0; }
-    .sec-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px 32px; margin-bottom: 32px; }
-    .eyebrow { font-size: 12.5px; color: var(--sky); letter-spacing: .08em; text-transform: uppercase; font-weight: 600; }
-    h2 { font-family: var(--display); font-weight: 500; font-size: clamp(24px, 3.4vw, 36px); letter-spacing: -.015em; line-height: 1.15; margin: 8px 0 0; text-wrap: balance; }
-    .sec-head p { color: var(--muted); margin: 0; max-width: 46ch; font-size: 15px; }
-
-    /* Casi di studio */
-    .work { display: grid; gap: 22px; }
-    .case { display: grid; background: var(--panel); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
-    @media (min-width: 900px) {
-      .case { grid-template-columns: 1.2fr 1fr; }
-      .case.flip .media { order: 2; }
-    }
-    .media { position: relative; min-height: 260px; overflow: hidden; background: linear-gradient(135deg, #1b2230, #121821); }
-    @media (min-width: 900px) { .media { min-height: 400px; } }
-    .media.fill img.desk { position: absolute; top: 28px; left: 28px; width: calc(100% - 28px); height: calc(100% - 28px); max-width: none; object-fit: cover; object-position: left top; border-radius: 8px 0 0 0; box-shadow: 0 20px 50px rgba(0,0,0,.5); }
-    .case.flip .media.fill img.desk { left: 0; width: calc(100% - 28px); object-position: left top; border-radius: 0 8px 0 0; }
-    .media.center img.desk { object-position: center top !important; }
-    .media.solo { display: grid; place-items: center; padding: 32px; }
-    .media.solo img { border-radius: 12px; box-shadow: 0 24px 50px rgba(0,0,0,.5); }
-    .media .phone-solo { width: 44%; max-width: 230px; border-radius: 26px !important; border: 5px solid var(--line-2); }
-    .media .square { width: 100%; max-width: 440px; }
-    .media .phone { position: absolute; right: 24px; bottom: 24px; width: 22%; max-width: 140px; border-radius: 16px; border: 4px solid var(--line-2); box-shadow: 0 16px 40px rgba(0,0,0,.6); }
-    .media.placeholder { display: grid; place-items: center; padding: 32px; }
-    .media.placeholder p { margin: 0; padding: 14px 22px; border: 1px dashed var(--line-2); border-radius: 12px; color: var(--muted); font-size: 15px; font-weight: 500; text-align: center; }
-    .txt > p.credit { font-size: 14px; color: var(--dim); margin-top: -6px; }
-    .m-sea { background: linear-gradient(135deg, #15303a, #0f1f27); }
-    .m-sand { background: linear-gradient(135deg, #2b2923, #1b1a16); }
-    .m-violet { background: linear-gradient(135deg, #252238, #17151f); }
-    .m-green { background: linear-gradient(135deg, #16301f, #0f1f15); }
-    .m-sage { background: linear-gradient(135deg, #1f2a1f, #141a14); }
-    .m-garden { background: linear-gradient(135deg, #262b1a, #181b11); }
-
-    .txt { padding: 28px 28px 30px; display: flex; flex-direction: column; }
-    .labels { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
-    .badge { font-size: 11.5px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; padding: 4px 9px; border-radius: 6px; background: rgba(124,196,228,.14); color: var(--sky); }
-    .badge.soon { background: rgba(240,195,106,.14); color: var(--amber); }
-    .kicker { color: var(--sky); font-size: 12.5px; letter-spacing: .05em; text-transform: uppercase; font-weight: 600; }
-    h3 { font-family: var(--display); font-weight: 500; font-size: clamp(19px, 2.2vw, 23px); line-height: 1.25; margin: 8px 0 12px; letter-spacing: -.01em; text-wrap: balance; }
-    .txt > p { color: var(--muted); margin: 0 0 16px; font-size: 15.5px; }
-    .txt > p strong { color: var(--fg); font-weight: 600; }
-    details { border-top: 1px solid var(--line); margin: 0 0 18px; }
-    summary { cursor: pointer; list-style: none; padding: 10px 0 0; min-height: 44px; font-size: 14px; font-weight: 500; color: var(--fg); display: flex; align-items: center; gap: 8px; }
-    summary::-webkit-details-marker { display: none; }
-    summary::before { content: "+"; display: grid; place-items: center; width: 20px; height: 20px; border-radius: 6px; background: var(--chip); color: var(--sky); font-size: 14px; line-height: 1; }
-    details[open] summary::before { content: "–"; }
-    ul.points { margin: 12px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; font-size: 14.5px; color: var(--muted); }
-    ul.points li { display: flex; gap: 10px; }
-    ul.points li::before { content: "→"; flex: none; color: var(--sky); }
-    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
-    .tag { font-size: 12.5px; padding: 5px 10px; border-radius: 6px; background: var(--chip); color: var(--chip-fg); }
-    .foot { margin-top: auto; padding-top: 8px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; }
-    .private { font-size: 13px; color: var(--dim); display: flex; gap: 7px; align-items: flex-start; }
-    .private svg { width: 14px; height: 14px; flex: none; margin-top: 3px; }
-    .visit { display: inline-block; padding: 12px 0; font-size: 14.5px; font-weight: 600; color: var(--sky); text-decoration: underline; text-decoration-color: rgba(124,196,228,.35); text-underline-offset: 5px; }
-    .visit:hover { text-decoration-color: var(--sky); }
-
-    /* Services */
-    .services { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
-    @media (min-width: 700px) { .services { grid-template-columns: repeat(2, 1fr); } }
-    @media (min-width: 1040px) { .services { grid-template-columns: repeat(4, 1fr); } }
-    ol.steps { list-style: none; margin: 0; padding: 0; }
-    .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-    .svc { background: var(--panel); padding: 26px 24px 28px; }
-    .svc .ic { width: 42px; height: 42px; border-radius: 11px; display: grid; place-items: center; background: var(--chip); color: var(--sky); }
-    .svc .ic svg { width: 22px; height: 22px; }
-    .svc h3 { font-size: 16.5px; margin: 18px 0 8px; }
-    .svc p { margin: 0; color: var(--muted); font-size: 14.5px; }
-
-    /* Come lavoro */
-    .svc .num { font-family: var(--display); font-size: 17px; font-weight: 600; }
-
-    /* Chi sono */
-    .about { display: grid; gap: 20px 56px; background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: clamp(26px, 5vw, 48px); }
-    @media (min-width: 900px) { .about { grid-template-columns: 1fr 1.4fr; } }
-    .about h2 { margin-top: 10px; }
-    .about p { margin: 0 0 16px; color: var(--muted); font-size: 16.5px; max-width: 62ch; }
-    .about p:last-child { margin-bottom: 0; }
-
-    /* Domande frequenti */
-    .faq { max-width: 860px; border-bottom: 1px solid var(--line); }
-    .faq details { margin: 0; }
-    .faq summary { padding: 18px 0; min-height: 44px; font-size: 16.5px; font-weight: 600; gap: 14px; }
-    .faq summary::before { flex: none; width: 24px; height: 24px; }
-    .faq details p { margin: -4px 0 20px 38px; color: var(--muted); font-size: 15.5px; max-width: 64ch; }
-
-    /* Contact */
-    .contact { position: relative; overflow: hidden; border: 1px solid var(--line-2); border-radius: 22px; padding: clamp(32px, 6vw, 64px) clamp(22px, 5vw, 56px); background: radial-gradient(120% 140% at 100% 0%, rgba(124,196,228,.16), transparent 55%), var(--panel); display: grid; gap: 28px; }
-    @media (min-width: 900px) { .contact { grid-template-columns: 1.1fr 1fr; align-items: end; } }
-    .contact h2 { font-size: clamp(26px, 4vw, 44px); font-weight: 700; margin-top: 10px; }
-    .contact p { color: var(--muted); margin: 14px 0 0; max-width: 46ch; }
-    .contact .cta-row { margin-top: 0; }
-    .contact p strong { color: var(--fg); font-weight: 600; }
-    .contact .alt-row { margin-top: 12px; }
-
-    footer { padding: 56px 0 44px; color: var(--dim); font-size: 13.5px; }
-    footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 28px; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 24px; }
-    footer p { margin: 0; max-width: 70ch; align-self: center; }
-    footer .legal { display: flex; flex-wrap: wrap; gap: 0 22px; }
-    footer .legal a { display: inline-flex; align-items: center; min-height: 44px; color: var(--muted); }
-    footer .legal a:hover { color: var(--fg); }
-
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } .btn:hover { transform: none; } }
-  </style>
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon-180.png" sizes="180x180" />
+  <link rel="preload" href="/fonts/unbounded-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/onest-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/css/stile.css" />
+  <script>document.documentElement.classList.add("js")</script>
+  <script src="/js/sito.js" defer></script>
 </head>
 <body>
-  <a href="#contenuto" class="skip">Vai al contenuto</a>
   <div class="glow" aria-hidden="true"></div>
 
+  <!-- MENU -->
+  <a href="#contenuto" class="skip">Vai al contenuto</a>
   <header class="top">
     <div class="wrap">
-      <a href="/" class="brand" aria-label="AV Web, torna all'inizio"><img class="brand-icon" src="avweb-icona.svg" width="36" height="30" alt="" /><span>AV <span class="grad">WEB</span></span></a>
-      <nav class="links" aria-label="Sezioni">
-        <a href="#servizi">Servizi</a>
-        <a href="#lavori">Lavori</a>
-        <a href="#metodo">Come lavoro</a>
-        <a href="#chi-sono">Chi sono</a>
-        <a href="#faq">Domande</a>
-        <a href="#contatti" class="nav-cta">Contatti</a>
+      <a href="/" class="brand" aria-label="AV Web, vai alla home"><img class="brand-icon" src="/avweb-icona.svg" width="36" height="30" alt="" /><span>AV <span class="grad">WEB</span></span></a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">
+        <svg class="ic-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="ic-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        <span class="menu-label">Menu</span>
+      </button>
+      <nav class="links" id="menu" aria-label="Menu principale">
+          <a href="/" aria-current="page">Home</a>
+          <a href="/servizi/">Servizi</a>
+          <a href="/progetti/">Progetti</a>
+          <a href="/chi-sono/">Chi sono</a>
+          <a href="/contatti/">Contatti</a>
+          <a href="/contatti/" class="nav-cta">Richiedi un preventivo</a>
       </nav>
     </div>
   </header>
+  <!-- /MENU -->
 
   <main id="contenuto">
     <div class="wrap">
@@ -245,24 +61,39 @@
           <h1>Siti e software su misura, <span class="grad">fatti bene.</span></h1>
           <p class="lead">AV Web realizza siti, gestionali e automazioni per attività, professionisti e aziende: strumenti semplici da usare, costruiti attorno a come lavori, con un unico referente dall'idea alla messa online.</p>
           <div class="cta-row">
-            <a class="btn btn-primary" href="#contatti">Richiedi un preventivo gratuito</a>
-            <a class="btn btn-ghost" href="#lavori">Guarda i lavori</a>
+            <a class="btn btn-primary" href="/contatti/">Richiedi un preventivo gratuito</a>
+            <a class="btn btn-ghost" href="/progetti/">Guarda i lavori</a>
           </div>
         </div>
         <div class="stack" aria-hidden="true">
-          <div class="d d1"><img src="img/gestionale.webp" width="1904" height="911" alt="" /></div>
-          <div class="d d2"><img src="img/giardinodibruna.webp" width="1897" height="805" alt="" /></div>
-          <div class="d d3"><img src="img/quitfresh.webp" width="385" height="907" alt="" /></div>
+          <div class="d d1"><img src="/img/gestionale.webp" width="1904" height="911" alt="" /></div>
+          <div class="d d2"><img src="/img/giardinodibruna.webp" width="1897" height="805" alt="" /></div>
+          <div class="d d3"><img src="/img/quitfresh.webp" width="385" height="907" alt="" /></div>
         </div>
       </div>
 
       <div class="stats">
         <div><b>8</b><span>progetti realizzati</span></div>
-        <div><b>4</b><span>web app e gestionali</span></div>
-        <div><b>3</b><span>siti per attività in Sardegna</span></div>
-        <div><b>5</b><span>lingue sul sito più grande</span></div>
+        <div><b>3</b><span>siti per attività</span></div>
+        <div><b>3</b><span>gestionali e web app</span></div>
+        <div><b>1</b><span>sito in 5 lingue</span></div>
       </div>
     </div>
+
+    <section id="chi-sono">
+      <div class="wrap">
+        <div class="about">
+          <div>
+            <span class="eyebrow">Chi sono</span>
+            <h2>Prima il problema, poi la tecnologia</h2>
+          </div>
+          <div>
+            <p>Sono Alessio: per quattordici anni ho gestito un punto vendita, oggi costruisco siti e software per attività e aziende. Prima capisco il problema, poi scelgo la tecnologia.</p>
+            <a class="more" href="/chi-sono/">Scopri di più<span class="sr"> su di me</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section id="servizi">
       <div class="wrap">
@@ -277,228 +108,26 @@
             <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg></div>
             <h3>Siti per attività e professionisti</h3>
             <p>Veloci, curati, in più lingue, pensati per farsi trovare su Google e ricevere contatti su WhatsApp. A norma di privacy e cookie.</p>
+            <a class="more" href="/servizi/#siti">Scopri di più<span class="sr">: siti per attività e professionisti</span></a>
           </div>
           <div class="svc">
             <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg></div>
             <h3>Gestionali e web app su misura</h3>
             <p>Strumenti costruiti sul modo di lavorare del cliente, per smettere di usare fogli Excel e procedure a mano.</p>
+            <a class="more" href="/servizi/#gestionali">Scopri di più<span class="sr">: gestionali e web app su misura</span></a>
           </div>
           <div class="svc">
             <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></div>
             <h3>Automazioni e intelligenza artificiale</h3>
             <p>Collegare i sistemi tra loro e far fare al software il lavoro ripetitivo.</p>
+            <a class="more" href="/servizi/#automazioni">Scopri di più<span class="sr">: automazioni e intelligenza artificiale</span></a>
           </div>
           <div class="svc">
             <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg></div>
             <h3>Assistenza continuativa</h3>
             <p>Aggiornamenti, modifiche e nuove funzioni, con un unico referente.</p>
+            <a class="more" href="/servizi/#assistenza">Scopri di più<span class="sr">: assistenza continuativa</span></a>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="lavori">
-      <div class="wrap">
-        <div class="sec-head">
-          <div>
-            <span class="eyebrow">Lavori</span>
-            <h2>Progetti realizzati</h2>
-          </div>
-          <p>Siti per attività, web app e prodotti software sviluppati da me. Negli screenshot dei software uso solo dati di esempio.</p>
-        </div>
-
-        <div class="work">
-          <!-- Centro Emovere -->
-          <article class="case">
-            <div class="media m-sand" style="padding: 28px 28px 44px;">
-              <img class="desk" style="border-radius: 8px; box-shadow: 0 20px 50px rgba(0,0,0,.5); width: 88%;" src="img/emovere-desktop.webp" width="1440" height="900" alt="Home page del sito Centro Emovere su desktop" loading="lazy" />
-              <img class="phone" src="img/emovere-mobile.webp" width="780" height="1688" alt="Il sito Centro Emovere su smartphone" loading="lazy" />
-            </div>
-            <div class="txt">
-              <span class="kicker">Sito web · Centro terapeutico, Alghero</span>
-              <h3>Centro Emovere</h3>
-              <p>Sito completo per un centro multidisciplinare di psicologia, logopedia, neuropsicomotricità e fisioterapia.</p>
-              <details>
-                <summary>Cosa ho fatto</summary>
-                <ul class="points">
-                  <li>Design su misura, pensato prima per lo smartphone</li>
-                  <li>Pagine servizi, schede dell'équipe e blog</li>
-                  <li>Modulo contatti con invio email e SEO locale</li>
-                  <li>Privacy e cookie a norma GDPR, con banner di consenso</li>
-                </ul>
-              </details>
-              <div class="tags"><span class="tag">Next.js</span><span class="tag">React</span><span class="tag">Tailwind CSS</span><span class="tag">Vercel</span></div>
-              <div class="foot"><a class="visit" href="https://www.centroemovere.it" target="_blank" rel="noopener">Visita il sito ↗</a></div>
-            </div>
-          </article>
-
-          <!-- Gestionale Amazon -->
-          <article class="case flip">
-            <div class="media fill">
-              <img class="desk" src="img/gestionale.webp" width="1904" height="911" alt="Pagina Profitto di Profit con la marginalità per prodotto, dati di esempio" loading="lazy" />
-            </div>
-            <div class="txt">
-              <div class="labels"><span class="badge">Il progetto più grande</span></div>
-              <span class="kicker">Prodotto · E-commerce</span>
-              <h3>Profit – Piattaforma di marginalità e operations per Amazon</h3>
-              <p>Piattaforma web per chi vende su Amazon in più paesi europei. Si collega alle API ufficiali di Amazon, incrocia vendite, commissioni, costi logistici e pubblicità e calcola il margine reale per prodotto e per marketplace. Al posto di report sparsi e fogli Excel, un'unica vista chiara su dove si guadagna e dove no.</p>
-              <p class="credit">Progettazione, sviluppo e integrazione API: Alessio Vinci.</p>
-              <details>
-                <summary>Cosa ho fatto</summary>
-                <ul class="points">
-                  <li>Integrazione con le API ufficiali di Amazon (Selling Partner API) e sincronizzazioni pianificate</li>
-                  <li>Marginalità reale per prodotto e per marketplace</li>
-                  <li>Magazzino, spedizioni, documenti di trasporto ed etichette in PDF</li>
-                  <li>Pubblicità, monitoraggio dei concorrenti e previsioni di vendita</li>
-                  <li>Accesso protetto con autenticazione a due fattori</li>
-                </ul>
-              </details>
-              <div class="tags"><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">SQLite</span><span class="tag">Amazon SP-API</span><span class="tag">AWS</span></div>
-              <div class="foot"><span class="private"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> Nello screenshot solo dati di esempio.</span></div>
-            </div>
-          </article>
-
-          <!-- Gestionale Amazon Ads -->
-          <article class="case">
-            <div class="media placeholder m-violet">
-              <p>Screenshot in preparazione</p>
-            </div>
-            <div class="txt">
-              <span class="kicker">Prodotto in sviluppo · Pubblicità Amazon</span>
-              <h3>Gestionale Amazon Ads</h3>
-              <p>Strumento per gestire campagne pubblicitarie Amazon su più paesi. Analizza i risultati e, con un motore di regole chiamato "Brain", suggerisce quali parole chiave potenziare, ridurre o escludere. In sviluppo.</p>
-              <p class="credit">Progetto sviluppato in team.</p>
-              <details>
-                <summary>Cosa ho fatto</summary>
-                <ul class="points">
-                  <li>Dashboard con spesa, vendite, ACoS, ROAS e risultati paese per paese</li>
-                  <li>Il Brain propone le azioni sulle campagne, da approvare con un clic</li>
-                  <li>Suggerimenti su offerte e parole chiave</li>
-                  <li>Creazione guidata delle campagne, ricerca keyword e monitoraggio dei concorrenti</li>
-                  <li>Collegato ad Amazon Ads API, Selling Partner API e a Profit</li>
-                </ul>
-              </details>
-              <div class="tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">Celery</span><span class="tag">Redis</span><span class="tag">Docker</span></div>
-            </div>
-          </article>
-
-          <!-- Awareness -->
-          <article class="case flip">
-            <div class="media solo m-green">
-              <img class="square" src="img/awareness.webp" width="695" height="690" alt="Home di Awareness con il Disponibile reale, dati di esempio" loading="lazy" />
-            </div>
-            <div class="txt">
-              <span class="kicker">Web app · Finanza personale e familiare</span>
-              <h3>Awareness</h3>
-              <p>Una web app che risponde a una domanda semplice: <strong>quanto posso spendere davvero oggi?</strong> Parte dal saldo del conto e toglie da sola quello che è già impegnato, così il numero che vedi è quello realmente disponibile.</p>
-              <details>
-                <summary>Cosa ho fatto</summary>
-                <ul class="points">
-                  <li>"Disponibile reale" sempre aggiornato, con il dettaglio di come è calcolato</li>
-                  <li>Previsione del saldo a 90 giorni, che avvisa in anticipo se una settimana andrà sotto zero</li>
-                  <li>Spese ricorrenti registrate da sole e obiettivi di risparmio con la quota mensile da versare</li>
-                  <li>Import dell'estratto conto con categorie automatiche e lettura degli scontrini da foto</li>
-                  <li>Per chi ha la partita IVA: fatture elettroniche, accantonamento delle tasse e promemoria delle scadenze</li>
-                  <li>Condivisa in famiglia: più persone sugli stessi conti, aggiornamenti in tempo reale e notifiche</li>
-                </ul>
-              </details>
-              <div class="tags"><span class="tag">React</span><span class="tag">Vite</span><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">PostgreSQL</span><span class="tag">Prisma</span><span class="tag">WebSocket</span></div>
-              <div class="foot"><span class="private"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> Nello screenshot importi e voci di esempio.</span></div>
-            </div>
-          </article>
-
-          <!-- QuitFresh -->
-          <article class="case">
-            <div class="media solo m-sage">
-              <img class="phone-solo" src="img/quitfresh.webp" width="385" height="907" alt="Schermata principale di QuitFresh su smartphone" loading="lazy" />
-            </div>
-            <div class="txt">
-              <span class="kicker">Web app per smartphone · Salute e benessere</span>
-              <h3>QuitFresh</h3>
-              <p>Web app per smettere di fumare che accompagna la persona giorno per giorno, soprattutto nei momenti in cui la voglia di fumare è più forte.</p>
-              <details>
-                <summary>Cosa ho fatto</summary>
-                <ul class="points">
-                  <li>Pulsante "Ho bisogno ORA" con supporto AI nel momento del craving</li>
-                  <li>Promemoria e tracciamento della terapia, dose per dose</li>
-                  <li>Diario, progressi, traguardi e conteggio dei giorni senza fumo</li>
-                  <li>Installabile sul telefono come un'app, con notifiche push</li>
-                  <li>Abbonamento premium con pagamenti online</li>
-                </ul>
-              </details>
-              <div class="tags"><span class="tag">React</span><span class="tag">Vite</span><span class="tag">Tailwind CSS</span><span class="tag">Node.js</span><span class="tag">PostgreSQL</span><span class="tag">OpenAI</span><span class="tag">Stripe</span></div>
-              <div class="foot"><a class="visit" href="https://quitfresh.it" target="_blank" rel="noopener">Visita il sito ↗</a></div>
-            </div>
-          </article>
-
-          <!-- Le Porte di Sardegna -->
-          <article class="case flip">
-            <div class="media fill center m-sea">
-              <img class="desk" src="img/casevacanze.webp" width="1901" height="869" alt="Home page del sito Le Porte di Sardegna" loading="lazy" />
-            </div>
-            <div class="txt">
-              <span class="kicker">Sito web · Turismo, Sardegna</span>
-              <h3>Le Porte di Sardegna</h3>
-              <p>Sito vetrina per due case vacanze tra Stintino e Alghero, pensato per ricevere prenotazioni dirette.</p>
-              <details>
-                <summary>Cosa ho fatto</summary>
-                <ul class="points">
-                  <li>In 5 lingue: italiano, inglese, francese, tedesco e spagnolo</li>
-                  <li>Calendario disponibilità sincronizzato con Airbnb</li>
-                  <li>Gallerie fotografiche ottimizzate e caricamento veloce</li>
-                </ul>
-              </details>
-              <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Python</span></div>
-              <div class="foot"><a class="visit" href="https://www.leportedisardegna.com/" target="_blank" rel="noopener">Visita il sito ↗</a></div>
-            </div>
-          </article>
-
-          <!-- Il Giardino di Bruna -->
-          <article class="case">
-            <div class="media fill m-garden">
-              <img class="desk" style="object-position: 26% top" src="img/giardinodibruna.webp" width="1897" height="805" alt="Home page del sito Il Giardino di Bruna" loading="lazy" />
-            </div>
-            <div class="txt">
-              <span class="kicker">Sito web · Casa vacanze, Alghero</span>
-              <h3>Il Giardino di Bruna</h3>
-              <p>Sito per una dependance immersa nel verde a due passi dall'aeroporto di Alghero, costruito attorno a quello che la rende speciale per le famiglie: il giardino, la piccola fattoria e il parco giochi.</p>
-              <details>
-                <summary>Cosa ho fatto</summary>
-                <ul class="points">
-                  <li>Tradotto in 4 lingue: italiano, inglese, francese e spagnolo</li>
-                  <li>Disponibilità aggiornata in automatico dal calendario Airbnb</li>
-                  <li>Sezioni dedicate a giardino e bambini, dintorni e recensioni degli ospiti</li>
-                  <li>Richiesta di prenotazione diretta e contatto rapido su WhatsApp</li>
-                </ul>
-              </details>
-              <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
-              <div class="foot"><a class="visit" href="https://ilgiardinodibruna.com/" target="_blank" rel="noopener">Visita il sito ↗</a></div>
-            </div>
-          </article>
-
-          <!-- PresetDock -->
-          <article class="case flip">
-            <div class="media fill">
-              <img class="desk" src="img/presetdock.webp" width="1904" height="990" alt="Schermata principale di PresetDock" loading="lazy" />
-            </div>
-            <div class="txt">
-              <div class="labels"><span class="badge soon">In arrivo</span></div>
-              <span class="kicker">App desktop · Windows · Musicisti</span>
-              <h3>PresetDock</h3>
-              <p>Programma per Windows che organizza, cataloga e rende ricercabile la libreria di preset di un multieffetto per chitarra.</p>
-              <details>
-                <summary>Cosa ho fatto</summary>
-                <ul class="points">
-                  <li>Cerca i preset descrivendo il suono a parole</li>
-                  <li>Catalogazione per genere, ampli, cabinet e artista</li>
-                  <li>Riconoscimento dei duplicati e statistiche della libreria</li>
-                  <li>Installer e aggiornamenti automatici</li>
-                </ul>
-              </details>
-              <div class="tags"><span class="tag">App desktop</span><span class="tag">Windows</span></div>
-              <div class="foot"><a class="visit" href="https://presetdock.com/" target="_blank" rel="noopener">Scopri PresetDock ↗</a></div>
-            </div>
-          </article>
         </div>
       </div>
     </section>
@@ -536,55 +165,50 @@
       </div>
     </section>
 
-    <section id="chi-sono">
-      <div class="wrap">
-        <div class="about">
-          <div>
-            <span class="eyebrow">Chi sono</span>
-            <h2>Prima il problema, poi la tecnologia</h2>
-          </div>
-          <div>
-            <p>Sono Alessio. Per quattordici anni ho lavorato nella grande distribuzione, gli ultimi da responsabile di punto vendita: so cosa vuol dire gestire clienti, personale e numeri ogni giorno. Poi ho trasformato la passione per la programmazione in un lavoro, e oggi costruisco siti e software per attività e aziende.</p>
-            <p>Il mio punto di forza è capire prima il problema di chi fa impresa, e solo dopo la tecnologia. Lavoro con strumenti moderni, compresa l'intelligenza artificiale, per consegnare in tempi brevi soluzioni semplici da usare.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="faq">
+    <section id="lavori">
       <div class="wrap">
         <div class="sec-head">
           <div>
-            <span class="eyebrow">Domande frequenti</span>
-            <h2>Le risposte alle domande di tutti</h2>
+            <span class="eyebrow">Progetti</span>
+            <h2>Progetti in evidenza</h2>
           </div>
         </div>
-        <div class="faq">
-          <details>
-            <summary>Quanto costa un sito?</summary>
-            <p>Dipende da cosa serve: dopo una breve chiacchierata ricevi un preventivo chiaro e gratuito, con tutto incluso e nessuna sorpresa.</p>
-          </details>
-          <details>
-            <summary>In quanto tempo è online?</summary>
-            <p>Un sito vetrina è pronto in circa 7 giorni dal ricevimento di testi e foto.</p>
-          </details>
-          <details>
-            <summary>Cosa devo preparare?</summary>
-            <p>Poco: le informazioni sull'attività, qualche foto e il logo se c'è. Al resto penso io.</p>
-          </details>
-          <details>
-            <summary>Ci sono costi dopo?</summary>
-            <p>Solo la gestione annuale, che comprende dominio, hosting, aggiornamenti e assistenza.</p>
-          </details>
-          <details>
-            <summary>Il sito è mio?</summary>
-            <p>Sì: dominio e contenuti sono intestati a te.</p>
-          </details>
-          <details>
-            <summary>Posso modificarlo da solo?</summary>
-            <p>Le modifiche le faccio io, in tempi rapidi. Se preferisci, si può prevedere un pannello per aggiornare tu alcuni contenuti.</p>
-          </details>
-        </div>
+        <ul class="cards">
+          <li class="card" data-cat="siti">
+            <div class="media fill m-sand">
+              <img class="desk" src="/img/emovere-desktop.webp" width="1440" height="900" alt="Home page del sito Centro Emovere su desktop" loading="lazy" />
+            </div>
+            <div class="card-body">
+              <span class="kicker">Siti</span>
+              <h3><a href="/progetti/centro-emovere/">Centro Emovere</a></h3>
+              <p>Sito completo per un centro multidisciplinare di psicologia, logopedia, neuropsicomotricità e fisioterapia.</p>
+              <span class="go" aria-hidden="true">Scopri il progetto →</span>
+            </div>
+          </li>
+          <li class="card" data-cat="siti">
+            <div class="media fill center m-sea">
+              <img class="desk" src="/img/casevacanze.webp" width="1901" height="869" alt="Home page del sito Le Porte di Sardegna" loading="lazy" />
+            </div>
+            <div class="card-body">
+              <span class="kicker">Siti</span>
+              <h3><a href="/progetti/le-porte-di-sardegna/">Le Porte di Sardegna</a></h3>
+              <p>Sito vetrina per due case vacanze tra Stintino e Alghero, pensato per ricevere prenotazioni dirette.</p>
+              <span class="go" aria-hidden="true">Scopri il progetto →</span>
+            </div>
+          </li>
+          <li class="card" data-cat="siti">
+            <div class="media fill m-garden">
+              <img class="desk" style="object-position: 26% top" src="/img/giardinodibruna.webp" width="1897" height="805" alt="Home page del sito Il Giardino di Bruna" loading="lazy" />
+            </div>
+            <div class="card-body">
+              <span class="kicker">Siti</span>
+              <h3><a href="/progetti/il-giardino-di-bruna/">Il Giardino di Bruna</a></h3>
+              <p>Sito per una dependance immersa nel verde a due passi dall'aeroporto di Alghero, pensato per le famiglie.</p>
+              <span class="go" aria-hidden="true">Scopri il progetto →</span>
+            </div>
+          </li>
+        </ul>
+        <p class="sec-foot"><a class="more" href="/progetti/">Tutti i progetti →</a></p>
       </div>
     </section>
 
@@ -596,26 +220,9 @@
             <h2>Hai un progetto <span class="grad">in mente?</span></h2>
             <p><strong>Preventivo gratuito in 24 ore.</strong> Raccontami in poche righe cosa ti serve.</p>
           </div>
-          <div>
+          <div class="end">
             <div class="cta-row">
-              <a class="btn btn-wa" href="https://wa.me/393403689635?text=Ciao%20Alessio%2C%20vorrei%20un%20preventivo%20per%20un%20progetto" target="_blank" rel="noopener">
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-.8-.4-2.1-1-3.1-2.8-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s1 2.5 1.1 2.7c.1.2 1.9 2.9 4.6 4 1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2 0-.1-.2-.2-.4-.3z"/></svg>
-                Scrivimi su WhatsApp
-              </a>
-              <a class="btn btn-ghost" href="mailto:info@avweb.it?subject=Richiesta%20di%20preventivo">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg>
-                info@avweb.it
-              </a>
-            </div>
-            <div class="cta-row alt-row">
-              <a class="btn btn-ghost" href="tel:+393403689635">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
-                <span><span class="sr">Chiama il </span>340 368 9635</span>
-              </a>
-              <a class="btn btn-ghost" href="https://www.linkedin.com/in/alessio-vinci-jr-full-dev/" target="_blank" rel="noopener">
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.4V9h3.4v1.6h.1c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.2zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM7.1 20.5H3.6V9h3.5v11.5zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"/></svg>
-                LinkedIn<span class="sr"> (si apre in una nuova scheda)</span>
-              </a>
+              <a class="btn btn-primary" href="/contatti/">Richiedi un preventivo</a>
             </div>
           </div>
         </div>
@@ -623,12 +230,13 @@
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer>
     <div class="wrap">
       <p>© <span id="anno">2026</span> AV Web · Alessio Vinci · Alghero (SS) · P.IVA IT03014680908</p>
-      <nav class="legal" aria-label="Note legali"><a href="privacy.html">Privacy policy</a><a href="cookie.html">Cookie policy</a></nav>
+      <nav class="legal" aria-label="Note legali"><a href="/privacy.html">Privacy policy</a><a href="/cookie.html">Cookie policy</a></nav>
     </div>
   </footer>
-  <script>document.getElementById("anno").textContent = new Date().getFullYear();</script>
+  <!-- /FOOTER -->
 </body>
 </html>
