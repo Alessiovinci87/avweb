@@ -396,3 +396,28 @@ html:not(.js) .form { display: none; }
 
 /* Pagine progetto: collegamento al settore */
 .rel-settore { margin: 0 0 22px; }
+
+/* Schermi larghi (da 1100 px): contenitore a 1240 px, fasce alternate a tutta larghezza, collage piu grande.
+   Sotto i 1100 px (tablet e telefono) non cambia nulla. */
+@media (min-width: 1100px) {
+  :root { --gutter: clamp(20px, 6vw - 46px, 72px); --band: #10151b; }
+  .wrap { max-width: calc(1240px + 2 * var(--gutter)); padding-left: var(--gutter); padding-right: var(--gutter); }
+
+  /* Fasce: una sezione si e una no, escluse quelle che continuano l'intestazione (con stile proprio),
+     la navigazione tra progetti e l'invito finale, che ha gia il suo riquadro */
+  main > section:nth-of-type(even):not([style]):not(:has(.contact, .pager)) {
+    margin-top: 64px; padding: 64px 0;
+    background: var(--band); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    --panel: var(--panel-2); /* le schede dentro la fascia restano piu chiare dello sfondo */
+  }
+  main > section:nth-of-type(even):not([style]):not(:has(.contact, .pager)) + section { padding-top: 64px; }
+
+
+  /* Paragrafi lunghi leggibili: al massimo circa 70 caratteri per riga */
+  main p { max-width: 70ch; }
+}
+/* Apertura della home: piu spazio al collage dei progetti (da 1300 px, cosi il titolo resta su tre righe) */
+@media (min-width: 1300px) { .hero { grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 56px; } }
+
+/* Immagini che hanno gia cornici e ombre proprie, su sfondo trasparente (per esempio la vetrina di Awareness) */
+.media.solo img.mockup { box-shadow: none; border-radius: 0; }

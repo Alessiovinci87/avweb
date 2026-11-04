@@ -28,6 +28,22 @@ if (-not (Test-Path (Join-Path $root "img\alessio.webp"))) {
   Write-Host "Chi sono: img/alessio.webp non c'e, lo spazio della foto non viene pubblicato" -ForegroundColor Yellow
 }
 
+# Versione dei file CSS e JS: nelle pagine i link diventano /css/stile.css?v=<hash del file>.
+# Ogni modifica cambia l'indirizzo, quindi il browser scarica subito il file nuovo e la cache puo durare un anno.
+$versioni = @{}
+foreach ($f in @(Get-ChildItem (Join-Path $dist "css") -File) + @(Get-ChildItem (Join-Path $dist "js") -File)) {
+  $hash = (Get-FileHash $f.FullName -Algorithm SHA256).Hash.Substring(0, 10).ToLower()
+  $versioni["/" + (Rel $f.FullName)] = $hash
+}
+$utf8 = New-Object Text.UTF8Encoding $false
+foreach ($h in Get-ChildItem $dist -Filter *.html -Recurse) {
+  $t = [IO.File]::ReadAllText($h.FullName)
+  $nuovo = $t
+  foreach ($k in $versioni.Keys) { $nuovo = $nuovo.Replace("=`"$k`"", "=`"$k`?v=$($versioni[$k])`"") }
+  if ($nuovo -ne $t) { [IO.File]::WriteAllText($h.FullName, $nuovo, $utf8) }
+}
+Write-Host ("Versioni: " + (($versioni.GetEnumerator() | Sort-Object Name | ForEach-Object { "$($_.Name)?v=$($_.Value)" }) -join ", "))
+
 Add-Type -AssemblyName System.Web
 function Testo($s) { return [System.Web.HttpUtility]::HtmlDecode($s) }
 
@@ -50,7 +66,10 @@ foreach ($h in $html) {
   $nome = Rel $h.FullName
   $testo = Get-Content $h.FullName -Raw -Encoding UTF8
   if ($testo -match "gestionale-ads|adpilot") { Write-Host "ATTENZIONE: $nome contiene un riferimento allo screenshot Ads" -ForegroundColor Red; $problemi++ }
-  $segnaposto = ([regex]::Matches($testo, "\[DA (COMPLETARE|VERIFICARE|INSERIRE)[^\]]*\]")).Count
+  foreach ($m in [regex]::Matches($testo, '(?:href|src)="(/(?:css|js)/[^"]*)"')) {
+    if ($m.Groups[1].Value -notmatch "\?v=[0-9a-f]{10}$") { Write-Host "ATTENZIONE: $nome richiama $($m.Groups[1].Value) senza versione" -ForegroundColor Red; $problemi++ }
+  }
+  $segnaposto =([regex]::Matches($testo, "\[DA (COMPLETARE|VERIFICARE|INSERIRE)[^\]]*\]")).Count
   if ($segnaposto -gt 0) { Write-Host "Da completare: $nome ha ancora $segnaposto segnaposto [DA ...]" -ForegroundColor Yellow }
 
   # Link e immagini interni: il file di destinazione deve esistere
