@@ -231,13 +231,19 @@ h1 { font-size: clamp(42px, 6.6vw, 88px); line-height: .98; letter-spacing: -.03
 /* ---------- 5. Chi sono ---------- */
 .me { background: var(--canvas); padding: clamp(80px, 11vw, 140px) 0; }
 .me-in { display: grid; gap: 48px; }
-.me-photo { margin: 0; }
-.me-empty { aspect-ratio: 4 / 5; display: grid; place-content: center; justify-items: center; gap: 10px; border: 1.5px dashed #b9b4a8; border-radius: 3px; color: var(--ink-3); font-size: 14px; text-align: center; padding: 24px; background: rgba(255,255,255,.4); }
+.me-path { order: 2; }
+.path { list-style: none; margin: 0; padding: 8px 24px; background: #fff; border: 1px solid var(--line); border-radius: 3px; box-shadow: 0 1px 2px rgba(11,18,32,.06), 0 30px 60px -28px rgba(11,18,32,.25); }
+.path li { position: relative; display: grid; grid-template-columns: 92px 1fr; gap: 2px 16px; padding: 18px 0 18px 0; border-top: 1px solid var(--line); }
+.path li:first-child { border-top: 0; }
+.path-when { grid-row: span 2; font: 500 13px/1.5 var(--body); color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.path b { font: 600 18px/1.25 var(--display); letter-spacing: -.015em; }
+.path li > span:last-child { font-size: 15px; line-height: 1.5; color: var(--ink-2); }
+.path .now b { background: linear-gradient(var(--mint), var(--mint)) 0 88% / 100% .3em no-repeat; justify-self: start; }
+@media (max-width: 420px) { .path { padding: 4px 16px; } .path li { grid-template-columns: 1fr; } .path-when { grid-row: auto; } }
 .me-text p { color: var(--ink-2); max-width: 50ch; margin: 22px 0 0; }
 .me-text .sec-title { max-width: 20ch; }
 @media (min-width: 900px) {
-  .me-in { grid-template-columns: 5fr 7fr; gap: clamp(48px, 7vw, 120px); align-items: end; }
-  .me-photo { max-width: 440px; }
+  .me-in { grid-template-columns: 5fr 6fr; gap: clamp(48px, 7vw, 120px); align-items: center; }
 }
 
 /* ---------- 6. Settori ---------- */

@@ -83,9 +83,12 @@
   gsap.utils.toArray(".reveal").forEach(function (el) {
     gsap.to(el, { opacity: 1, y: 0, duration: 1, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 85%", once: true } });
   });
-  gsap.utils.toArray(".do-col, .case h3, .me-photo, .way").forEach(function (el) {
+  gsap.utils.toArray(".do-col, .case h3, .way").forEach(function (el) {
     gsap.from(el, { y: 32, opacity: 0, duration: 1, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 88%", once: true } });
   });
+
+  // Percorso: le tappe compaiono una dopo l'altra
+  gsap.from(".path li", { x: -16, opacity: 0, duration: 0.7, ease: "power3.out", stagger: 0.12, scrollTrigger: { trigger: ".path", start: "top 80%", once: true } });
 
   // ---------- Pulsanti "magnetici" ----------
   if (fine) {
