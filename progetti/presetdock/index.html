@@ -6,8 +6,8 @@
   <title>PresetDock: libreria di preset per multieffetto | AV Web</title>
   <meta name="description" content="Programma per Windows che organizza, cataloga e rende ricercabile la libreria di preset di un multieffetto per chitarra. Scopri il progetto." />
   <link rel="canonical" href="https://avweb.it/progetti/presetdock/" />
-  <meta name="theme-color" content="#0c0f13" />
-  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#f2f0eb" />
+  <meta name="color-scheme" content="light" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="it_IT" />
   <meta property="og:site_name" content="AV Web" />
@@ -22,9 +22,13 @@
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
   <link rel="apple-touch-icon" href="/apple-touch-icon-180.png" sizes="180x180" />
-  <link rel="preload" href="/fonts/unbounded-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/css/stile.css" />
   <script>document.documentElement.classList.add("js")</script>
+  <script src="/js/gsap.min.js" defer></script>
+  <script src="/js/ScrollTrigger.min.js" defer></script>
+  <script src="/js/SplitText.min.js" defer></script>
+  <script src="/js/lenis.min.js" defer></script>
   <script src="/js/sito.js" defer></script>
   <script type="application/ld+json">
 {
@@ -54,57 +58,63 @@
   </script>
 </head>
 <body>
-  <div class="glow" aria-hidden="true"></div>
-
   <!-- MENU -->
   <a href="#contenuto" class="skip">Vai al contenuto</a>
   <header class="top">
-    <div class="wrap">
-      <a href="/" class="brand" aria-label="AV Web, vai alla home"><img class="brand-icon" src="/avweb-icona.svg" width="36" height="30" alt="" /><span>AV <span class="grad">WEB</span></span></a>
-      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">
-        <svg class="ic-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-        <svg class="ic-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
-        <span class="menu-label">Menu</span>
-      </button>
+    <div class="wrap top-in">
+      <a href="/" class="brand" aria-label="AV Web, vai alla home"><img src="/avweb-icona.svg" width="34" height="28" alt="" /><span>AV Web</span></a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu"><span class="menu-label">Menu</span><span class="menu-ic" aria-hidden="true"></span></button>
       <nav class="links" id="menu" aria-label="Menu principale">
-          <a href="/">Home</a>
-          <a href="/servizi/">Servizi</a>
-          <a href="/settori/">Settori</a>
-          <a href="/progetti/" aria-current="page">Progetti</a>
-          <a href="/chi-sono/">Chi sono</a>
-          <a href="/contatti/">Contatti</a>
-          <a href="/contatti/" class="nav-cta">Richiedi un preventivo</a>
+        <a href="/servizi/">Servizi</a>
+        <a href="/settori/">Settori</a>
+        <a href="/progetti/" aria-current="page">Progetti</a>
+        <a href="/chi-sono/">Chi sono</a>
+        <a href="/contatti/" class="nav-cta">Richiedi un preventivo</a>
       </nav>
     </div>
   </header>
   <!-- /MENU -->
 
   <main id="contenuto">
-    <div class="wrap page-head proj-head">
-      <a class="crumb" href="/progetti/">← Tutti i progetti</a>
-      <div class="labels"><span class="badge">Prodotti</span><span class="badge soon">In arrivo</span></div>
-      <h1>PresetDock</h1>
-      <span class="kicker">App desktop · Windows · Musicisti</span>
-      <div class="tags" aria-label="Tecnologie"><span class="tag">App desktop</span><span class="tag">Windows</span></div>
-      <div class="media proj-media fill">
-        <img class="desk" src="/img/presetdock.webp" width="1904" height="990" alt="Schermata principale di PresetDock" />
+    <section class="study-head">
+      <div class="wrap">
+        <nav class="crumbs" aria-label="Percorso"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/progetti/">Progetti</a><span aria-hidden="true">/</span><span aria-current="page">PresetDock</span></nav>
+        <p class="study-meta rise">App desktop · Windows · Musicisti <span class="chip">Prodotti</span><span class="chip chip-soon">In arrivo</span></p>
+        <h1 class="study-h1">PresetDock</h1>
+        <p class="study-lead rise">Programma per Windows che organizza, cataloga e rende ricercabile la libreria di preset di un multieffetto per chitarra.</p>
+        <dl class="facts rise">
+          <div><dt>Cosa</dt><dd>App desktop</dd></div><div><dt>Ambito</dt><dd>Windows · Musicisti</dd></div><div><dt>Tecnologie</dt><dd>App desktop, Windows</dd></div><div><dt>Online</dt><dd><a href="https://presetdock.com/" target="_blank" rel="noopener">presetdock.com ↗<span class="sr"> (si apre in una nuova scheda)</span></a></dd></div>
+        </dl>
       </div>
-    </div>
+    </section>
 
-    <section>
-      <div class="wrap story">
-        <div class="part">
-          <h2>La sfida</h2>
-          <div>
-            <p>Una libreria di preset per multieffetto cresce in fretta e diventa difficile da consultare: trovare il suono giusto vuol dire scorrere lunghi elenchi di nomi.</p>
+    <section class="study-canvas" aria-label="Immagini del progetto">
+      <div class="canvas">
+        <div class="wrap study-board study-single">
+          <div class="sb-desk" data-speed="4">
+            <span class="frame-name" aria-hidden="true">Desktop</span>
+            <div class="frame-body sb-img">
+              <img src="/img/presetdock.webp" width="1904" height="990" alt="Schermata principale di PresetDock" style="view-transition-name: p-presetdock" />
+            </div>
           </div>
         </div>
-        <div class="part">
-          <h2>La soluzione</h2>
+      </div>
+    </section>
+
+    <section class="study-story">
+      <div class="wrap">
+        <div class="chapter">
+          <h2 class="ch-title">La sfida</h2>
           <div>
-            <p>Programma per Windows che organizza, cataloga e rende ricercabile la libreria di preset di un multieffetto per chitarra.</p>
-            <h3>Cosa ho fatto</h3>
-            <ul class="points">
+            <p class="ch-big rise">Una libreria di preset per multieffetto cresce in fretta e diventa difficile da consultare: trovare il suono giusto vuol dire scorrere lunghi elenchi di nomi.</p>
+          </div>
+        </div>
+        <div class="chapter">
+          <h2 class="ch-title">La soluzione</h2>
+          <div>
+            <p class="ch-big rise">Programma per Windows che organizza, cataloga e rende ricercabile la libreria di preset di un multieffetto per chitarra.</p>
+            <h3 class="ch-sub">Cosa ho fatto</h3>
+            <ul class="ticks">
               <li>Cerca i preset descrivendo il suono a parole</li>
               <li>Catalogazione per genere, ampli, cabinet e artista</li>
               <li>Riconoscimento dei duplicati e statistiche della libreria</li>
@@ -112,49 +122,35 @@
             </ul>
           </div>
         </div>
-        <div class="part">
-          <span></span>
-          <div><a class="btn btn-ghost" href="https://presetdock.com/" target="_blank" rel="noopener">Scopri PresetDock ↗<span class="sr"> (si apre in una nuova scheda)</span></a></div>
-        </div>
       </div>
     </section>
 
-    <section>
+    <section class="study-next">
       <div class="wrap">
+        
         <nav class="pager" aria-label="Altri progetti">
-          <a class="prev" href="/progetti/quitfresh/"><span>← Progetto precedente</span><strong>QuitFresh</strong></a>
-          <a class="next" href="/progetti/centro-emovere/"><span>Progetto successivo →</span><strong>Centro Emovere</strong></a>
+          <a href="/progetti/quitfresh/"><span>← Precedente</span><b>QuitFresh</b></a>
+          <a href="/progetti/centro-emovere/" class="next"><span>Successivo →</span><b>Centro Emovere</b></a>
         </nav>
       </div>
     </section>
 
-    <section>
-      <div class="wrap">
-        <div class="contact">
-          <div>
-            <span class="eyebrow">Contatti</span>
-            <h2>Hai un progetto <span class="grad">in mente?</span></h2>
-            <p><strong>Preventivo gratuito in 24 ore.</strong> Raccontami in poche righe cosa ti serve.</p>
-          </div>
-          <div class="end">
-            <div class="cta-row">
-              <a class="btn btn-primary" href="/contatti/">Richiedi un preventivo</a>
-            </div>
-          </div>
+    <section class="cta" aria-labelledby="t-cta">
+      <div class="wrap cta-in">
+        <h2 id="t-cta" class="cta-title reveal">Raccontami cosa ti serve. <em>Ti rispondo io, entro 24 ore.</em></h2>
+        <div class="cta-ways">
+          <a class="way magnet" href="/contatti/"><span>Modulo</span><b>Richiedi un preventivo gratuito</b></a>
+          <a class="way magnet" href="https://wa.me/393403689635?text=Ciao%20Alessio%2C%20vorrei%20un%20preventivo%20per%20un%20progetto" target="_blank" rel="noopener"><span>WhatsApp</span><b>340 368 9635</b><i class="sr"> (si apre in una nuova scheda)</i></a>
+          <a class="way magnet" href="mailto:info@avweb.it?subject=Richiesta%20di%20preventivo"><span>Email</span><b>info@avweb.it</b></a>
         </div>
       </div>
     </section>
   </main>
-
   <!-- FOOTER -->
-  <footer>
-    <div class="wrap foot-sec">
-      <p class="foot-title">Settori</p>
+  <footer class="foot">
+    <div class="wrap foot-in">
       <nav aria-label="Settori"><a href="/settori/ristoranti/">Ristoranti e bar</a><a href="/settori/strutture-ricettive/">B&amp;B e case vacanza</a><a href="/settori/bellezza/">Centri estetici e parrucchieri</a><a href="/settori/sport/">Palestre e personal trainer</a><a href="/settori/studi-professionali/">Studi professionali</a><a href="/settori/centri-terapeutici/">Centri terapeutici</a><a href="/settori/negozi-artigiani/">Negozi e artigiani</a><a href="/settori/agenzie-immobiliari/">Agenzie immobiliari</a><a href="/settori/ecommerce/">E-commerce e Amazon</a></nav>
-    </div>
-    <div class="wrap">
-      <p>© <span id="anno">2026</span> AV Web · Alessio Vinci · Alghero (SS) · P.IVA IT03014680908</p>
-      <nav class="legal" aria-label="Note legali"><a href="/privacy.html">Privacy policy</a><a href="/cookie.html">Cookie policy</a></nav>
+      <p>© <span id="anno">2026</span> AV Web · Alessio Vinci · Alghero (SS) · P.IVA IT03014680908 · <a href="/privacy.html">Privacy</a> · <a href="/cookie.html">Cookie</a></p>
     </div>
   </footer>
   <!-- /FOOTER -->

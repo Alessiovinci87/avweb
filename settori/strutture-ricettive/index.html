@@ -6,8 +6,8 @@
   <title>Siti web per B&amp;B e case vacanza in Sardegna | AV Web</title>
   <meta name="description" content="Siti per B&amp;B e case vacanza in Sardegna: più lingue, calendario allineato con Airbnb e Booking e prenotazioni dirette. Chiedi un preventivo gratuito." />
   <link rel="canonical" href="https://avweb.it/settori/strutture-ricettive/" />
-  <meta name="theme-color" content="#0c0f13" />
-  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#f2f0eb" />
+  <meta name="color-scheme" content="light" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="it_IT" />
   <meta property="og:site_name" content="AV Web" />
@@ -22,9 +22,13 @@
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
   <link rel="apple-touch-icon" href="/apple-touch-icon-180.png" sizes="180x180" />
-  <link rel="preload" href="/fonts/unbounded-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/css/stile.css" />
   <script>document.documentElement.classList.add("js")</script>
+  <script src="/js/gsap.min.js" defer></script>
+  <script src="/js/ScrollTrigger.min.js" defer></script>
+  <script src="/js/SplitText.min.js" defer></script>
+  <script src="/js/lenis.min.js" defer></script>
   <script src="/js/sito.js" defer></script>
   <script type="application/ld+json">
 {
@@ -71,129 +75,122 @@
   </script>
 </head>
 <body>
-  <div class="glow" aria-hidden="true"></div>
-
   <!-- MENU -->
   <a href="#contenuto" class="skip">Vai al contenuto</a>
   <header class="top">
-    <div class="wrap">
-      <a href="/" class="brand" aria-label="AV Web, vai alla home"><img class="brand-icon" src="/avweb-icona.svg" width="36" height="30" alt="" /><span>AV <span class="grad">WEB</span></span></a>
-      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">
-        <svg class="ic-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-        <svg class="ic-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
-        <span class="menu-label">Menu</span>
-      </button>
+    <div class="wrap top-in">
+      <a href="/" class="brand" aria-label="AV Web, vai alla home"><img src="/avweb-icona.svg" width="34" height="28" alt="" /><span>AV Web</span></a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu"><span class="menu-label">Menu</span><span class="menu-ic" aria-hidden="true"></span></button>
       <nav class="links" id="menu" aria-label="Menu principale">
-          <a href="/">Home</a>
-          <a href="/servizi/">Servizi</a>
-          <a href="/settori/" aria-current="page">Settori</a>
-          <a href="/progetti/">Progetti</a>
-          <a href="/chi-sono/">Chi sono</a>
-          <a href="/contatti/">Contatti</a>
-          <a href="/contatti/" class="nav-cta">Richiedi un preventivo</a>
+        <a href="/servizi/">Servizi</a>
+        <a href="/settori/" aria-current="page">Settori</a>
+        <a href="/progetti/">Progetti</a>
+        <a href="/chi-sono/">Chi sono</a>
+        <a href="/contatti/" class="nav-cta">Richiedi un preventivo</a>
       </nav>
     </div>
   </header>
   <!-- /MENU -->
 
   <main id="contenuto">
-    <div class="wrap page-head proj-head">
-      <a class="crumb" href="/settori/">← Tutti i settori</a>
-      <div class="sector-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v10h13V10"/><path d="M10 20v-5.5h4V20"/></svg></div>
-      <h1>Siti web per B&amp;B e case vacanza in Sardegna</h1>
-      <p class="lead">Più prenotazioni dirette, informazioni chiare nella lingua degli ospiti e date libere sempre aggiornate.</p>
-    </div>
+    <section class="sec-head-page">
+      <div class="wrap sector-hero">
+        <div>
+          <nav class="crumbs" aria-label="Percorso"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/settori/">Settori</a><span aria-hidden="true">/</span><span aria-current="page">B&amp;B e case vacanza</span></nav>
+          <h1 class="split">Siti web per B&amp;B e case vacanza in Sardegna</h1>
+          <p class="study-lead rise">Più prenotazioni dirette, informazioni chiare nella lingua degli ospiti e date libere sempre aggiornate.</p>
+          <div class="hero-cta">
+            <a class="btn btn-ink magnet" href="/contatti/">Chiedi un preventivo</a>
+            <a class="btn btn-line magnet" href="https://wa.me/393403689635?text=Ciao%20Alessio%2C%20vorrei%20un%20sito%20per%20la%20mia%20struttura" target="_blank" rel="noopener">Scrivimi su WhatsApp<span class="sr"> (si apre in una nuova scheda)</span></a>
+          </div>
+        </div>
 
-    <section>
-      <div class="wrap">
-        <div class="sec-head">
-          <div>
-            <h2>I problemi tipici</h2>
+        <figure class="schema" aria-label="Schema di esempio della home su smartphone">
+          <span class="frame-name">Schema di esempio — Mobile</span>
+          <div class="schema-phone">
+            <div class="schema-block sk-bar"><i></i><b>Contatti</b></div>
+            <div class="schema-block sk-photo"><span>Foto della casa</span></div>
+            <div class="schema-block sk-title"><i class="w70"></i><i class="w45"></i></div>
+            <div class="schema-block sk-row"><span class="sk-chip">IT</span><span class="sk-chip">EN</span><span class="sk-chip">DE</span></div>
+            <div class="schema-block sk-today"><b>Date libere</b><span>Calendario allineato con Airbnb</span></div>
+            <div class="schema-block sk-wa">Chiedi la disponibilità</div>
+            <div class="schema-block sk-map"><span>Come arrivare</span></div>
           </div>
-        </div>
-        <div class="services three">
-          <div class="svc">
-            <h3>Le commissioni dei portali</h3>
-            <p>Airbnb e Booking portano ospiti, ma ogni prenotazione costa una commissione. Un sito proprio offre agli ospiti un modo per contattarti direttamente.</p>
-          </div>
-          <div class="svc">
-            <h3>Ospiti da altri paesi</h3>
-            <p>Chi arriva dall'estero vuole leggere descrizione, regole e indicazioni nella propria lingua prima di decidere.</p>
-          </div>
-          <div class="svc">
-            <h3>Disponibilità da tenere allineata</h3>
-            <p>Con più canali di prenotazione, aggiornare le date a mano su ognuno è lento e si rischiano doppie prenotazioni.</p>
-          </div>
-        </div>
+          <figcaption>Uno schema, non il sito di un cliente: l'ordine dei contenuti che propongo di solito.</figcaption>
+        </figure>
       </div>
     </section>
 
-    <section>
-      <div class="wrap split">
-        <div class="panel">
-          <h2>Cosa comprende il sito</h2>
-          <ul class="points">
-              <li>Sito in più lingue, scelte in base ai tuoi ospiti</li>
-              <li>Galleria di foto e descrizione degli spazi</li>
-              <li>Calendario delle date libere allineato con Airbnb o Booking</li>
-              <li>Richiesta di prenotazione diretta o messaggio WhatsApp</li>
-              <li>Guida della zona: spiagge, ristoranti e cose da vedere</li>
-              <li>Informazioni utili: check-in, parcheggio e come arrivare</li>
+    <section class="pairs" aria-labelledby="t-pairs">
+      <div class="wrap">
+        <h2 id="t-pairs" class="sec-title reveal">Tre problemi che si ripetono, <em>e cosa fa il sito per ognuno.</em></h2>
+        <ol class="pair-list">
+          <li class="pair">
+            <span class="pair-n" aria-hidden="true">01</span>
+            <div class="pair-p"><h3>Le commissioni dei portali</h3><p>Airbnb e Booking portano ospiti, ma ogni prenotazione costa una commissione. Un sito proprio offre agli ospiti un modo per contattarti direttamente.</p></div>
+            <div class="pair-s"><span class="pair-tag">Il sito</span><p>Una richiesta di prenotazione diretta o un messaggio WhatsApp, per chi ti trova su Google o torna una seconda volta.</p></div>
+          </li>
+          <li class="pair">
+            <span class="pair-n" aria-hidden="true">02</span>
+            <div class="pair-p"><h3>Ospiti da altri paesi</h3><p>Chi arriva dall'estero vuole leggere descrizione, regole e indicazioni nella propria lingua prima di decidere.</p></div>
+            <div class="pair-s"><span class="pair-tag">Il sito</span><p>Il sito nelle lingue dei tuoi ospiti, con spazi, regole, check-in e indicazioni per arrivare.</p></div>
+          </li>
+          <li class="pair">
+            <span class="pair-n" aria-hidden="true">03</span>
+            <div class="pair-p"><h3>Disponibilità da tenere allineata</h3><p>Con più canali di prenotazione, aggiornare le date a mano su ognuno è lento e si rischiano doppie prenotazioni.</p></div>
+            <div class="pair-s"><span class="pair-tag">Il sito</span><p>Le date occupate lette dal calendario di Airbnb o Booking: il sito mostra la disponibilità senza inserirla a mano.</p></div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="incl" aria-labelledby="t-incl">
+      <div class="wrap incl-in">
+        <div>
+          <h2 id="t-incl" class="label">Cosa comprende il sito</h2>
+          <ul class="ticks ticks-2">
+            <li>Sito in più lingue, scelte in base ai tuoi ospiti</li>
+            <li>Galleria di foto e descrizione degli spazi</li>
+            <li>Calendario delle date libere allineato con Airbnb o Booking</li>
+            <li>Richiesta di prenotazione diretta o messaggio WhatsApp</li>
+            <li>Guida della zona: spiagge, ristoranti e cose da vedere</li>
+            <li>Informazioni utili: check-in, parcheggio e come arrivare</li>
           </ul>
         </div>
-        <div class="panel accent">
-          <h2>In più, su richiesta</h2>
-          <h3>Pagina di benvenuto per gli ospiti</h3>
-          <p>Una pagina per chi ha prenotato, con le istruzioni della casa: come entrare, Wi-Fi, regole e numeri utili. Meno messaggi da ripetere a ogni arrivo.</p>
-          <p class="rel">Servizi collegati</p>
-          <div class="examples">
-              <a class="more" href="/servizi/#siti">Siti per attività e professionisti</a>
+        <aside class="extra" aria-labelledby="t-extra">
+          <span class="frame-name" aria-hidden="true">In più, su richiesta</span>
+          <div class="extra-body">
+            <h2 id="t-extra">Pagina di benvenuto per gli ospiti</h2>
+            <p>Una pagina per chi ha prenotato, con le istruzioni della casa: come entrare, Wi-Fi, regole e numeri utili. Meno messaggi da ripetere a ogni arrivo.</p>
+            <p class="extra-rel"><a class="more" href="/servizi/#siti">Siti per attività e professionisti</a></p>
           </div>
-        </div>
+        </aside>
       </div>
     </section>
 
-    <section>
+    <section class="examples-sec" aria-labelledby="t-ex">
       <div class="wrap">
-        <div class="sec-head">
-          <div>
-            <h2>Esempi</h2>
-          </div>
-        </div>
-        <ul class="cards">
-          <li class="card" data-cat="siti">
-            <div class="media fill center m-sea">
-              <img class="desk" src="/img/schede/casevacanze.webp" width="800" height="366" alt="Home page del sito Le Porte di Sardegna" loading="lazy" />
-            </div>
-            <div class="card-body">
-              <span class="kicker">Siti</span>
-              <h3><a href="/progetti/le-porte-di-sardegna/">Le Porte di Sardegna</a></h3>
-              <p>Sito vetrina per due case vacanze tra Stintino e Alghero, pensato per ricevere prenotazioni dirette.</p>
-              <span class="go" aria-hidden="true">Scopri il progetto →</span>
-            </div>
+        <h2 id="t-ex" class="sec-title reveal">Lavori <em>in questo settore.</em></h2>
+        <ul class="ex-list">
+          <li class="ex">
+            <a class="ex-media" href="/progetti/le-porte-di-sardegna/" tabindex="-1" aria-hidden="true"><img style="view-transition-name: p-le-porte-di-sardegna" class="desk" src="/img/schede/casevacanze.webp" width="800" height="366" alt="Home page del sito Le Porte di Sardegna" loading="lazy" /></a>
+            <p class="case-meta">Siti</p>
+            <h3><a href="/progetti/le-porte-di-sardegna/">Le Porte di Sardegna</a></h3>
+            <p>Sito vetrina per due case vacanze tra Stintino e Alghero, pensato per ricevere prenotazioni dirette.</p>
           </li>
-          <li class="card" data-cat="siti">
-            <div class="media fill m-garden">
-              <img class="desk" style="object-position: 26% top" src="/img/schede/giardinodibruna.webp" width="800" height="339" alt="Home page del sito Il Giardino di Bruna" loading="lazy" />
-            </div>
-            <div class="card-body">
-              <span class="kicker">Siti</span>
-              <h3><a href="/progetti/il-giardino-di-bruna/">Il Giardino di Bruna</a></h3>
-              <p>Sito per una dependance immersa nel verde a due passi dall'aeroporto di Alghero, pensato per le famiglie.</p>
-              <span class="go" aria-hidden="true">Scopri il progetto →</span>
-            </div>
+          <li class="ex">
+            <a class="ex-media" href="/progetti/il-giardino-di-bruna/" tabindex="-1" aria-hidden="true"><img class="desk" style="object-position: 26% top; view-transition-name: p-il-giardino-di-bruna" src="/img/schede/giardinodibruna.webp" width="800" height="339" alt="Home page del sito Il Giardino di Bruna" loading="lazy" /></a>
+            <p class="case-meta">Siti</p>
+            <h3><a href="/progetti/il-giardino-di-bruna/">Il Giardino di Bruna</a></h3>
+            <p>Sito per una dependance immersa nel verde a due passi dall'aeroporto di Alghero, pensato per le famiglie.</p>
           </li>
         </ul>
       </div>
     </section>
 
-    <section>
-      <div class="wrap">
-        <div class="sec-head">
-          <div>
-            <h2>Domande frequenti</h2>
-          </div>
-        </div>
+    <section class="faq-sec" aria-labelledby="t-faq">
+      <div class="wrap faq-in">
+        <h2 id="t-faq" class="sec-title reveal">Domande <em>frequenti</em></h2>
         <div class="faq">
           <details>
             <summary>Il calendario si aggiorna da solo?</summary>
@@ -211,33 +208,22 @@
       </div>
     </section>
 
-    <section>
-      <div class="wrap">
-        <div class="contact">
-          <div>
-            <span class="eyebrow">Contatti</span>
-            <h2>Hai un progetto <span class="grad">in mente?</span></h2>
-            <p><strong>Preventivo gratuito in 24 ore.</strong> Raccontami in poche righe cosa ti serve.</p>
-          </div>
-          <div class="end">
-            <div class="cta-row">
-              <a class="btn btn-primary" href="/contatti/">Richiedi un preventivo</a>
-            </div>
-          </div>
+    <section class="cta" aria-labelledby="t-cta">
+      <div class="wrap cta-in">
+        <h2 id="t-cta" class="cta-title reveal">Raccontami cosa ti serve. <em>Ti rispondo io, entro 24 ore.</em></h2>
+        <div class="cta-ways">
+          <a class="way magnet" href="/contatti/"><span>Modulo</span><b>Richiedi un preventivo gratuito</b></a>
+          <a class="way magnet" href="https://wa.me/393403689635?text=Ciao%20Alessio%2C%20vorrei%20un%20preventivo%20per%20un%20progetto" target="_blank" rel="noopener"><span>WhatsApp</span><b>340 368 9635</b><i class="sr"> (si apre in una nuova scheda)</i></a>
+          <a class="way magnet" href="mailto:info@avweb.it?subject=Richiesta%20di%20preventivo"><span>Email</span><b>info@avweb.it</b></a>
         </div>
       </div>
     </section>
   </main>
-
   <!-- FOOTER -->
-  <footer>
-    <div class="wrap foot-sec">
-      <p class="foot-title">Settori</p>
+  <footer class="foot">
+    <div class="wrap foot-in">
       <nav aria-label="Settori"><a href="/settori/ristoranti/">Ristoranti e bar</a><a href="/settori/strutture-ricettive/">B&amp;B e case vacanza</a><a href="/settori/bellezza/">Centri estetici e parrucchieri</a><a href="/settori/sport/">Palestre e personal trainer</a><a href="/settori/studi-professionali/">Studi professionali</a><a href="/settori/centri-terapeutici/">Centri terapeutici</a><a href="/settori/negozi-artigiani/">Negozi e artigiani</a><a href="/settori/agenzie-immobiliari/">Agenzie immobiliari</a><a href="/settori/ecommerce/">E-commerce e Amazon</a></nav>
-    </div>
-    <div class="wrap">
-      <p>© <span id="anno">2026</span> AV Web · Alessio Vinci · Alghero (SS) · P.IVA IT03014680908</p>
-      <nav class="legal" aria-label="Note legali"><a href="/privacy.html">Privacy policy</a><a href="/cookie.html">Cookie policy</a></nav>
+      <p>© <span id="anno">2026</span> AV Web · Alessio Vinci · Alghero (SS) · P.IVA IT03014680908 · <a href="/privacy.html">Privacy</a> · <a href="/cookie.html">Cookie</a></p>
     </div>
   </footer>
   <!-- /FOOTER -->

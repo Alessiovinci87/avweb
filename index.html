@@ -6,8 +6,8 @@
   <title>Siti web e gestionali su misura in Sardegna | AV Web</title>
   <meta name="description" content="AV Web realizza siti, gestionali e automazioni su misura per attività, professionisti e aziende a Sassari e in Sardegna. Preventivo gratuito in 24 ore." />
   <link rel="canonical" href="https://avweb.it/" />
-  <meta name="theme-color" content="#0c0f13" />
-  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#f2f0eb" />
+  <meta name="color-scheme" content="light" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="it_IT" />
   <meta property="og:site_name" content="AV Web" />
@@ -22,9 +22,14 @@
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
   <link rel="apple-touch-icon" href="/apple-touch-icon-180.png" sizes="180x180" />
-  <link rel="preload" href="/fonts/unbounded-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/css/stile.css" />
   <script>document.documentElement.classList.add("js")</script>
+  <script src="/js/gsap.min.js" defer></script>
+  <script src="/js/ScrollTrigger.min.js" defer></script>
+  <script src="/js/Draggable.min.js" defer></script>
+  <script src="/js/SplitText.min.js" defer></script>
+  <script src="/js/lenis.min.js" defer></script>
   <script src="/js/sito.js" defer></script>
   <script type="application/ld+json">
 {
@@ -66,329 +71,282 @@
   </script>
 </head>
 <body>
-  <div class="glow" aria-hidden="true"></div>
-
   <!-- MENU -->
   <a href="#contenuto" class="skip">Vai al contenuto</a>
   <header class="top">
-    <div class="wrap">
-      <a href="/" class="brand" aria-label="AV Web, vai alla home"><img class="brand-icon" src="/avweb-icona.svg" width="36" height="30" alt="" /><span>AV <span class="grad">WEB</span></span></a>
-      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">
-        <svg class="ic-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-        <svg class="ic-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
-        <span class="menu-label">Menu</span>
-      </button>
+    <div class="wrap top-in">
+      <a href="/" class="brand" aria-label="AV Web, vai alla home"><img src="/avweb-icona.svg" width="34" height="28" alt="" /><span>AV Web</span></a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu"><span class="menu-label">Menu</span><span class="menu-ic" aria-hidden="true"></span></button>
       <nav class="links" id="menu" aria-label="Menu principale">
-          <a href="/" aria-current="page">Home</a>
-          <a href="/servizi/">Servizi</a>
-          <a href="/settori/">Settori</a>
-          <a href="/progetti/">Progetti</a>
-          <a href="/chi-sono/">Chi sono</a>
-          <a href="/contatti/">Contatti</a>
-          <a href="/contatti/" class="nav-cta">Richiedi un preventivo</a>
+        <a href="/servizi/">Servizi</a>
+        <a href="/settori/">Settori</a>
+        <a href="/progetti/">Progetti</a>
+        <a href="/chi-sono/">Chi sono</a>
+        <a href="/contatti/" class="nav-cta">Richiedi un preventivo</a>
       </nav>
     </div>
   </header>
   <!-- /MENU -->
 
   <main id="contenuto">
-    <div class="wrap">
-      <div class="hero">
-        <div>
-          <span class="kick"><span class="dot" aria-hidden="true"></span> AV Web · Sassari e Sardegna</span>
-          <h1>Siti e software su misura, <span class="grad">fatti bene.</span></h1>
-          <p class="sub">Per attività, professionisti e aziende a Sassari e in tutta la Sardegna.</p>
-          <p class="lead">AV Web realizza siti, gestionali e automazioni per attività, professionisti e aziende: strumenti semplici da usare, costruiti attorno a come lavori, con un unico referente dall'idea alla messa online.</p>
-          <div class="cta-row">
-            <a class="btn btn-primary" href="/contatti/">Richiedi un preventivo gratuito</a>
-            <a class="btn btn-ghost" href="/progetti/">Guarda i lavori</a>
-          </div>
-        </div>
-        <div class="stack" aria-hidden="true">
-          <div class="d d1"><img src="/img/schede/gestionale.webp" width="800" height="383" alt="" /></div>
-          <div class="d d2"><img src="/img/schede/giardinodibruna.webp" width="800" height="339" alt="" /></div>
-          <div class="d d3"><img src="/img/quitfresh.webp" width="385" height="907" alt="" /></div>
-        </div>
-      </div>
-
-      <ul class="stats">
-        <li><b>24 ore</b><span>per ricevere il preventivo</span></li>
-        <li><b>7 giorni</b><span>per avere un sito vetrina online</span></li>
-        <li><b>1 referente</b><span>dall'idea all'assistenza</span></li>
-        <li><b>IT · EN</b><span>siti in più lingue</span></li>
-      </ul>
-    </div>
-
-    <section id="chi-sono">
-      <div class="wrap">
-        <div class="about">
-          <div>
-            <span class="eyebrow">Chi sono</span>
-            <h2>Prima il problema, poi la tecnologia</h2>
-          </div>
-          <div>
-            <p>Sono Alessio: per quattordici anni ho gestito un punto vendita, oggi costruisco siti e software per attività e aziende. Prima capisco il problema, poi scelgo la tecnologia.</p>
-            <a class="more" href="/chi-sono/">Scopri di più<span class="sr"> su di me</span></a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="servizi">
-      <div class="wrap">
-        <div class="sec-head">
-          <div>
-            <span class="eyebrow">Di cosa mi occupo</span>
-            <h2>Dal sito vetrina al gestionale</h2>
-          </div>
-        </div>
-        <div class="services">
-          <div class="svc">
-            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg></div>
-            <h3>Siti per attività e professionisti</h3>
-            <p>Veloci, curati, in più lingue, pensati per farsi trovare su Google e ricevere contatti su WhatsApp. A norma di privacy e cookie.</p>
-            <a class="more" href="/servizi/#siti">Scopri di più<span class="sr">: siti per attività e professionisti</span></a>
-          </div>
-          <div class="svc">
-            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg></div>
-            <h3>Gestionali e web app su misura</h3>
-            <p>Strumenti costruiti sul modo di lavorare del cliente, per smettere di usare fogli Excel e procedure a mano.</p>
-            <a class="more" href="/servizi/#gestionali">Scopri di più<span class="sr">: gestionali e web app su misura</span></a>
-          </div>
-          <div class="svc">
-            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></div>
-            <h3>Automazioni e intelligenza artificiale</h3>
-            <p>Collegare i sistemi tra loro e far fare al software il lavoro ripetitivo.</p>
-            <a class="more" href="/servizi/#automazioni">Scopri di più<span class="sr">: automazioni e intelligenza artificiale</span></a>
-          </div>
-          <div class="svc">
-            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg></div>
-            <h3>Assistenza continuativa</h3>
-            <p>Aggiornamenti, modifiche e nuove funzioni, con un unico referente.</p>
-            <a class="more" href="/servizi/#assistenza">Scopri di più<span class="sr">: assistenza continuativa</span></a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="metodo">
-      <div class="wrap">
-        <div class="sec-head">
-          <div>
-            <span class="eyebrow">Come lavoro</span>
-            <h2>Quattro passi, senza sorprese</h2>
-          </div>
-        </div>
-        <ol class="services steps">
-          <li class="svc">
-            <div class="ic num" aria-hidden="true">1</div>
-            <h3><span class="sr">Passo 1: </span>Ascolto</h3>
-            <p>Capisco l'attività, gli obiettivi e cosa serve davvero.</p>
-          </li>
-          <li class="svc">
-            <div class="ic num" aria-hidden="true">2</div>
-            <h3><span class="sr">Passo 2: </span>Proposta</h3>
-            <p>Preventivo chiaro, con tempi e costi definiti, gratuito e senza impegno.</p>
-          </li>
-          <li class="svc">
-            <div class="ic num" aria-hidden="true">3</div>
-            <h3><span class="sr">Passo 3: </span>Realizzazione</h3>
-            <p>Prima versione da vedere e correggere insieme, poi la messa online.</p>
-          </li>
-          <li class="svc">
-            <div class="ic num" aria-hidden="true">4</div>
-            <h3><span class="sr">Passo 4: </span>Assistenza</h3>
-            <p>Resto il punto di riferimento anche dopo, per modifiche e aggiornamenti.</p>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <section id="lavori">
-      <div class="wrap">
-        <div class="sec-head">
-          <div>
-            <span class="eyebrow">Progetti</span>
-            <h2>Progetti in evidenza</h2>
-          </div>
-        </div>
-        <ul class="cards">
-          <li class="card" data-cat="siti">
-            <div class="media fill m-sand">
-              <img class="desk" src="/img/schede/emovere-desktop.webp" width="800" height="500" alt="Home page del sito Centro Emovere su desktop" loading="lazy" />
+    <!-- 1. HERO: la tela di lavoro -->
+    <section class="hero" aria-labelledby="titolo">
+      <div class="canvas" data-canvas>
+        <div class="wrap hero-in">
+          <div class="hero-text">
+            <p class="hero-kick">Alessio Vinci · sviluppatore web e software · Alghero</p>
+            <h1 id="titolo" class="split">Siti e software costruiti intorno a come lavori davvero.</h1>
+            <p class="hero-lead">Per quattordici anni ho lavorato nella grande distribuzione, gli ultimi quattro da responsabile di punto vendita. Per questo, prima di scrivere codice, capisco come funziona la tua attività.</p>
+            <div class="hero-cta">
+              <a class="btn btn-ink magnet" href="/contatti/">Raccontami il tuo progetto</a>
+              <a class="btn btn-line magnet" href="https://wa.me/393403689635?text=Ciao%20Alessio%2C%20vorrei%20un%20preventivo%20per%20un%20progetto" target="_blank" rel="noopener">Scrivimi su WhatsApp<span class="sr"> (si apre in una nuova scheda)</span></a>
             </div>
-            <div class="card-body">
-              <span class="kicker">Siti</span>
+          </div>
+
+          <!-- Tavole: lavori veri, trascinabili su desktop. Sono una vetrina: gli stessi progetti sono descritti più sotto -->
+          <div class="board" aria-hidden="true">
+            <div class="frame f-a" data-frame data-size="1440 × 900">
+              <span class="frame-name">Centro Emovere — Desktop</span>
+              <div class="frame-body"><img src="/img/schede/emovere-desktop.webp" width="800" height="500" alt="" /></div>
+            </div>
+            <div class="frame f-b" data-frame data-size="390 × 844">
+              <span class="frame-name">QuitFresh — Mobile</span>
+              <div class="frame-body"><img src="/img/quitfresh.webp" width="385" height="907" alt="" /></div>
+            </div>
+            <div class="frame f-c" data-frame data-size="1904 × 911">
+              <span class="frame-name">Profit — Margini</span>
+              <div class="frame-body"><img src="/img/schede/gestionale.webp" width="800" height="383" alt="" /></div>
+            </div>
+            <div class="guide guide-v"></div>
+            <div class="guide guide-h"></div>
+            <div class="comment" data-comment>
+              <span class="pin">A</span>
+              <span class="bubble"><b>Alessio</b> Il pulsante «Ho bisogno ORA» deve stare sotto il pollice.</span>
+            </div>
+            <div class="cursor" data-cursor>
+              <svg viewBox="0 0 20 22" width="20" height="22"><path d="M2 1.5 18 11l-7.2 1.6L7 20z" /></svg>
+              <span>Alessio</span>
+            </div>
+          </div>
+
+          <div class="toolbar">
+            <span class="tool-hint">Trascina le tavole</span>
+            <button type="button" class="tool-btn" data-tidy aria-pressed="false">Metti in ordine</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. COSA FACCIO: due aree, non quattro card -->
+    <section class="do" aria-labelledby="t-do">
+      <div class="wrap">
+        <h2 id="t-do" class="sec-title reveal">Faccio due cose, <em>e le seguo io dall'inizio alla fine.</em></h2>
+        <div class="do-grid">
+          <article class="do-col">
+            <span class="do-n" aria-hidden="true">01</span>
+            <h3>Siti che portano clienti</h3>
+            <p>Per attività, studi e strutture ricettive: veloci dal telefono, in più lingue se servono, scritti per farsi trovare su Google e per ricevere contatti su WhatsApp. A norma di privacy e cookie.</p>
+            <p class="do-ex">Per esempio <a href="/progetti/centro-emovere/">Centro Emovere</a>, <a href="/progetti/le-porte-di-sardegna/">Le Porte di Sardegna</a>, <a href="/progetti/il-giardino-di-bruna/">Il Giardino di Bruna</a>.</p>
+            <a class="more" href="/servizi/#siti">Cosa comprende un sito</a>
+          </article>
+          <article class="do-col">
+            <span class="do-n" aria-hidden="true">02</span>
+            <h3>Software che tolgono lavoro</h3>
+            <p>Gestionali, web app, collegamenti tra sistemi e automazioni, costruiti sul modo in cui lavori. Per smettere di rincorrere fogli Excel, report sparsi e operazioni fatte a mano.</p>
+            <p class="do-ex">Per esempio <a href="/progetti/profit/">Profit</a>, <a href="/progetti/awareness/">Awareness</a>, <a href="/progetti/gestionale-amazon-ads/">Gestionale Amazon Ads</a>.</p>
+            <a class="more" href="/servizi/#gestionali">Come lavoro sui gestionali</a>
+          </article>
+        </div>
+        <p class="do-after reveal">E dopo la pubblicazione resto io il tuo riferimento: modifiche, aggiornamenti e nuove funzioni, senza passare da un call center. <a href="/servizi/#assistenza">Assistenza</a></p>
+      </div>
+    </section>
+
+    <!-- 3. PROGETTI: immagine ferma, storie che scorrono -->
+    <section class="work" aria-labelledby="t-work">
+      <div class="wrap">
+        <div class="work-head">
+          <h2 id="t-work" class="sec-title reveal">Lavori veri, <em>problemi veri.</em></h2>
+          <a class="more" href="/progetti/">Tutti gli 8 progetti</a>
+        </div>
+        <div class="work-grid">
+          <div class="work-stage" aria-hidden="true">
+            <div class="stage-frame">
+              <span class="frame-name stage-name" data-stage-name>Centro Emovere — Desktop</span>
+              <div class="stage-body">
+                <img class="is-on" data-stage="0" style="view-transition-name: p-centro-emovere" src="/img/emovere-desktop.webp" width="1440" height="900" alt="" loading="lazy" />
+                <img style="view-transition-name: p-le-porte-di-sardegna" data-stage="1" src="/img/casevacanze.webp" width="1901" height="869" alt="" loading="lazy" />
+                <img data-stage="2" src="/img/giardinodibruna.webp" width="1897" height="805" alt="" loading="lazy" style="object-position: 26% top; view-transition-name: p-il-giardino-di-bruna" />
+                <img style="view-transition-name: p-profit" data-stage="3" src="/img/gestionale.webp" width="1904" height="911" alt="" loading="lazy" />
+              </div>
+            </div>
+            <ol class="stage-dots"><li class="is-on"></li><li></li><li></li><li></li></ol>
+          </div>
+
+          <div class="work-list">
+            <article class="case" data-case="0" data-name="Centro Emovere — Desktop">
+              <img class="case-img" style="view-transition-name: p-centro-emovere" src="/img/schede/emovere-desktop.webp" width="800" height="500" alt="Home page del sito Centro Emovere su desktop" loading="lazy" />
+              <p class="case-meta">Sito web · Centro terapeutico, Alghero</p>
               <h3><a href="/progetti/centro-emovere/">Centro Emovere</a></h3>
-              <p>Sito completo per un centro multidisciplinare di psicologia, logopedia, neuropsicomotricità e fisioterapia.</p>
-              <span class="go" aria-hidden="true">Scopri il progetto →</span>
-            </div>
-          </li>
-          <li class="card" data-cat="siti">
-            <div class="media fill center m-sea">
-              <img class="desk" src="/img/schede/casevacanze.webp" width="800" height="366" alt="Home page del sito Le Porte di Sardegna" loading="lazy" />
-            </div>
-            <div class="card-body">
-              <span class="kicker">Siti</span>
+              <dl class="case-story">
+                <dt>Il problema</dt><dd>Un centro con psicologia, logopedia, neuropsicomotricità e fisioterapia deve presentare servizi ed équipe a famiglie che cercano dal telefono.</dd>
+                <dt>Cosa ho costruito</dt><dd>Un sito pensato prima per lo smartphone, con pagine dei servizi, schede dei professionisti, blog e modulo contatti.</dd>
+                <dt>Cosa cambia</dt><dd>Le famiglie trovano tutto in un unico posto e scrivono direttamente al centro.</dd>
+              </dl>
+              <p class="case-tech">Next.js · React · Tailwind CSS</p>
+            </article>
+            <article class="case" data-case="1" data-name="Le Porte di Sardegna — Home">
+              <img class="case-img" style="view-transition-name: p-le-porte-di-sardegna" src="/img/schede/casevacanze.webp" width="800" height="366" alt="Home page del sito Le Porte di Sardegna" loading="lazy" />
+              <p class="case-meta">Sito web · Case vacanze, Stintino e Alghero</p>
               <h3><a href="/progetti/le-porte-di-sardegna/">Le Porte di Sardegna</a></h3>
-              <p>Sito vetrina per due case vacanze tra Stintino e Alghero, pensato per ricevere prenotazioni dirette.</p>
-              <span class="go" aria-hidden="true">Scopri il progetto →</span>
-            </div>
-          </li>
-          <li class="card" data-cat="siti">
-            <div class="media fill m-garden">
-              <img class="desk" style="object-position: 26% top" src="/img/schede/giardinodibruna.webp" width="800" height="339" alt="Home page del sito Il Giardino di Bruna" loading="lazy" />
-            </div>
-            <div class="card-body">
-              <span class="kicker">Siti</span>
+              <dl class="case-story">
+                <dt>Il problema</dt><dd>Due case vacanze avevano bisogno di un canale proprio per le prenotazioni dirette, anche dagli ospiti stranieri.</dd>
+                <dt>Cosa ho costruito</dt><dd>Un sito in cinque lingue con il calendario delle disponibilità sincronizzato con Airbnb.</dd>
+                <dt>Cosa cambia</dt><dd>Gli ospiti vedono le date libere sempre aggiornate e contattano direttamente i proprietari.</dd>
+              </dl>
+              <p class="case-tech">HTML · CSS · JavaScript · Python</p>
+            </article>
+            <article class="case" data-case="2" data-name="Il Giardino di Bruna — Home">
+              <img class="case-img" src="/img/schede/giardinodibruna.webp" width="800" height="339" alt="Home page del sito Il Giardino di Bruna" loading="lazy" style="object-position: 26% top; view-transition-name: p-il-giardino-di-bruna" />
+              <p class="case-meta">Sito web · Casa vacanze, Alghero</p>
               <h3><a href="/progetti/il-giardino-di-bruna/">Il Giardino di Bruna</a></h3>
-              <p>Sito per una dependance immersa nel verde a due passi dall'aeroporto di Alghero, pensato per le famiglie.</p>
-              <span class="go" aria-hidden="true">Scopri il progetto →</span>
-            </div>
-          </li>
-        </ul>
-        <p class="sec-foot"><a class="more" href="/progetti/">Tutti i progetti →</a></p>
+              <dl class="case-story">
+                <dt>Il problema</dt><dd>Far capire subito cosa rende la struttura speciale per le famiglie, a ospiti di paesi diversi.</dd>
+                <dt>Cosa ho costruito</dt><dd>Un sito in quattro lingue costruito intorno a giardino, piccola fattoria e parco giochi, con le disponibilità prese da Airbnb.</dd>
+                <dt>Cosa cambia</dt><dd>Le famiglie chiedono la prenotazione direttamente o scrivono su WhatsApp, con le date libere aggiornate da sole.</dd>
+              </dl>
+              <p class="case-tech">HTML · CSS · JavaScript</p>
+            </article>
+            <article class="case" data-case="3" data-name="Profit — Margini per prodotto">
+              <img class="case-img" style="view-transition-name: p-profit" src="/img/schede/gestionale.webp" width="800" height="383" alt="Pagina Profitto di Profit con la marginalità per prodotto, dati di esempio" loading="lazy" />
+              <p class="case-meta">Piattaforma web · Venditori Amazon in Europa</p>
+              <h3><a href="/progetti/profit/">Profit</a></h3>
+              <dl class="case-story">
+                <dt>Il problema</dt><dd>Vendite, commissioni, logistica e pubblicità stanno in report separati: il margine vero di un prodotto non si vede.</dd>
+                <dt>Cosa ho costruito</dt><dd>Una piattaforma collegata alle API ufficiali di Amazon che incrocia tutti i costi, per prodotto e per paese.</dd>
+                <dt>Cosa cambia</dt><dd>Al posto di report sparsi e fogli Excel, una sola vista su dove si guadagna e dove no.</dd>
+              </dl>
+              <p class="case-tech">React · Node.js · Amazon SP-API · AWS</p>
+            </article>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="settori">
-      <div class="wrap">
-        <div class="sec-head">
-          <div>
-            <span class="eyebrow">Settori</span>
-            <h2>Soluzioni per il tuo settore</h2>
+    <!-- 4. METODO: dallo schizzo al sito -->
+    <section class="method" aria-labelledby="t-method">
+      <div class="method-pin">
+        <div class="wrap method-in">
+          <div class="method-text">
+            <h2 id="t-method" class="sec-title">Dallo schizzo <em>al sito online.</em></h2>
+            <ol class="steps">
+              <li class="is-on"><b>Ascolto.</b> Mi racconti come lavori, cosa ti fa perdere tempo e cosa vuoi ottenere. Ti mando un preventivo chiaro, con tempi e costi.</li>
+              <li><b>Progetto.</b> Disegno la struttura prima dei colori: cosa deve trovare chi arriva, e in quale ordine.</li>
+              <li><b>Sviluppo.</b> Scrivo il codice e ti faccio vedere una prima versione da correggere insieme.</li>
+              <li><b>Verifico.</b> Telefono, computer, velocità, Google: controllo tutto prima di andare online.</li>
+              <li><b>Resto.</b> Dopo la pubblicazione sono sempre io a seguire modifiche e novità.</li>
+            </ol>
+          </div>
+          <div class="method-art" aria-hidden="true">
+            <div class="wf">
+              <span class="frame-name">Centro Emovere — dalla struttura al sito</span>
+              <div class="wf-body">
+                <img src="/img/emovere-desktop.webp" width="1440" height="900" alt="" loading="lazy" />
+                <div class="wf-sketch">
+                  <i style="left:12%;top:2%;width:8%;height:5%"></i>
+                  <i style="left:33%;top:3.6%;width:27%;height:1.6%" class="ln"></i>
+                  <i style="left:76%;top:2.6%;width:12%;height:3.6%" class="pill"></i>
+                  <i style="left:12.2%;top:22%;width:23%;height:1%" class="ln"></i>
+                  <i style="left:12.2%;top:26%;width:15%;height:6%"></i>
+                  <i style="left:12.2%;top:33.5%;width:26.3%;height:6%"></i>
+                  <i style="left:12.2%;top:41%;width:29.3%;height:5.5%"></i>
+                  <i style="left:12.2%;top:49.5%;width:36.8%;height:1.8%" class="ln"></i>
+                  <i style="left:12.2%;top:52.7%;width:36%;height:1.8%" class="ln"></i>
+                  <i style="left:12.2%;top:55.8%;width:37%;height:1.8%" class="ln"></i>
+                  <i style="left:12.2%;top:59%;width:35.8%;height:1.8%" class="ln"></i>
+                  <i style="left:12.2%;top:65.2%;width:16.1%;height:5.6%" class="pill"></i>
+                  <i style="left:29.2%;top:65.2%;width:11.5%;height:5.6%" class="pill"></i>
+                  <i style="left:12.2%;top:75.8%;width:15.8%;height:1.7%" class="ln"></i>
+                  <i style="left:29.7%;top:75.8%;width:13.6%;height:1.7%" class="ln"></i>
+                  <i style="left:12.2%;top:79.6%;width:15%;height:1.7%" class="ln"></i>
+                  <i style="left:55%;top:19%;width:32%;height:64%" class="arch"></i>
+                </div>
+                <span class="wf-scan"></span>
+              </div>
+            </div>
           </div>
         </div>
-        <ul class="tiles">
-          <li class="tile compact">
-            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v8M4.5 3v5a2.5 2.5 0 0 0 5 0V3M7 11v10"/><path d="M17 21V3c-2 1.5-3 4-3 7.5V13h3"/></svg></div>
-            <div>
-              <h3><a href="/settori/ristoranti/">Ristoranti, trattorie e bar</a></h3>
-              <span class="go" aria-hidden="true">Scopri di più →</span>
-            </div>
-          </li>
-          <li class="tile compact">
-            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v10h13V10"/><path d="M10 20v-5.5h4V20"/></svg></div>
-            <div>
-              <h3><a href="/settori/strutture-ricettive/">B&amp;B, case vacanza e strutture ricettive</a></h3>
-              <span class="go" aria-hidden="true">Scopri di più →</span>
-            </div>
-          </li>
-          <li class="tile compact">
-            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.2 8.2 20 20M8.2 15.8 20 4"/></svg></div>
-            <div>
-              <h3><a href="/settori/bellezza/">Centri estetici, parrucchieri e onicotecniche</a></h3>
-              <span class="go" aria-hidden="true">Scopri di più →</span>
-            </div>
-          </li>
-          <li class="tile compact">
-            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 7v10M3.5 9.5v5M17.5 7v10M20.5 9.5v5M6.5 12h11"/></svg></div>
-            <div>
-              <h3><a href="/settori/sport/">Palestre, personal trainer e studi di allenamento</a></h3>
-              <span class="go" aria-hidden="true">Scopri di più →</span>
-            </div>
-          </li>
-          <li class="tile compact">
-            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7M3 13h18"/></svg></div>
-            <div>
-              <h3><a href="/settori/studi-professionali/">Studi professionali</a></h3>
-              <span class="go" aria-hidden="true">Scopri di più →</span>
-            </div>
-          </li>
-          <li class="tile compact">
-            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7a4.3 4.3 0 0 1 7.5 2.8C19.5 15.4 12 20 12 20z"/></svg></div>
-            <div>
-              <h3><a href="/settori/centri-terapeutici/">Centri terapeutici, sanitari e del benessere</a></h3>
-              <span class="go" aria-hidden="true">Scopri di più →</span>
-            </div>
-          </li>
-          <li class="tile compact">
-            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 8.5h13l-1 11.5h-11z"/><path d="M9 8.5V7a3 3 0 0 1 6 0v1.5"/></svg></div>
-            <div>
-              <h3><a href="/settori/negozi-artigiani/">Negozi e artigiani</a></h3>
-              <span class="go" aria-hidden="true">Scopri di più →</span>
-            </div>
-          </li>
-          <li class="tile compact">
-            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="1.5"/><path d="M9 7h2M13 7h2M9 11h2M13 11h2M10 21v-4h4v4"/></svg></div>
-            <div>
-              <h3><a href="/settori/agenzie-immobiliari/">Agenzie immobiliari</a></h3>
-              <span class="go" aria-hidden="true">Scopri di più →</span>
-            </div>
-          </li>
-          <li class="tile compact">
-            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="19.5" r="1.5"/><circle cx="17" cy="19.5" r="1.5"/><path d="M3 4h2.2l2.3 11h10.8l2-8H6.3"/></svg></div>
-            <div>
-              <h3><a href="/settori/ecommerce/">E-commerce e venditori Amazon</a></h3>
-              <span class="go" aria-hidden="true">Scopri di più →</span>
-            </div>
-          </li>
-        </ul>
-        <p class="sec-foot"><a class="more" href="/settori/">Tutti i settori →</a></p>
       </div>
     </section>
 
-    <!-- TESTIMONIANZE: sezione pronta ma disattivata. Per attivarla togli questa riga e la riga "FINE TESTIMONIANZE" piu in basso,
-         poi scrivi in ogni scheda il testo, il nome e l'attivita (da 1 a 3 schede; quelle in piu si cancellano).
-    <section id="testimonianze">
-      <div class="wrap">
-        <div class="sec-head">
-          <div>
-            <span class="eyebrow">Testimonianze</span>
-            <h2>Cosa dicono i clienti</h2>
-          </div>
+    <!-- 5. CHI SONO -->
+    <section class="me" aria-labelledby="t-me">
+      <div class="wrap me-in">
+        <div class="me-path">
+          <span class="frame-name" aria-hidden="true">Il mio percorso</span>
+          <ol class="path">
+            <li><span class="path-when">14 anni</span><b>Grande distribuzione</b><span>Personale, fornitori, ordini, magazzino: i numeri da far tornare ogni giorno.</span></li>
+            <li><span class="path-when">gli ultimi 4</span><b>Responsabile di punto vendita</b><span>Le decisioni di chi manda avanti un'attività, viste da dentro.</span></li>
+            <li><span class="path-when">poi</span><b>Formazione in sviluppo web</b><span>La programmazione, nata come passione, diventa un lavoro.</span></li>
+            <li><span class="path-when">poi</span><b>E-commerce</b><span>Dati sparsi, calcoli a mano, procedure ripetitive: problemi da risolvere con il software giusto.</span></li>
+            <li class="now"><span class="path-when">oggi</span><b>AV Web, Alghero</b><span>Siti e software per attività, professionisti e aziende.</span></li>
+          </ol>
         </div>
-        <ul class="quotes">
-          <li>
-            <figure class="quote">
-              <blockquote><p>Testo della testimonianza.</p></blockquote>
-              <figcaption><strong>Nome</strong><span>Attività</span></figcaption>
-            </figure>
-          </li>
-          <li>
-            <figure class="quote">
-              <blockquote><p>Testo della testimonianza.</p></blockquote>
-              <figcaption><strong>Nome</strong><span>Attività</span></figcaption>
-            </figure>
-          </li>
-          <li>
-            <figure class="quote">
-              <blockquote><p>Testo della testimonianza.</p></blockquote>
-              <figcaption><strong>Nome</strong><span>Attività</span></figcaption>
-            </figure>
-          </li>
-        </ul>
+        <div class="me-text">
+          <h2 id="t-me" class="sec-title reveal">Conosco il codice. <em>E conosco il lavoro di chi manda avanti un'attività.</em></h2>
+          <p>Per questo, quando mi racconti un problema, lo guardo prima dal tuo lato: cosa ti fa perdere tempo, cosa ti costa, cosa vuoi ottenere. Solo dopo scelgo la tecnologia.</p>
+          <p>Non sono un'agenzia. Quando mi scrivi, rispondo io; quando c'è da cambiare qualcosa, lo cambio io.</p>
+          <a class="more" href="/chi-sono/">La mia storia</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. SETTORI: una frase, non nove card -->
+    <section class="sectors" aria-labelledby="t-sectors">
+      <div class="wrap">
+        <h2 id="t-sectors" class="label">Per chi lavoro</h2>
+        <p class="sector-line">
+          <a href="/settori/ristoranti/">Ristoranti e bar</a>,
+          <a href="/settori/strutture-ricettive/">B&amp;B e case vacanza</a>,
+          <a href="/settori/bellezza/">centri estetici e parrucchieri</a>,
+          <a href="/settori/sport/">palestre e personal trainer</a>,
+          <a href="/settori/studi-professionali/">studi professionali</a>,
+          <a href="/settori/centri-terapeutici/">centri terapeutici</a>,
+          <a href="/settori/negozi-artigiani/">negozi e artigiani</a>,
+          <a href="/settori/agenzie-immobiliari/">agenzie immobiliari</a> e
+          <a href="/settori/ecommerce/">venditori online</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- TESTIMONIANZE: pronte ma spente. Si attivano togliendo questa riga e "FINE TESTIMONIANZE", con recensioni vere e autorizzate.
+    <section class="voices" aria-labelledby="t-voices">
+      <div class="wrap">
+        <h2 id="t-voices" class="label">Cosa dicono i clienti</h2>
+        <figure class="voice">
+          <blockquote><p>Testo della recensione, parola per parola.</p></blockquote>
+          <figcaption><b>Nome Cognome</b> · Attività, città</figcaption>
+        </figure>
       </div>
     </section>
     FINE TESTIMONIANZE -->
 
-    <section id="contatti">
-      <div class="wrap">
-        <div class="contact">
-          <div>
-            <span class="eyebrow">Contatti</span>
-            <h2>Hai un progetto <span class="grad">in mente?</span></h2>
-            <p><strong>Preventivo gratuito in 24 ore.</strong> Raccontami in poche righe cosa ti serve.</p>
-          </div>
-          <div class="end">
-            <div class="cta-row">
-              <a class="btn btn-primary" href="/contatti/">Richiedi un preventivo</a>
-            </div>
-          </div>
+    <!-- 7. CONTATTI: la parte scura -->
+    <section class="cta" aria-labelledby="t-cta">
+      <div class="wrap cta-in">
+        <h2 id="t-cta" class="cta-title reveal">Raccontami cosa ti serve. <em>Ti rispondo io, entro 24 ore.</em></h2>
+        <div class="cta-ways">
+          <a class="way magnet" href="/contatti/"><span>Modulo</span><b>Richiedi un preventivo gratuito</b></a>
+          <a class="way magnet" href="https://wa.me/393403689635?text=Ciao%20Alessio%2C%20vorrei%20un%20preventivo%20per%20un%20progetto" target="_blank" rel="noopener"><span>WhatsApp</span><b>340 368 9635</b><i class="sr"> (si apre in una nuova scheda)</i></a>
+          <a class="way magnet" href="mailto:info@avweb.it?subject=Richiesta%20di%20preventivo"><span>Email</span><b>info@avweb.it</b></a>
         </div>
       </div>
     </section>
   </main>
-
   <!-- FOOTER -->
-  <footer>
-    <div class="wrap foot-sec">
-      <p class="foot-title">Settori</p>
+  <footer class="foot">
+    <div class="wrap foot-in">
       <nav aria-label="Settori"><a href="/settori/ristoranti/">Ristoranti e bar</a><a href="/settori/strutture-ricettive/">B&amp;B e case vacanza</a><a href="/settori/bellezza/">Centri estetici e parrucchieri</a><a href="/settori/sport/">Palestre e personal trainer</a><a href="/settori/studi-professionali/">Studi professionali</a><a href="/settori/centri-terapeutici/">Centri terapeutici</a><a href="/settori/negozi-artigiani/">Negozi e artigiani</a><a href="/settori/agenzie-immobiliari/">Agenzie immobiliari</a><a href="/settori/ecommerce/">E-commerce e Amazon</a></nav>
-    </div>
-    <div class="wrap">
-      <p>© <span id="anno">2026</span> AV Web · Alessio Vinci · Alghero (SS) · P.IVA IT03014680908</p>
-      <nav class="legal" aria-label="Note legali"><a href="/privacy.html">Privacy policy</a><a href="/cookie.html">Cookie policy</a></nav>
+      <p>© <span id="anno">2026</span> AV Web · Alessio Vinci · Alghero (SS) · P.IVA IT03014680908 · <a href="/privacy.html">Privacy</a> · <a href="/cookie.html">Cookie</a></p>
     </div>
   </footer>
   <!-- /FOOTER -->

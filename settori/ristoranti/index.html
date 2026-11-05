@@ -6,8 +6,8 @@
   <title>Siti web per ristoranti e bar in Sardegna | AV Web</title>
   <meta name="description" content="Siti per ristoranti, trattorie e bar in Sardegna: menu in italiano e inglese, orari, mappa e prenotazioni su WhatsApp. Chiedi un preventivo gratuito." />
   <link rel="canonical" href="https://avweb.it/settori/ristoranti/" />
-  <meta name="theme-color" content="#0c0f13" />
-  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#f2f0eb" />
+  <meta name="color-scheme" content="light" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="it_IT" />
   <meta property="og:site_name" content="AV Web" />
@@ -22,9 +22,13 @@
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
   <link rel="apple-touch-icon" href="/apple-touch-icon-180.png" sizes="180x180" />
-  <link rel="preload" href="/fonts/unbounded-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/css/stile.css" />
   <script>document.documentElement.classList.add("js")</script>
+  <script src="/js/gsap.min.js" defer></script>
+  <script src="/js/ScrollTrigger.min.js" defer></script>
+  <script src="/js/SplitText.min.js" defer></script>
+  <script src="/js/lenis.min.js" defer></script>
   <script src="/js/sito.js" defer></script>
   <script type="application/ld+json">
 {
@@ -71,96 +75,102 @@
   </script>
 </head>
 <body>
-  <div class="glow" aria-hidden="true"></div>
-
   <!-- MENU -->
   <a href="#contenuto" class="skip">Vai al contenuto</a>
   <header class="top">
-    <div class="wrap">
-      <a href="/" class="brand" aria-label="AV Web, vai alla home"><img class="brand-icon" src="/avweb-icona.svg" width="36" height="30" alt="" /><span>AV <span class="grad">WEB</span></span></a>
-      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">
-        <svg class="ic-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-        <svg class="ic-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
-        <span class="menu-label">Menu</span>
-      </button>
+    <div class="wrap top-in">
+      <a href="/" class="brand" aria-label="AV Web, vai alla home"><img src="/avweb-icona.svg" width="34" height="28" alt="" /><span>AV Web</span></a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu"><span class="menu-label">Menu</span><span class="menu-ic" aria-hidden="true"></span></button>
       <nav class="links" id="menu" aria-label="Menu principale">
-          <a href="/">Home</a>
-          <a href="/servizi/">Servizi</a>
-          <a href="/settori/" aria-current="page">Settori</a>
-          <a href="/progetti/">Progetti</a>
-          <a href="/chi-sono/">Chi sono</a>
-          <a href="/contatti/">Contatti</a>
-          <a href="/contatti/" class="nav-cta">Richiedi un preventivo</a>
+        <a href="/servizi/">Servizi</a>
+        <a href="/settori/" aria-current="page">Settori</a>
+        <a href="/progetti/">Progetti</a>
+        <a href="/chi-sono/">Chi sono</a>
+        <a href="/contatti/" class="nav-cta">Richiedi un preventivo</a>
       </nav>
     </div>
   </header>
   <!-- /MENU -->
 
   <main id="contenuto">
-    <div class="wrap page-head proj-head">
-      <a class="crumb" href="/settori/">← Tutti i settori</a>
-      <div class="sector-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v8M4.5 3v5a2.5 2.5 0 0 0 5 0V3M7 11v10"/><path d="M17 21V3c-2 1.5-3 4-3 7.5V13h3"/></svg></div>
-      <h1>Siti web per ristoranti, trattorie e bar in Sardegna</h1>
-      <p class="lead">Un sito che risponde subito a chi cerca dove mangiare: menu, orari, posizione e un modo semplice per prenotare.</p>
-    </div>
+    <section class="sec-head-page">
+      <div class="wrap sector-hero">
+        <div>
+          <nav class="crumbs" aria-label="Percorso"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/settori/">Settori</a><span aria-hidden="true">/</span><span aria-current="page">Ristoranti e bar</span></nav>
+          <h1 class="split">Siti web per ristoranti, trattorie e bar in Sardegna</h1>
+          <p class="study-lead rise">Un sito che risponde subito a chi cerca dove mangiare: menu, orari, posizione e un modo semplice per prenotare.</p>
+          <div class="hero-cta">
+            <a class="btn btn-ink magnet" href="/contatti/">Chiedi un preventivo</a>
+            <a class="btn btn-line magnet" href="https://wa.me/393403689635?text=Ciao%20Alessio%2C%20vorrei%20un%20sito%20per%20il%20mio%20locale" target="_blank" rel="noopener">Scrivimi su WhatsApp<span class="sr"> (si apre in una nuova scheda)</span></a>
+          </div>
+        </div>
 
-    <section>
-      <div class="wrap">
-        <div class="sec-head">
-          <div>
-            <h2>I problemi tipici</h2>
+        <figure class="schema" aria-label="Schema di esempio della home su smartphone">
+          <span class="frame-name">Schema di esempio — Mobile</span>
+          <div class="schema-phone">
+            <div class="schema-block sk-bar"><i></i><b>Contatti</b></div>
+            <div class="schema-block sk-photo"><span>Foto del locale</span></div>
+            <div class="schema-block sk-title"><i class="w70"></i><i class="w45"></i></div>
+            <div class="schema-block sk-row"><span class="sk-chip">Menu</span><span class="sk-chip">Orari</span><span class="sk-chip">Dove siamo</span></div>
+            <div class="schema-block sk-today"><b>Oggi aperto</b><span>12:30–15:00 · 19:30–23:00</span></div>
+            <div class="schema-block sk-wa">Prenota su WhatsApp</div>
+            <div class="schema-block sk-map"><span>Mappa</span></div>
           </div>
-        </div>
-        <div class="services three">
-          <div class="svc">
-            <h3>Menu e orari cercati dal telefono</h3>
-            <p>Clienti e turisti scelgono dove mangiare dallo smartphone, spesso all'ultimo momento: se menu e orari non si trovano, scelgono un altro locale.</p>
-          </div>
-          <div class="svc">
-            <h3>Prenotazioni sparse</h3>
-            <p>Telefonate, messaggi WhatsApp, commenti e messaggi sui social: le richieste arrivano da più parti ed è facile perderne qualcuna.</p>
-          </div>
-          <div class="svc">
-            <h3>Recensioni che non portano al locale</h3>
-            <p>Le recensioni positive ci sono, ma chi le legge non trova un collegamento diretto per vedere il menu o prenotare.</p>
-          </div>
-        </div>
+          <figcaption>Uno schema, non il sito di un cliente: l'ordine dei contenuti che propongo di solito.</figcaption>
+        </figure>
       </div>
     </section>
 
-    <section>
-      <div class="wrap split">
-        <div class="panel">
-          <h2>Cosa comprende il sito</h2>
-          <ul class="points">
-              <li>Menu in italiano e inglese, facile da aggiornare quando cambiano piatti e prezzi</li>
-              <li>Foto del locale e dei piatti, preparate per caricarsi in fretta</li>
-              <li>Prenotazione con un tocco: chiamata o messaggio WhatsApp</li>
-              <li>Orari, mappa e indicazioni per arrivare</li>
-              <li>Collegamento alle recensioni e ai profili social</li>
-              <li>Pagina per gli eventi o per il menu del giorno</li>
+    <section class="pairs" aria-labelledby="t-pairs">
+      <div class="wrap">
+        <h2 id="t-pairs" class="sec-title reveal">Tre problemi che si ripetono, <em>e cosa fa il sito per ognuno.</em></h2>
+        <ol class="pair-list">
+          <li class="pair">
+            <span class="pair-n" aria-hidden="true">01</span>
+            <div class="pair-p"><h3>Menu e orari cercati dal telefono</h3><p>Clienti e turisti scelgono dove mangiare dallo smartphone, spesso all'ultimo momento: se menu e orari non si trovano, scelgono un altro locale.</p></div>
+            <div class="pair-s"><span class="pair-tag">Il sito</span><p>Menu in italiano e inglese, facile da aggiornare quando cambiano piatti e prezzi. Orari, mappa e indicazioni sempre in vista.</p></div>
+          </li>
+          <li class="pair">
+            <span class="pair-n" aria-hidden="true">02</span>
+            <div class="pair-p"><h3>Prenotazioni sparse</h3><p>Telefonate, messaggi WhatsApp, commenti e messaggi sui social: le richieste arrivano da più parti ed è facile perderne qualcuna.</p></div>
+            <div class="pair-s"><span class="pair-tag">Il sito</span><p>Prenotazione con un tocco, con una chiamata o un messaggio WhatsApp. Su richiesta, uno strumento unico dove registrare le prenotazioni da qualunque canale arrivino.</p></div>
+          </li>
+          <li class="pair">
+            <span class="pair-n" aria-hidden="true">03</span>
+            <div class="pair-p"><h3>Recensioni che non portano al locale</h3><p>Le recensioni positive ci sono, ma chi le legge non trova un collegamento diretto per vedere il menu o prenotare.</p></div>
+            <div class="pair-s"><span class="pair-tag">Il sito</span><p>Collegamento alle recensioni e ai profili social, così chi arriva da lì trova subito menu e prenotazione.</p></div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="incl" aria-labelledby="t-incl">
+      <div class="wrap incl-in">
+        <div>
+          <h2 id="t-incl" class="label">Cosa comprende il sito</h2>
+          <ul class="ticks ticks-2">
+            <li>Menu in italiano e inglese, facile da aggiornare quando cambiano piatti e prezzi</li>
+            <li>Foto del locale e dei piatti, preparate per caricarsi in fretta</li>
+            <li>Prenotazione con un tocco: chiamata o messaggio WhatsApp</li>
+            <li>Orari, mappa e indicazioni per arrivare</li>
+            <li>Collegamento alle recensioni e ai profili social</li>
+            <li>Pagina per gli eventi o per il menu del giorno</li>
           </ul>
         </div>
-        <div class="panel accent">
-          <h2>In più, su richiesta</h2>
-          <h3>Menu digitale e prenotazioni in un unico elenco</h3>
-          <p>Un menu digitale da aprire con il QR code sul tavolo, sempre aggiornato, e uno strumento dove registrare tutte le prenotazioni, da qualunque canale arrivino.</p>
-          <p class="rel">Servizi collegati</p>
-          <div class="examples">
-              <a class="more" href="/servizi/#siti">Siti per attività e professionisti</a>
-              <a class="more" href="/servizi/#gestionali">Gestionali e web app su misura</a>
+        <aside class="extra" aria-labelledby="t-extra">
+          <span class="frame-name" aria-hidden="true">In più, su richiesta</span>
+          <div class="extra-body">
+            <h2 id="t-extra">Menu digitale e prenotazioni in un unico elenco</h2>
+            <p>Un menu digitale da aprire con il QR code sul tavolo, sempre aggiornato, e uno strumento dove registrare tutte le prenotazioni, da qualunque canale arrivino.</p>
+            <p class="extra-rel"><a class="more" href="/servizi/#siti">Siti per attività e professionisti</a> <a class="more" href="/servizi/#gestionali">Gestionali e web app su misura</a></p>
           </div>
-        </div>
+        </aside>
       </div>
     </section>
 
-    <section>
-      <div class="wrap">
-        <div class="sec-head">
-          <div>
-            <h2>Domande frequenti</h2>
-          </div>
-        </div>
+    <section class="faq-sec" aria-labelledby="t-faq">
+      <div class="wrap faq-in">
+        <h2 id="t-faq" class="sec-title reveal">Domande <em>frequenti</em></h2>
         <div class="faq">
           <details>
             <summary>Posso cambiare il menu quando voglio?</summary>
@@ -178,33 +188,22 @@
       </div>
     </section>
 
-    <section>
-      <div class="wrap">
-        <div class="contact">
-          <div>
-            <span class="eyebrow">Contatti</span>
-            <h2>Hai un progetto <span class="grad">in mente?</span></h2>
-            <p><strong>Preventivo gratuito in 24 ore.</strong> Raccontami in poche righe cosa ti serve.</p>
-          </div>
-          <div class="end">
-            <div class="cta-row">
-              <a class="btn btn-primary" href="/contatti/">Richiedi un preventivo</a>
-            </div>
-          </div>
+    <section class="cta" aria-labelledby="t-cta">
+      <div class="wrap cta-in">
+        <h2 id="t-cta" class="cta-title reveal">Raccontami cosa ti serve. <em>Ti rispondo io, entro 24 ore.</em></h2>
+        <div class="cta-ways">
+          <a class="way magnet" href="/contatti/"><span>Modulo</span><b>Richiedi un preventivo gratuito</b></a>
+          <a class="way magnet" href="https://wa.me/393403689635?text=Ciao%20Alessio%2C%20vorrei%20un%20preventivo%20per%20un%20progetto" target="_blank" rel="noopener"><span>WhatsApp</span><b>340 368 9635</b><i class="sr"> (si apre in una nuova scheda)</i></a>
+          <a class="way magnet" href="mailto:info@avweb.it?subject=Richiesta%20di%20preventivo"><span>Email</span><b>info@avweb.it</b></a>
         </div>
       </div>
     </section>
   </main>
-
   <!-- FOOTER -->
-  <footer>
-    <div class="wrap foot-sec">
-      <p class="foot-title">Settori</p>
+  <footer class="foot">
+    <div class="wrap foot-in">
       <nav aria-label="Settori"><a href="/settori/ristoranti/">Ristoranti e bar</a><a href="/settori/strutture-ricettive/">B&amp;B e case vacanza</a><a href="/settori/bellezza/">Centri estetici e parrucchieri</a><a href="/settori/sport/">Palestre e personal trainer</a><a href="/settori/studi-professionali/">Studi professionali</a><a href="/settori/centri-terapeutici/">Centri terapeutici</a><a href="/settori/negozi-artigiani/">Negozi e artigiani</a><a href="/settori/agenzie-immobiliari/">Agenzie immobiliari</a><a href="/settori/ecommerce/">E-commerce e Amazon</a></nav>
-    </div>
-    <div class="wrap">
-      <p>© <span id="anno">2026</span> AV Web · Alessio Vinci · Alghero (SS) · P.IVA IT03014680908</p>
-      <nav class="legal" aria-label="Note legali"><a href="/privacy.html">Privacy policy</a><a href="/cookie.html">Cookie policy</a></nav>
+      <p>© <span id="anno">2026</span> AV Web · Alessio Vinci · Alghero (SS) · P.IVA IT03014680908 · <a href="/privacy.html">Privacy</a> · <a href="/cookie.html">Cookie</a></p>
     </div>
   </footer>
   <!-- /FOOTER -->

@@ -6,8 +6,8 @@
   <title>Centro Emovere: sito per un centro terapeutico | AV Web</title>
   <meta name="description" content="Sito per il Centro Emovere di Alghero, centro multidisciplinare di psicologia, logopedia, neuropsicomotricità e fisioterapia. Scopri il progetto." />
   <link rel="canonical" href="https://avweb.it/progetti/centro-emovere/" />
-  <meta name="theme-color" content="#0c0f13" />
-  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#f2f0eb" />
+  <meta name="color-scheme" content="light" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="it_IT" />
   <meta property="og:site_name" content="AV Web" />
@@ -22,9 +22,13 @@
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
   <link rel="apple-touch-icon" href="/apple-touch-icon-180.png" sizes="180x180" />
-  <link rel="preload" href="/fonts/unbounded-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/css/stile.css" />
   <script>document.documentElement.classList.add("js")</script>
+  <script src="/js/gsap.min.js" defer></script>
+  <script src="/js/ScrollTrigger.min.js" defer></script>
+  <script src="/js/SplitText.min.js" defer></script>
+  <script src="/js/lenis.min.js" defer></script>
   <script src="/js/sito.js" defer></script>
   <script type="application/ld+json">
 {
@@ -54,58 +58,82 @@
   </script>
 </head>
 <body>
-  <div class="glow" aria-hidden="true"></div>
-
   <!-- MENU -->
   <a href="#contenuto" class="skip">Vai al contenuto</a>
   <header class="top">
-    <div class="wrap">
-      <a href="/" class="brand" aria-label="AV Web, vai alla home"><img class="brand-icon" src="/avweb-icona.svg" width="36" height="30" alt="" /><span>AV <span class="grad">WEB</span></span></a>
-      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">
-        <svg class="ic-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-        <svg class="ic-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
-        <span class="menu-label">Menu</span>
-      </button>
+    <div class="wrap top-in">
+      <a href="/" class="brand" aria-label="AV Web, vai alla home"><img src="/avweb-icona.svg" width="34" height="28" alt="" /><span>AV Web</span></a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu"><span class="menu-label">Menu</span><span class="menu-ic" aria-hidden="true"></span></button>
       <nav class="links" id="menu" aria-label="Menu principale">
-          <a href="/">Home</a>
-          <a href="/servizi/">Servizi</a>
-          <a href="/settori/">Settori</a>
-          <a href="/progetti/" aria-current="page">Progetti</a>
-          <a href="/chi-sono/">Chi sono</a>
-          <a href="/contatti/">Contatti</a>
-          <a href="/contatti/" class="nav-cta">Richiedi un preventivo</a>
+        <a href="/servizi/">Servizi</a>
+        <a href="/settori/">Settori</a>
+        <a href="/progetti/" aria-current="page">Progetti</a>
+        <a href="/chi-sono/">Chi sono</a>
+        <a href="/contatti/" class="nav-cta">Richiedi un preventivo</a>
       </nav>
     </div>
   </header>
   <!-- /MENU -->
 
   <main id="contenuto">
-    <div class="wrap page-head proj-head">
-      <a class="crumb" href="/progetti/">← Tutti i progetti</a>
-      <div class="labels"><span class="badge">Siti</span></div>
-      <h1>Centro Emovere</h1>
-      <span class="kicker">Sito web · Centro terapeutico, Alghero</span>
-      <div class="tags" aria-label="Tecnologie"><span class="tag">Next.js</span><span class="tag">React</span><span class="tag">Tailwind CSS</span><span class="tag">Vercel</span></div>
-      <div class="media proj-media fill m-sand">
-        <img class="desk" src="/img/emovere-desktop.webp" width="1440" height="900" alt="Home page del sito Centro Emovere su desktop" />
-        <img class="phone" src="/img/emovere-mobile.webp" width="780" height="1688" alt="Il sito Centro Emovere su smartphone" />
+    <section class="study-head">
+      <div class="wrap">
+        <nav class="crumbs" aria-label="Percorso"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/progetti/">Progetti</a><span aria-hidden="true">/</span><span aria-current="page">Centro Emovere</span></nav>
+        <p class="study-meta rise">Sito web · Centro terapeutico, Alghero <span class="chip">Siti</span></p>
+        <h1 class="study-h1">Centro Emovere</h1>
+        <p class="study-lead rise">Sito completo per un centro multidisciplinare di psicologia, logopedia, neuropsicomotricità e fisioterapia.</p>
+        <dl class="facts rise">
+          <div><dt>Cosa</dt><dd>Sito web</dd></div><div><dt>Ambito</dt><dd>Centro terapeutico, Alghero</dd></div><div><dt>Tecnologie</dt><dd>Next.js, React, Tailwind CSS, Vercel</dd></div><div><dt>Online</dt><dd><a href="https://www.centroemovere.it" target="_blank" rel="noopener">centroemovere.it ↗<span class="sr"> (si apre in una nuova scheda)</span></a></dd></div>
+        </dl>
       </div>
-    </div>
+    </section>
 
-    <section>
-      <div class="wrap story">
-        <div class="part">
-          <h2>La sfida</h2>
-          <div>
-            <p>Un centro multidisciplinare deve presentare servizi diversi e i professionisti dell'équipe in modo chiaro, a persone che spesso cercano informazioni dal telefono.</p>
+    <section class="study-canvas" aria-label="Immagini del progetto">
+      <div class="canvas">
+        <div class="wrap study-board">
+          <div class="sb-desk" data-speed="4">
+            <span class="frame-name" aria-hidden="true">Desktop</span>
+            <div class="frame-body sb-img">
+              <img src="/img/emovere-desktop.webp" width="1440" height="900" alt="Home page del sito Centro Emovere su desktop" style="view-transition-name: p-centro-emovere" />
+              <span class="note-pin" data-pin="1" style="left:82%;top:4%" aria-hidden="true">1</span>
+              <span class="note-pin" data-pin="2" style="left:45%;top:4%" aria-hidden="true">2</span>
+              <span class="note-pin" data-pin="3" style="left:30%;top:30%" aria-hidden="true">3</span>
+            </div>
+          </div>
+          <div class="sb-phone" data-speed="12">
+            <span class="frame-name" aria-hidden="true">Mobile</span>
+            <div class="frame-body sb-img sb-img-phone">
+              <img src="/img/emovere-mobile.webp" width="780" height="1688" alt="Il sito Centro Emovere su smartphone" loading="lazy" />
+              <span class="note-pin" data-pin="4" style="left:50%;top:46%" aria-hidden="true">4</span>
+            </div>
           </div>
         </div>
-        <div class="part">
-          <h2>La soluzione</h2>
+        <div class="wrap">
+          <h2 class="label">Note di progetto</h2>
+          <ol class="notes">
+            <li data-note="1" tabindex="0"><span class="n" aria-hidden="true">1</span><p><b>«Prenota un colloquio» sempre in vista.</b> È l'azione più importante del sito, quindi resta nella barra in alto su ogni pagina.</p></li>
+            <li data-note="2" tabindex="0"><span class="n" aria-hidden="true">2</span><p><b>Un menu corto.</b> Servizi, équipe, lo studio, blog e contatti: le cinque cose che una famiglia cerca, niente di più.</p></li>
+            <li data-note="3" tabindex="0"><span class="n" aria-hidden="true">3</span><p><b>Cosa e dove, subito.</b> La prima cosa che si legge è cosa fa il centro e che si trova ad Alghero.</p></li>
+            <li data-note="4" tabindex="0"><span class="n" aria-hidden="true">4</span><p><b>Pensato prima per il telefono.</b> Chi cerca un terapista spesso lo fa dallo smartphone: testi, pulsanti e moduli sono progettati partendo da lì.</p></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="study-story">
+      <div class="wrap">
+        <div class="chapter">
+          <h2 class="ch-title">La sfida</h2>
           <div>
-            <p>Sito completo per un centro multidisciplinare di psicologia, logopedia, neuropsicomotricità e fisioterapia.</p>
-            <h3>Cosa ho fatto</h3>
-            <ul class="points">
+            <p class="ch-big rise">Un centro multidisciplinare deve presentare servizi diversi e i professionisti dell'équipe in modo chiaro, a persone che spesso cercano informazioni dal telefono.</p>
+          </div>
+        </div>
+        <div class="chapter">
+          <h2 class="ch-title">La soluzione</h2>
+          <div>
+            <p class="ch-big rise">Sito completo per un centro multidisciplinare di psicologia, logopedia, neuropsicomotricità e fisioterapia.</p>
+            <h3 class="ch-sub">Cosa ho fatto</h3>
+            <ul class="ticks">
               <li>Design su misura, pensato prima per lo smartphone</li>
               <li>Pagine servizi, schede dell'équipe e blog</li>
               <li>Modulo contatti con invio email e SEO locale</li>
@@ -113,56 +141,41 @@
             </ul>
           </div>
         </div>
-        <div class="part">
-          <h2>Il risultato</h2>
+        <div class="chapter">
+          <h2 class="ch-title">Il risultato</h2>
           <div>
-            <p>Il centro ha un sito unico dove le famiglie trovano servizi, professionisti e articoli del blog, e possono scrivere direttamente dal modulo contatti.</p>
+            <p class="ch-big rise">Il centro ha un sito unico dove le famiglie trovano servizi, professionisti e articoli del blog, e possono scrivere direttamente dal modulo contatti.</p>
           </div>
-        </div>
-        <div class="part">
-          <span></span>
-          <div><a class="btn btn-ghost" href="https://www.centroemovere.it" target="_blank" rel="noopener">Visita il sito ↗<span class="sr"> (si apre in una nuova scheda)</span></a></div>
         </div>
       </div>
     </section>
 
-    <section>
+    <section class="study-next">
       <div class="wrap">
-        <p class="rel-settore"><a class="more" href="/settori/centri-terapeutici/">Scopri i siti per centri terapeutici →</a></p>
+        <p class="rel"><a class="more" href="/settori/centri-terapeutici/">Scopri i siti per centri terapeutici</a></p>
         <nav class="pager" aria-label="Altri progetti">
-          <a class="prev" href="/progetti/presetdock/"><span>← Progetto precedente</span><strong>PresetDock</strong></a>
-          <a class="next" href="/progetti/le-porte-di-sardegna/"><span>Progetto successivo →</span><strong>Le Porte di Sardegna</strong></a>
+          <a href="/progetti/presetdock/"><span>← Precedente</span><b>PresetDock</b></a>
+          <a href="/progetti/le-porte-di-sardegna/" class="next"><span>Successivo →</span><b>Le Porte di Sardegna</b></a>
         </nav>
       </div>
     </section>
 
-    <section>
-      <div class="wrap">
-        <div class="contact">
-          <div>
-            <span class="eyebrow">Contatti</span>
-            <h2>Hai un progetto <span class="grad">in mente?</span></h2>
-            <p><strong>Preventivo gratuito in 24 ore.</strong> Raccontami in poche righe cosa ti serve.</p>
-          </div>
-          <div class="end">
-            <div class="cta-row">
-              <a class="btn btn-primary" href="/contatti/">Richiedi un preventivo</a>
-            </div>
-          </div>
+    <section class="cta" aria-labelledby="t-cta">
+      <div class="wrap cta-in">
+        <h2 id="t-cta" class="cta-title reveal">Raccontami cosa ti serve. <em>Ti rispondo io, entro 24 ore.</em></h2>
+        <div class="cta-ways">
+          <a class="way magnet" href="/contatti/"><span>Modulo</span><b>Richiedi un preventivo gratuito</b></a>
+          <a class="way magnet" href="https://wa.me/393403689635?text=Ciao%20Alessio%2C%20vorrei%20un%20preventivo%20per%20un%20progetto" target="_blank" rel="noopener"><span>WhatsApp</span><b>340 368 9635</b><i class="sr"> (si apre in una nuova scheda)</i></a>
+          <a class="way magnet" href="mailto:info@avweb.it?subject=Richiesta%20di%20preventivo"><span>Email</span><b>info@avweb.it</b></a>
         </div>
       </div>
     </section>
   </main>
-
   <!-- FOOTER -->
-  <footer>
-    <div class="wrap foot-sec">
-      <p class="foot-title">Settori</p>
+  <footer class="foot">
+    <div class="wrap foot-in">
       <nav aria-label="Settori"><a href="/settori/ristoranti/">Ristoranti e bar</a><a href="/settori/strutture-ricettive/">B&amp;B e case vacanza</a><a href="/settori/bellezza/">Centri estetici e parrucchieri</a><a href="/settori/sport/">Palestre e personal trainer</a><a href="/settori/studi-professionali/">Studi professionali</a><a href="/settori/centri-terapeutici/">Centri terapeutici</a><a href="/settori/negozi-artigiani/">Negozi e artigiani</a><a href="/settori/agenzie-immobiliari/">Agenzie immobiliari</a><a href="/settori/ecommerce/">E-commerce e Amazon</a></nav>
-    </div>
-    <div class="wrap">
-      <p>© <span id="anno">2026</span> AV Web · Alessio Vinci · Alghero (SS) · P.IVA IT03014680908</p>
-      <nav class="legal" aria-label="Note legali"><a href="/privacy.html">Privacy policy</a><a href="/cookie.html">Cookie policy</a></nav>
+      <p>© <span id="anno">2026</span> AV Web · Alessio Vinci · Alghero (SS) · P.IVA IT03014680908 · <a href="/privacy.html">Privacy</a> · <a href="/cookie.html">Cookie</a></p>
     </div>
   </footer>
   <!-- /FOOTER -->

@@ -6,8 +6,8 @@
   <title>Siti web per negozi e artigiani in Sardegna | AV Web</title>
   <meta name="description" content="Siti per negozi e artigiani in Sardegna: vetrina dei prodotti, storia della bottega, più lingue e ordini su WhatsApp. Chiedi un preventivo gratuito." />
   <link rel="canonical" href="https://avweb.it/settori/negozi-artigiani/" />
-  <meta name="theme-color" content="#0c0f13" />
-  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#f2f0eb" />
+  <meta name="color-scheme" content="light" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="it_IT" />
   <meta property="og:site_name" content="AV Web" />
@@ -22,9 +22,13 @@
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
   <link rel="apple-touch-icon" href="/apple-touch-icon-180.png" sizes="180x180" />
-  <link rel="preload" href="/fonts/unbounded-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/css/stile.css" />
   <script>document.documentElement.classList.add("js")</script>
+  <script src="/js/gsap.min.js" defer></script>
+  <script src="/js/ScrollTrigger.min.js" defer></script>
+  <script src="/js/SplitText.min.js" defer></script>
+  <script src="/js/lenis.min.js" defer></script>
   <script src="/js/sito.js" defer></script>
   <script type="application/ld+json">
 {
@@ -71,95 +75,101 @@
   </script>
 </head>
 <body>
-  <div class="glow" aria-hidden="true"></div>
-
   <!-- MENU -->
   <a href="#contenuto" class="skip">Vai al contenuto</a>
   <header class="top">
-    <div class="wrap">
-      <a href="/" class="brand" aria-label="AV Web, vai alla home"><img class="brand-icon" src="/avweb-icona.svg" width="36" height="30" alt="" /><span>AV <span class="grad">WEB</span></span></a>
-      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">
-        <svg class="ic-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-        <svg class="ic-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
-        <span class="menu-label">Menu</span>
-      </button>
+    <div class="wrap top-in">
+      <a href="/" class="brand" aria-label="AV Web, vai alla home"><img src="/avweb-icona.svg" width="34" height="28" alt="" /><span>AV Web</span></a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu"><span class="menu-label">Menu</span><span class="menu-ic" aria-hidden="true"></span></button>
       <nav class="links" id="menu" aria-label="Menu principale">
-          <a href="/">Home</a>
-          <a href="/servizi/">Servizi</a>
-          <a href="/settori/" aria-current="page">Settori</a>
-          <a href="/progetti/">Progetti</a>
-          <a href="/chi-sono/">Chi sono</a>
-          <a href="/contatti/">Contatti</a>
-          <a href="/contatti/" class="nav-cta">Richiedi un preventivo</a>
+        <a href="/servizi/">Servizi</a>
+        <a href="/settori/" aria-current="page">Settori</a>
+        <a href="/progetti/">Progetti</a>
+        <a href="/chi-sono/">Chi sono</a>
+        <a href="/contatti/" class="nav-cta">Richiedi un preventivo</a>
       </nav>
     </div>
   </header>
   <!-- /MENU -->
 
   <main id="contenuto">
-    <div class="wrap page-head proj-head">
-      <a class="crumb" href="/settori/">← Tutti i settori</a>
-      <div class="sector-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 8.5h13l-1 11.5h-11z"/><path d="M9 8.5V7a3 3 0 0 1 6 0v1.5"/></svg></div>
-      <h1>Siti web per negozi e artigiani in Sardegna</h1>
-      <p class="lead">Fai conoscere i tuoi prodotti e il tuo lavoro anche a chi non passa davanti alla vetrina.</p>
-    </div>
+    <section class="sec-head-page">
+      <div class="wrap sector-hero">
+        <div>
+          <nav class="crumbs" aria-label="Percorso"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/settori/">Settori</a><span aria-hidden="true">/</span><span aria-current="page">Negozi e artigiani</span></nav>
+          <h1 class="split">Siti web per negozi e artigiani in Sardegna</h1>
+          <p class="study-lead rise">Fai conoscere i tuoi prodotti e il tuo lavoro anche a chi non passa davanti alla vetrina.</p>
+          <div class="hero-cta">
+            <a class="btn btn-ink magnet" href="/contatti/">Chiedi un preventivo</a>
+            <a class="btn btn-line magnet" href="https://wa.me/393403689635?text=Ciao%20Alessio%2C%20vorrei%20un%20sito%20per%20il%20mio%20negozio" target="_blank" rel="noopener">Scrivimi su WhatsApp<span class="sr"> (si apre in una nuova scheda)</span></a>
+          </div>
+        </div>
 
-    <section>
-      <div class="wrap">
-        <div class="sec-head">
-          <div>
-            <h2>I problemi tipici</h2>
+        <figure class="schema" aria-label="Schema di esempio della home su smartphone">
+          <span class="frame-name">Schema di esempio — Mobile</span>
+          <div class="schema-phone">
+            <div class="schema-block sk-bar"><i></i><b>Contatti</b></div>
+            <div class="schema-block sk-photo"><span>La bottega</span></div>
+            <div class="schema-block sk-title"><i class="w70"></i><i class="w45"></i></div>
+            <div class="schema-block sk-row"><span class="sk-chip">Prodotti</span><span class="sk-chip">La storia</span><span class="sk-chip">Orari</span></div>
+            <div class="schema-block sk-today"><b>Oggi aperto</b><span>9:30–13:00 · 16:30–20:00</span></div>
+            <div class="schema-block sk-wa">Chiedi su WhatsApp</div>
+            <div class="schema-block sk-map"><span>Mappa</span></div>
           </div>
-        </div>
-        <div class="services three">
-          <div class="svc">
-            <h3>Visibile solo a chi passa davanti</h3>
-            <p>Clienti e turisti che cercano un prodotto o una bottega su Google non trovano il tuo negozio, anche se è a pochi passi.</p>
-          </div>
-          <div class="svc">
-            <h3>Prodotti non consultabili</h3>
-            <p>Chi vuole sapere se hai un articolo deve venire di persona o telefonare.</p>
-          </div>
-          <div class="svc">
-            <h3>Poco tempo per i social</h3>
-            <p>Seguire il negozio o il laboratorio lascia poco spazio per pubblicare con costanza.</p>
-          </div>
-        </div>
+          <figcaption>Uno schema, non il sito di un cliente: l'ordine dei contenuti che propongo di solito.</figcaption>
+        </figure>
       </div>
     </section>
 
-    <section>
-      <div class="wrap split">
-        <div class="panel">
-          <h2>Cosa comprende il sito</h2>
-          <ul class="points">
-              <li>Vetrina dei prodotti o catalogo</li>
-              <li>Storia della bottega e del lavoro artigiano</li>
-              <li>Orari e mappa</li>
-              <li>Contatto WhatsApp per chiedere disponibilità e ordinare</li>
-              <li>Più lingue per i turisti</li>
+    <section class="pairs" aria-labelledby="t-pairs">
+      <div class="wrap">
+        <h2 id="t-pairs" class="sec-title reveal">Tre problemi che si ripetono, <em>e cosa fa il sito per ognuno.</em></h2>
+        <ol class="pair-list">
+          <li class="pair">
+            <span class="pair-n" aria-hidden="true">01</span>
+            <div class="pair-p"><h3>Visibile solo a chi passa davanti</h3><p>Clienti e turisti che cercano un prodotto o una bottega su Google non trovano il tuo negozio, anche se è a pochi passi.</p></div>
+            <div class="pair-s"><span class="pair-tag">Il sito</span><p>Un sito che si trova su Google, in più lingue per i turisti, con orari e mappa per arrivare in negozio.</p></div>
+          </li>
+          <li class="pair">
+            <span class="pair-n" aria-hidden="true">02</span>
+            <div class="pair-p"><h3>Prodotti non consultabili</h3><p>Chi vuole sapere se hai un articolo deve venire di persona o telefonare.</p></div>
+            <div class="pair-s"><span class="pair-tag">Il sito</span><p>Una vetrina dei prodotti o un catalogo, con il contatto WhatsApp per chiedere disponibilità e ordinare.</p></div>
+          </li>
+          <li class="pair">
+            <span class="pair-n" aria-hidden="true">03</span>
+            <div class="pair-p"><h3>Poco tempo per i social</h3><p>Seguire il negozio o il laboratorio lascia poco spazio per pubblicare con costanza.</p></div>
+            <div class="pair-s"><span class="pair-tag">Il sito</span><p>Con l'assistenza continuativa ti occupi solo di mandarmi foto e testi: gli aggiornamenti li pubblico io.</p></div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="incl" aria-labelledby="t-incl">
+      <div class="wrap incl-in">
+        <div>
+          <h2 id="t-incl" class="label">Cosa comprende il sito</h2>
+          <ul class="ticks ticks-2">
+            <li>Vetrina dei prodotti o catalogo</li>
+            <li>Storia della bottega e del lavoro artigiano</li>
+            <li>Orari e mappa</li>
+            <li>Contatto WhatsApp per chiedere disponibilità e ordinare</li>
+            <li>Più lingue per i turisti</li>
           </ul>
         </div>
-        <div class="panel accent">
-          <h2>In più, su richiesta</h2>
-          <h3>Negozio online o catalogo con richiesta d'ordine</h3>
-          <p>Per vendere anche a distanza: un piccolo negozio online, oppure un catalogo da cui il cliente invia la richiesta d'ordine e tu confermi disponibilità e spedizione.</p>
-          <p class="rel">Servizi collegati</p>
-          <div class="examples">
-              <a class="more" href="/servizi/#siti">Siti per attività e professionisti</a>
-              <a class="more" href="/servizi/#assistenza">Assistenza continuativa</a>
+        <aside class="extra" aria-labelledby="t-extra">
+          <span class="frame-name" aria-hidden="true">In più, su richiesta</span>
+          <div class="extra-body">
+            <h2 id="t-extra">Negozio online o catalogo con richiesta d'ordine</h2>
+            <p>Per vendere anche a distanza: un piccolo negozio online, oppure un catalogo da cui il cliente invia la richiesta d'ordine e tu confermi disponibilità e spedizione.</p>
+            <p class="extra-rel"><a class="more" href="/servizi/#siti">Siti per attività e professionisti</a> <a class="more" href="/servizi/#assistenza">Assistenza continuativa</a></p>
           </div>
-        </div>
+        </aside>
       </div>
     </section>
 
-    <section>
-      <div class="wrap">
-        <div class="sec-head">
-          <div>
-            <h2>Domande frequenti</h2>
-          </div>
-        </div>
+    <section class="faq-sec" aria-labelledby="t-faq">
+      <div class="wrap faq-in">
+        <h2 id="t-faq" class="sec-title reveal">Domande <em>frequenti</em></h2>
         <div class="faq">
           <details>
             <summary>Devo mettere online tutti i prodotti?</summary>
@@ -177,33 +187,22 @@
       </div>
     </section>
 
-    <section>
-      <div class="wrap">
-        <div class="contact">
-          <div>
-            <span class="eyebrow">Contatti</span>
-            <h2>Hai un progetto <span class="grad">in mente?</span></h2>
-            <p><strong>Preventivo gratuito in 24 ore.</strong> Raccontami in poche righe cosa ti serve.</p>
-          </div>
-          <div class="end">
-            <div class="cta-row">
-              <a class="btn btn-primary" href="/contatti/">Richiedi un preventivo</a>
-            </div>
-          </div>
+    <section class="cta" aria-labelledby="t-cta">
+      <div class="wrap cta-in">
+        <h2 id="t-cta" class="cta-title reveal">Raccontami cosa ti serve. <em>Ti rispondo io, entro 24 ore.</em></h2>
+        <div class="cta-ways">
+          <a class="way magnet" href="/contatti/"><span>Modulo</span><b>Richiedi un preventivo gratuito</b></a>
+          <a class="way magnet" href="https://wa.me/393403689635?text=Ciao%20Alessio%2C%20vorrei%20un%20preventivo%20per%20un%20progetto" target="_blank" rel="noopener"><span>WhatsApp</span><b>340 368 9635</b><i class="sr"> (si apre in una nuova scheda)</i></a>
+          <a class="way magnet" href="mailto:info@avweb.it?subject=Richiesta%20di%20preventivo"><span>Email</span><b>info@avweb.it</b></a>
         </div>
       </div>
     </section>
   </main>
-
   <!-- FOOTER -->
-  <footer>
-    <div class="wrap foot-sec">
-      <p class="foot-title">Settori</p>
+  <footer class="foot">
+    <div class="wrap foot-in">
       <nav aria-label="Settori"><a href="/settori/ristoranti/">Ristoranti e bar</a><a href="/settori/strutture-ricettive/">B&amp;B e case vacanza</a><a href="/settori/bellezza/">Centri estetici e parrucchieri</a><a href="/settori/sport/">Palestre e personal trainer</a><a href="/settori/studi-professionali/">Studi professionali</a><a href="/settori/centri-terapeutici/">Centri terapeutici</a><a href="/settori/negozi-artigiani/">Negozi e artigiani</a><a href="/settori/agenzie-immobiliari/">Agenzie immobiliari</a><a href="/settori/ecommerce/">E-commerce e Amazon</a></nav>
-    </div>
-    <div class="wrap">
-      <p>© <span id="anno">2026</span> AV Web · Alessio Vinci · Alghero (SS) · P.IVA IT03014680908</p>
-      <nav class="legal" aria-label="Note legali"><a href="/privacy.html">Privacy policy</a><a href="/cookie.html">Cookie policy</a></nav>
+      <p>© <span id="anno">2026</span> AV Web · Alessio Vinci · Alghero (SS) · P.IVA IT03014680908 · <a href="/privacy.html">Privacy</a> · <a href="/cookie.html">Cookie</a></p>
     </div>
   </footer>
   <!-- /FOOTER -->
