@@ -481,12 +481,16 @@ h1 { font-size: clamp(42px, 6.6vw, 88px); line-height: .98; letter-spacing: -.03
 .pj-media img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: left top; }
 .pj-media img.mockup, .pj-media img.phone-solo { object-fit: contain; object-position: center; background: var(--canvas); }
 .pj:hover .pj-media { transform: translateY(-4px); box-shadow: 0 1px 2px rgba(11,18,32,.06), 0 40px 70px -24px rgba(11,18,32,.3); }
+.pj-phone { background: none; border: 0; box-shadow: none; overflow: visible; justify-self: center; }
+.pj-media.pj-phone img { width: min(260px, 64vw); aspect-ratio: auto; object-fit: initial; background: #fff; border: 9px solid var(--ink); border-radius: 36px; box-shadow: 0 1px 2px rgba(11,18,32,.08), 0 40px 70px -28px rgba(11,18,32,.45); }
+.pj:hover .pj-phone { box-shadow: none; }
 .pj-text h2 { font-size: clamp(30px, 3.8vw, 52px); line-height: 1; margin-top: 4px; }
 .pj-text h2 a { text-decoration: none; background: linear-gradient(var(--mint), var(--mint)) 0 92% / 0 .18em no-repeat; transition: background-size .4s var(--ease); }
 .pj:hover .pj-text h2 a, .pj-text h2 a:focus-visible { background-size: 100% .18em; }
 .pj-text > p:not(.case-meta) { color: var(--ink-2); max-width: 42ch; margin: 14px 0 6px; }
 @media (min-width: 900px) {
   .pj { grid-template-columns: 1.5fr 1fr; gap: clamp(40px, 5vw, 80px); }
+  .pj-flip { grid-template-columns: 1fr 1.5fr; }
   .pj-flip .pj-media { order: 2; }
 }
 
