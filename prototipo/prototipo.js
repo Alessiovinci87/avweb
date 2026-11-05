@@ -50,6 +50,88 @@
     mostra(0);
   }
 
+  // ---------- Modulo di contatto (stessa logica e stessa Function del sito attuale, tema chiaro) ----------
+  var form = document.getElementById("form-contatto");
+  if (form) {
+    var avviso = document.getElementById("form-msg");
+    var grazie = document.getElementById("form-ok");
+    var invia = form.querySelector('button[type="submit"]');
+    var testoInvia = invia.textContent;
+    var widget = null;
+    var ERR_GENERICO = "Non sono riuscito a inviare il messaggio. Riprova tra poco o scrivimi su WhatsApp o via email.";
+    var EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    var TELEFONO = /^\+?[0-9 ().\/-]{6,20}$/;
+    var LINK = /:\/\/|www\.|@|[a-z0-9-]\.[a-z]{2,}\b/i;
+    var mostraAvviso = function (t) { avviso.textContent = t || ""; };
+    mostraAvviso("");
+
+    fetch("/api/contatto", { headers: { Accept: "application/json" } })
+      .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+      .then(function (cfg) {
+        window.avwebTurnstile = function () {
+          widget = window.turnstile.render("#turnstile", { sitekey: cfg.siteKey, language: "it", theme: "light", size: "flexible" });
+        };
+        var sc = document.createElement("script");
+        sc.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=avwebTurnstile";
+        sc.async = true;
+        sc.onerror = function () { mostraAvviso("Il controllo anti-spam non si è caricato. Ricarica la pagina o scrivimi su WhatsApp o via email."); };
+        document.head.appendChild(sc);
+      })
+      .catch(function () {
+        mostraAvviso("Il modulo non è disponibile in questo momento. Scrivimi su WhatsApp o via email: trovi i contatti qui accanto.");
+        invia.disabled = true;
+      });
+
+    var segna = function (campo, idErr, testo) {
+      var e = document.getElementById(idErr);
+      e.textContent = testo || "";
+      e.hidden = !testo;
+      if (campo) { if (testo) campo.setAttribute("aria-invalid", "true"); else campo.removeAttribute("aria-invalid"); }
+      return !testo;
+    };
+    var valida = function () {
+      var nome = form.elements.nome, rec = form.elements.recapito, r = rec.value.trim(), n = nome.value.trim();
+      var recOk = EMAIL.test(r) || (TELEFONO.test(r) && r.replace(/\D/g, "").length >= 6);
+      var ok = segna(nome, "e-nome", !n ? "Scrivi il tuo nome." : (n.length > 60 || LINK.test(n)) ? "Scrivi solo il tuo nome, senza link (massimo 60 caratteri)." : "");
+      ok = segna(rec, "e-recapito", !r ? "Scrivi un'email o un numero di telefono." : recOk ? "" : "Controlla l'email o il numero di telefono.") && ok;
+      var tipoOk = segna(null, "e-tipo", form.querySelector('input[name="tipo"]:checked') ? "" : "Scegli di cosa hai bisogno.");
+      if (!ok) form.querySelector('[aria-invalid="true"]').focus();
+      else if (!tipoOk) form.querySelector('input[name="tipo"]').focus();
+      return ok && tipoOk;
+    };
+    form.addEventListener("input", function (ev) {
+      var c = ev.target;
+      if (c.name === "nome" || c.name === "recapito") segna(c, "e-" + c.name, "");
+      if (c.name === "tipo") segna(null, "e-tipo", "");
+    });
+    form.addEventListener("submit", function (ev) {
+      ev.preventDefault();
+      mostraAvviso("");
+      if (!valida()) return;
+      if (widget === null || !window.turnstile.getResponse(widget)) { mostraAvviso("Completa il controllo anti-spam qui sopra e riprova."); return; }
+      invia.disabled = true;
+      invia.textContent = "Invio in corso…";
+      fetch("/api/contatto", { method: "POST", body: new FormData(form), headers: { Accept: "application/json" } })
+        .then(function (r) { return r.json().catch(function () { return {}; }).then(function (d) { return { ok: r.ok && d.ok === true, d: d }; }); })
+        .then(function (res) {
+          if (res.ok) { form.hidden = true; grazie.hidden = false; grazie.querySelector("h2").focus(); }
+          else { mostraAvviso(res.d.error || ERR_GENERICO); if (window.turnstile && widget !== null) window.turnstile.reset(widget); }
+        })
+        .catch(function () { mostraAvviso(ERR_GENERICO); })
+        .then(function () { invia.disabled = false; invia.textContent = testoInvia; });
+    });
+  }
+
+  // ---------- Case study: passando su una nota si evidenzia il suo punto sulla tavola ----------
+  document.querySelectorAll("[data-note]").forEach(function (item) {
+    var pin = document.querySelector('.note-pin[data-pin="' + item.getAttribute("data-note") + '"]');
+    if (!pin) return;
+    var on = function () { pin.classList.add("is-hot"); item.classList.add("is-hot"); };
+    var off = function () { pin.classList.remove("is-hot"); item.classList.remove("is-hot"); };
+    [item, pin].forEach(function (el) { el.addEventListener("pointerenter", on); el.addEventListener("pointerleave", off); });
+    item.addEventListener("focusin", on); item.addEventListener("focusout", off);
+  });
+
   if (reduce || !window.gsap) return; // da qui in poi solo movimento
 
   root.classList.add("anim");
@@ -73,7 +155,7 @@
 
   // ---------- Titolo: le righe salgono una alla volta ----------
   var h1 = document.querySelector("h1.split");
-  document.fonts.ready.then(function () {
+  if (h1) document.fonts.ready.then(function () {
     var split = new window.SplitText(h1, { type: "lines", mask: "lines", linesClass: "line" });
     gsap.from(split.lines, { yPercent: 110, duration: 1, ease: "expo.out", stagger: 0.09, delay: 0.1 });
     gsap.from(".hero-kick, .hero-lead, .hero-cta", { y: 18, opacity: 0, duration: 0.9, ease: "power3.out", stagger: 0.08, delay: 0.35 });
@@ -83,12 +165,12 @@
   gsap.utils.toArray(".reveal").forEach(function (el) {
     gsap.to(el, { opacity: 1, y: 0, duration: 1, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 85%", once: true } });
   });
-  gsap.utils.toArray(".do-col, .case h3, .way").forEach(function (el) {
+  gsap.utils.toArray(".do-col, .case h3, .way, .rise").forEach(function (el) {
     gsap.from(el, { y: 32, opacity: 0, duration: 1, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 88%", once: true } });
   });
 
   // Percorso: le tappe compaiono una dopo l'altra
-  gsap.from(".path li", { x: -16, opacity: 0, duration: 0.7, ease: "power3.out", stagger: 0.12, scrollTrigger: { trigger: ".path", start: "top 80%", once: true } });
+  if (document.querySelector(".path")) gsap.from(".path li", { x: -16, opacity: 0, duration: 0.7, ease: "power3.out", stagger: 0.12, scrollTrigger: { trigger: ".path", start: "top 80%", once: true } });
 
   // ---------- Pulsanti "magnetici" ----------
   if (fine) {
@@ -104,8 +186,9 @@
     });
   }
 
-  // ---------- Tela: tavole, guide di allineamento, cursore ----------
   var board = document.querySelector(".board");
+  if (board) {
+  // ---------- Tela: tavole, guide di allineamento, cursore ----------
   var frames = Array.prototype.slice.call(board.querySelectorAll("[data-frame]"));
   var guideV = board.querySelector(".guide-v");
   var guideH = board.querySelector(".guide-h");
@@ -247,6 +330,9 @@
     ST.create({ trigger: board, start: "top 80%", once: true, onEnter: avviaIntro });
   });
 
+  }
+
+  if (document.querySelector(".method-pin")) {
   // ---------- Metodo: lo schizzo diventa il sito mentre scorri ----------
   var sketch = document.querySelector(".wf-sketch");
   var scan = document.querySelector(".wf-scan");
@@ -279,4 +365,18 @@
       .fromTo(scan, { left: "0%" }, { left: "100%", duration: 1.4, ease: "power2.inOut" }, "<")
       .set(scan, { opacity: 0 });
   });
+  }
+
+  // ---------- Case study: le note compaiono sulla tavola, le tavole scorrono a velocità diverse ----------
+  if (document.querySelector(".study-canvas")) {
+    gsap.from(".note-pin", { scale: 0, duration: 0.5, ease: "back.out(2.5)", stagger: 0.15, scrollTrigger: { trigger: ".study-canvas", start: "top 60%", once: true } });
+    gsap.utils.toArray("[data-speed]").forEach(function (el) {
+      gsap.to(el, { yPercent: -Number(el.getAttribute("data-speed")), ease: "none", scrollTrigger: { trigger: ".study-canvas", start: "top bottom", end: "bottom top", scrub: true } });
+    });
+  }
+
+  // ---------- Settore: lo schema del telefono si costruisce blocco per blocco ----------
+  if (document.querySelector(".schema")) {
+    gsap.from(".schema-block", { y: 18, opacity: 0, duration: 0.6, ease: "power3.out", stagger: 0.1, scrollTrigger: { trigger: ".schema", start: "top 75%", once: true } });
+  }
 })();
