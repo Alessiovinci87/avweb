@@ -37,8 +37,13 @@ export async function onRequestGet({ env }) {
 
 export async function onRequestPost({ request, env, waitUntil }) {
   // Accetta solo invii dalla stessa origine del sito
+  // Un Origin malformato (per esempio "null") non deve far fallire la Function: si rifiuta come gli altri
   const origin = request.headers.get("Origin");
-  if (origin && new URL(origin).host !== new URL(request.url).host) return json({ error: "Richiesta non valida." }, 403);
+  if (origin) {
+    let host = null;
+    try { host = new URL(origin).host; } catch { /* resta null */ }
+    if (host !== new URL(request.url).host) return json({ error: "Richiesta non valida." }, 403);
+  }
 
   let form;
   try { form = await request.formData(); } catch { return json({ error: "Richiesta non valida." }, 400); }
