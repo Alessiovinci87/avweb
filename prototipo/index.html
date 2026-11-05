@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Prototipo home | AV Web</title>
+  <meta name="description" content="Prototipo della nuova home di AV Web: siti e software su misura per attività, professionisti e aziende in Sardegna. Pagina di prova, non indicizzata." />
+  <!-- Prototipo: non deve finire su Google -->
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#f2f0eb" />
+  <meta name="color-scheme" content="light" />
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="preload" href="/prototipo/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/prototipo/prototipo.css" />
+  <script>document.documentElement.classList.add("js")</script>
+  <script src="/prototipo/vendor/gsap.min.js" defer></script>
+  <script src="/prototipo/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="/prototipo/vendor/Draggable.min.js" defer></script>
+  <script src="/prototipo/vendor/SplitText.min.js" defer></script>
+  <script src="/prototipo/vendor/lenis.min.js" defer></script>
+  <script src="/prototipo/prototipo.js" defer></script>
+</head>
+<body>
+  <a href="#contenuto" class="skip">Vai al contenuto</a>
+  <a class="proto-badge" href="/">Prototipo · torna al sito attuale</a>
+
+  <header class="top">
+    <div class="wrap top-in">
+      <a href="/" class="brand" aria-label="AV Web, vai alla home"><img src="/avweb-icona.svg" width="34" height="28" alt="" /><span>AV Web</span></a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu"><span class="menu-label">Menu</span><span class="menu-ic" aria-hidden="true"></span></button>
+      <nav class="links" id="menu" aria-label="Menu principale">
+        <a href="/servizi/">Servizi</a>
+        <a href="/settori/">Settori</a>
+        <a href="/progetti/">Progetti</a>
+        <a href="/chi-sono/">Chi sono</a>
+        <a href="/contatti/" class="nav-cta">Richiedi un preventivo</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenuto">
+    <!-- 1. HERO: la tela di lavoro -->
+    <section class="hero" aria-labelledby="titolo">
+      <div class="canvas" data-canvas>
+        <div class="wrap hero-in">
+          <div class="hero-text">
+            <p class="hero-kick">Alessio Vinci · sviluppatore web e software · Alghero</p>
+            <h1 id="titolo" class="split">Siti e software costruiti intorno a come lavori davvero.</h1>
+            <p class="hero-lead">Per quattordici anni ho lavorato nella grande distribuzione, gli ultimi quattro da responsabile di punto vendita. Per questo, prima di scrivere codice, capisco come funziona la tua attività.</p>
+            <div class="hero-cta">
+              <a class="btn btn-ink magnet" href="/contatti/">Raccontami il tuo progetto</a>
+              <a class="btn btn-line magnet" href="https://wa.me/393403689635?text=Ciao%20Alessio%2C%20vorrei%20un%20preventivo%20per%20un%20progetto" target="_blank" rel="noopener">Scrivimi su WhatsApp<span class="sr"> (si apre in una nuova scheda)</span></a>
+            </div>
+          </div>
+
+          <!-- Tavole: lavori veri, trascinabili su desktop. Sono una vetrina: gli stessi progetti sono descritti più sotto -->
+          <div class="board" aria-hidden="true">
+            <div class="frame f-a" data-frame data-size="1440 × 900">
+              <span class="frame-name">Centro Emovere — Desktop</span>
+              <div class="frame-body"><img src="/img/schede/emovere-desktop.webp" width="800" height="500" alt="" /></div>
+            </div>
+            <div class="frame f-b" data-frame data-size="390 × 844">
+              <span class="frame-name">QuitFresh — Mobile</span>
+              <div class="frame-body"><img src="/img/quitfresh.webp" width="385" height="907" alt="" /></div>
+            </div>
+            <div class="frame f-c" data-frame data-size="1904 × 911">
+              <span class="frame-name">Profit — Margini</span>
+              <div class="frame-body"><img src="/img/schede/gestionale.webp" width="800" height="383" alt="" /></div>
+            </div>
+            <div class="guide guide-v"></div>
+            <div class="guide guide-h"></div>
+            <div class="comment" data-comment>
+              <span class="pin">A</span>
+              <span class="bubble"><b>Alessio</b> Il pulsante «Ho bisogno ORA» deve stare sotto il pollice.</span>
+            </div>
+            <div class="cursor" data-cursor>
+              <svg viewBox="0 0 20 22" width="20" height="22"><path d="M2 1.5 18 11l-7.2 1.6L7 20z" /></svg>
+              <span>Alessio</span>
+            </div>
+          </div>
+
+          <div class="toolbar">
+            <span class="tool-hint">Trascina le tavole</span>
+            <button type="button" class="tool-btn" data-tidy aria-pressed="false">Metti in ordine</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. COSA FACCIO: due aree, non quattro card -->
+    <section class="do" aria-labelledby="t-do">
+      <div class="wrap">
+        <h2 id="t-do" class="sec-title reveal">Faccio due cose, <em>e le seguo io dall'inizio alla fine.</em></h2>
+        <div class="do-grid">
+          <article class="do-col">
+            <span class="do-n" aria-hidden="true">01</span>
+            <h3>Siti che portano clienti</h3>
+            <p>Per attività, studi e strutture ricettive: veloci dal telefono, in più lingue se servono, scritti per farsi trovare su Google e per ricevere contatti su WhatsApp. A norma di privacy e cookie.</p>
+            <p class="do-ex">Per esempio <a href="/progetti/centro-emovere/">Centro Emovere</a>, <a href="/progetti/le-porte-di-sardegna/">Le Porte di Sardegna</a>, <a href="/progetti/il-giardino-di-bruna/">Il Giardino di Bruna</a>.</p>
+            <a class="more" href="/servizi/#siti">Cosa comprende un sito</a>
+          </article>
+          <article class="do-col">
+            <span class="do-n" aria-hidden="true">02</span>
+            <h3>Software che tolgono lavoro</h3>
+            <p>Gestionali, web app, collegamenti tra sistemi e automazioni, costruiti sul modo in cui lavori. Per smettere di rincorrere fogli Excel, report sparsi e operazioni fatte a mano.</p>
+            <p class="do-ex">Per esempio <a href="/progetti/profit/">Profit</a>, <a href="/progetti/awareness/">Awareness</a>, <a href="/progetti/gestionale-amazon-ads/">Gestionale Amazon Ads</a>.</p>
+            <a class="more" href="/servizi/#gestionali">Come lavoro sui gestionali</a>
+          </article>
+        </div>
+        <p class="do-after reveal">E dopo la pubblicazione resto io il tuo riferimento: modifiche, aggiornamenti e nuove funzioni, senza passare da un call center. <a href="/servizi/#assistenza">Assistenza</a></p>
+      </div>
+    </section>
+
+    <!-- 3. PROGETTI: immagine ferma, storie che scorrono -->
+    <section class="work" aria-labelledby="t-work">
+      <div class="wrap">
+        <div class="work-head">
+          <h2 id="t-work" class="sec-title reveal">Lavori veri, <em>problemi veri.</em></h2>
+          <a class="more" href="/progetti/">Tutti gli 8 progetti</a>
+        </div>
+        <div class="work-grid">
+          <div class="work-stage" aria-hidden="true">
+            <div class="stage-frame">
+              <span class="frame-name stage-name" data-stage-name>Centro Emovere — Desktop</span>
+              <div class="stage-body">
+                <img class="is-on" data-stage="0" src="/img/emovere-desktop.webp" width="1440" height="900" alt="" loading="lazy" />
+                <img data-stage="1" src="/img/casevacanze.webp" width="1901" height="869" alt="" loading="lazy" />
+                <img data-stage="2" src="/img/giardinodibruna.webp" width="1897" height="805" alt="" loading="lazy" style="object-position: 26% top" />
+                <img data-stage="3" src="/img/gestionale.webp" width="1904" height="911" alt="" loading="lazy" />
+              </div>
+            </div>
+            <ol class="stage-dots"><li class="is-on"></li><li></li><li></li><li></li></ol>
+          </div>
+
+          <div class="work-list">
+            <article class="case" data-case="0" data-name="Centro Emovere — Desktop">
+              <img class="case-img" src="/img/schede/emovere-desktop.webp" width="800" height="500" alt="Home page del sito Centro Emovere su desktop" loading="lazy" />
+              <p class="case-meta">Sito web · Centro terapeutico, Alghero</p>
+              <h3><a href="/progetti/centro-emovere/">Centro Emovere</a></h3>
+              <dl class="case-story">
+                <dt>Il problema</dt><dd>Un centro con psicologia, logopedia, neuropsicomotricità e fisioterapia deve presentare servizi ed équipe a famiglie che cercano dal telefono.</dd>
+                <dt>Cosa ho costruito</dt><dd>Un sito pensato prima per lo smartphone, con pagine dei servizi, schede dei professionisti, blog e modulo contatti.</dd>
+                <dt>Cosa cambia</dt><dd>Le famiglie trovano tutto in un unico posto e scrivono direttamente al centro.</dd>
+              </dl>
+              <p class="case-tech">Next.js · React · Tailwind CSS</p>
+            </article>
+            <article class="case" data-case="1" data-name="Le Porte di Sardegna — Home">
+              <img class="case-img" src="/img/schede/casevacanze.webp" width="800" height="366" alt="Home page del sito Le Porte di Sardegna" loading="lazy" />
+              <p class="case-meta">Sito web · Case vacanze, Stintino e Alghero</p>
+              <h3><a href="/progetti/le-porte-di-sardegna/">Le Porte di Sardegna</a></h3>
+              <dl class="case-story">
+                <dt>Il problema</dt><dd>Due case vacanze avevano bisogno di un canale proprio per le prenotazioni dirette, anche dagli ospiti stranieri.</dd>
+                <dt>Cosa ho costruito</dt><dd>Un sito in cinque lingue con il calendario delle disponibilità sincronizzato con Airbnb.</dd>
+                <dt>Cosa cambia</dt><dd>Gli ospiti vedono le date libere sempre aggiornate e contattano direttamente i proprietari.</dd>
+              </dl>
+              <p class="case-tech">HTML · CSS · JavaScript · Python</p>
+            </article>
+            <article class="case" data-case="2" data-name="Il Giardino di Bruna — Home">
+              <img class="case-img" src="/img/schede/giardinodibruna.webp" width="800" height="339" alt="Home page del sito Il Giardino di Bruna" loading="lazy" style="object-position: 26% top" />
+              <p class="case-meta">Sito web · Casa vacanze, Alghero</p>
+              <h3><a href="/progetti/il-giardino-di-bruna/">Il Giardino di Bruna</a></h3>
+              <dl class="case-story">
+                <dt>Il problema</dt><dd>Far capire subito cosa rende la struttura speciale per le famiglie, a ospiti di paesi diversi.</dd>
+                <dt>Cosa ho costruito</dt><dd>Un sito in quattro lingue costruito intorno a giardino, piccola fattoria e parco giochi, con le disponibilità prese da Airbnb.</dd>
+                <dt>Cosa cambia</dt><dd>Le famiglie chiedono la prenotazione direttamente o scrivono su WhatsApp, con le date libere aggiornate da sole.</dd>
+              </dl>
+              <p class="case-tech">HTML · CSS · JavaScript</p>
+            </article>
+            <article class="case" data-case="3" data-name="Profit — Margini per prodotto">
+              <img class="case-img" src="/img/schede/gestionale.webp" width="800" height="383" alt="Pagina Profitto di Profit con la marginalità per prodotto, dati di esempio" loading="lazy" />
+              <p class="case-meta">Piattaforma web · Venditori Amazon in Europa</p>
+              <h3><a href="/progetti/profit/">Profit</a></h3>
+              <dl class="case-story">
+                <dt>Il problema</dt><dd>Vendite, commissioni, logistica e pubblicità stanno in report separati: il margine vero di un prodotto non si vede.</dd>
+                <dt>Cosa ho costruito</dt><dd>Una piattaforma collegata alle API ufficiali di Amazon che incrocia tutti i costi, per prodotto e per paese.</dd>
+                <dt>Cosa cambia</dt><dd>Al posto di report sparsi e fogli Excel, una sola vista su dove si guadagna e dove no.</dd>
+              </dl>
+              <p class="case-tech">React · Node.js · Amazon SP-API · AWS</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. METODO: dallo schizzo al sito -->
+    <section class="method" aria-labelledby="t-method">
+      <div class="method-pin">
+        <div class="wrap method-in">
+          <div class="method-text">
+            <h2 id="t-method" class="sec-title">Dallo schizzo <em>al sito online.</em></h2>
+            <ol class="steps">
+              <li class="is-on"><b>Ascolto.</b> Mi racconti come lavori, cosa ti fa perdere tempo e cosa vuoi ottenere. Ti mando un preventivo chiaro, con tempi e costi.</li>
+              <li><b>Progetto.</b> Disegno la struttura prima dei colori: cosa deve trovare chi arriva, e in quale ordine.</li>
+              <li><b>Sviluppo.</b> Scrivo il codice e ti faccio vedere una prima versione da correggere insieme.</li>
+              <li><b>Verifico.</b> Telefono, computer, velocità, Google: controllo tutto prima di andare online.</li>
+              <li><b>Resto.</b> Dopo la pubblicazione sono sempre io a seguire modifiche e novità.</li>
+            </ol>
+          </div>
+          <div class="method-art" aria-hidden="true">
+            <div class="wf">
+              <span class="frame-name">Centro Emovere — dalla struttura al sito</span>
+              <div class="wf-body">
+                <img src="/img/emovere-desktop.webp" width="1440" height="900" alt="" loading="lazy" />
+                <div class="wf-sketch">
+                  <i style="left:12%;top:2%;width:8%;height:5%"></i>
+                  <i style="left:33%;top:3.6%;width:27%;height:1.6%" class="ln"></i>
+                  <i style="left:76%;top:2.6%;width:12%;height:3.6%" class="pill"></i>
+                  <i style="left:12.2%;top:22%;width:23%;height:1%" class="ln"></i>
+                  <i style="left:12.2%;top:26%;width:15%;height:6%"></i>
+                  <i style="left:12.2%;top:33.5%;width:26.3%;height:6%"></i>
+                  <i style="left:12.2%;top:41%;width:29.3%;height:5.5%"></i>
+                  <i style="left:12.2%;top:49.5%;width:36.8%;height:1.8%" class="ln"></i>
+                  <i style="left:12.2%;top:52.7%;width:36%;height:1.8%" class="ln"></i>
+                  <i style="left:12.2%;top:55.8%;width:37%;height:1.8%" class="ln"></i>
+                  <i style="left:12.2%;top:59%;width:35.8%;height:1.8%" class="ln"></i>
+                  <i style="left:12.2%;top:65.2%;width:16.1%;height:5.6%" class="pill"></i>
+                  <i style="left:29.2%;top:65.2%;width:11.5%;height:5.6%" class="pill"></i>
+                  <i style="left:12.2%;top:75.8%;width:15.8%;height:1.7%" class="ln"></i>
+                  <i style="left:29.7%;top:75.8%;width:13.6%;height:1.7%" class="ln"></i>
+                  <i style="left:12.2%;top:79.6%;width:15%;height:1.7%" class="ln"></i>
+                  <i style="left:55%;top:19%;width:32%;height:64%" class="arch"></i>
+                </div>
+                <span class="wf-scan"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. CHI SONO -->
+    <section class="me" aria-labelledby="t-me">
+      <div class="wrap me-in">
+        <figure class="me-photo">
+          <span class="frame-name">Foto di Alessio — da inserire</span>
+          <div class="me-empty">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-9 9"/></svg>
+            <span>Qui andrà una foto vera, non generata.</span>
+          </div>
+        </figure>
+        <div class="me-text">
+          <h2 id="t-me" class="sec-title reveal">Conosco il codice. <em>E conosco il lavoro di chi manda avanti un'attività.</em></h2>
+          <p>Personale, fornitori, ordini, magazzino, numeri da far tornare ogni giorno: li ho gestiti per anni prima di fare questo mestiere. Poi la programmazione è diventata il mio lavoro, prima nell'e-commerce e oggi con AV Web.</p>
+          <p>Non sono un'agenzia. Quando mi scrivi, rispondo io; quando c'è da cambiare qualcosa, lo cambio io.</p>
+          <a class="more" href="/chi-sono/">La mia storia</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. SETTORI: una frase, non nove card -->
+    <section class="sectors" aria-labelledby="t-sectors">
+      <div class="wrap">
+        <h2 id="t-sectors" class="label">Per chi lavoro</h2>
+        <p class="sector-line">
+          <a href="/settori/ristoranti/">Ristoranti e bar</a>,
+          <a href="/settori/strutture-ricettive/">B&amp;B e case vacanza</a>,
+          <a href="/settori/bellezza/">centri estetici e parrucchieri</a>,
+          <a href="/settori/sport/">palestre e personal trainer</a>,
+          <a href="/settori/studi-professionali/">studi professionali</a>,
+          <a href="/settori/centri-terapeutici/">centri terapeutici</a>,
+          <a href="/settori/negozi-artigiani/">negozi e artigiani</a>,
+          <a href="/settori/agenzie-immobiliari/">agenzie immobiliari</a> e
+          <a href="/settori/ecommerce/">venditori online</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- TESTIMONIANZE: pronte ma spente. Si attivano togliendo questa riga e "FINE TESTIMONIANZE", con recensioni vere e autorizzate.
+    <section class="voices" aria-labelledby="t-voices">
+      <div class="wrap">
+        <h2 id="t-voices" class="label">Cosa dicono i clienti</h2>
+        <figure class="voice">
+          <blockquote><p>Testo della recensione, parola per parola.</p></blockquote>
+          <figcaption><b>Nome Cognome</b> · Attività, città</figcaption>
+        </figure>
+      </div>
+    </section>
+    FINE TESTIMONIANZE -->
+
+    <!-- 7. CONTATTI: la parte scura -->
+    <section class="cta" aria-labelledby="t-cta">
+      <div class="wrap cta-in">
+        <h2 id="t-cta" class="cta-title reveal">Raccontami cosa ti serve. <em>Ti rispondo io, entro 24 ore.</em></h2>
+        <div class="cta-ways">
+          <a class="way magnet" href="/contatti/"><span>Modulo</span><b>Richiedi un preventivo gratuito</b></a>
+          <a class="way magnet" href="https://wa.me/393403689635?text=Ciao%20Alessio%2C%20vorrei%20un%20preventivo%20per%20un%20progetto" target="_blank" rel="noopener"><span>WhatsApp</span><b>340 368 9635</b><i class="sr"> (si apre in una nuova scheda)</i></a>
+          <a class="way magnet" href="mailto:info@avweb.it?subject=Richiesta%20di%20preventivo"><span>Email</span><b>info@avweb.it</b></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot-in">
+      <nav aria-label="Settori"><a href="/settori/ristoranti/">Ristoranti e bar</a><a href="/settori/strutture-ricettive/">B&amp;B e case vacanza</a><a href="/settori/bellezza/">Centri estetici e parrucchieri</a><a href="/settori/sport/">Palestre e personal trainer</a><a href="/settori/studi-professionali/">Studi professionali</a><a href="/settori/centri-terapeutici/">Centri terapeutici</a><a href="/settori/negozi-artigiani/">Negozi e artigiani</a><a href="/settori/agenzie-immobiliari/">Agenzie immobiliari</a><a href="/settori/ecommerce/">E-commerce e Amazon</a></nav>
+      <p>© <span id="anno">2026</span> AV Web · Alessio Vinci · Alghero (SS) · P.IVA IT03014680908 · <a href="/privacy.html">Privacy</a> · <a href="/cookie.html">Cookie</a></p>
+    </div>
+  </footer>
+</body>
+</html>
