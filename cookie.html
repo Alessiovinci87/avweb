@@ -56,18 +56,26 @@
     <div class="head">
       <div class="wrap">
         <h1>Cookie policy</h1>
-        <p class="meta">Ultimo aggiornamento: 4 novembre 2026</p>
+        <p class="meta">Ultimo aggiornamento: 22 novembre 2026</p>
       </div>
     </div>
     <div class="wrap">
 
       <p>Questa pagina spiega se e come il sito avweb.it usa cookie e tecnologie simili.</p>
 
-      <h2>Cookie usati da questo sito</h2>
-      <p>Il sito <strong>non installa cookie di profilazione né strumenti di statistica</strong> (come Google Analytics) e, a parte la protezione anti-spam descritta sotto, non incorpora contenuti di terze parti come mappe, video o pulsanti social. I caratteri tipografici sono caricati direttamente dal sito, senza servizi esterni.</p>
-      <p>Possono essere impostati solo <strong>cookie tecnici di sicurezza</strong> da Cloudflare, il fornitore di hosting: per esempio <code>__cf_bm</code>, che serve a distinguere le persone dai bot. Sono cookie tecnici, esenti dal consenso.</p>
+      <h2>Cookie tecnici</h2>
+      <p>Il sito <strong>non installa cookie di profilazione né cookie pubblicitari</strong> e, a parte la protezione anti-spam e lo strumento di analisi descritti sotto, non incorpora contenuti di terze parti come mappe, video o pulsanti social. I caratteri tipografici sono caricati direttamente dal sito, senza servizi esterni.</p>
+      <p>Possono essere impostati <strong>cookie tecnici di sicurezza</strong> da Cloudflare, il fornitore di hosting: per esempio <code>__cf_bm</code>, che serve a distinguere le persone dai bot. Sono cookie tecnici, esenti dal consenso.</p>
       <p>Nella pagina Contatti il modulo usa Cloudflare Turnstile come protezione anti-spam. Turnstile raccoglie solo dati tecnici strettamente necessari a distinguere le persone dai bot e non li usa per profilazione.</p>
-      <p>Per questo motivo non è presente un banner per il consenso ai cookie.</p>
+      <p>La tua scelta sui cookie di analisi viene salvata nella memoria del browser (<code>localStorage</code>, voce <code>avweb_consenso</code>) per 6 mesi, così non te la chiedo a ogni pagina. Serve solo a ricordare la scelta.</p>
+
+      <h2>Cookie di analisi: Microsoft Clarity (solo con il tuo consenso)</h2>
+      <p>Se lo accetti dal banner, uso <strong>Microsoft Clarity</strong>, un servizio di Microsoft Corporation, per capire come viene usato il sito: quali pagine e sezioni vengono guardate, fin dove si scorre, dove si clicca. Clarity può registrare in forma anonima i movimenti del mouse, i clic e lo scorrimento della pagina e produrre mappe di calore. <strong>I campi dei moduli non vengono registrati</strong> e i dati non sono usati per pubblicità.</p>
+      <p>Clarity imposta i cookie <code>_clck</code> (fino a 1 anno, riconosce lo stesso browser tra una visita e l'altra) e <code>_clsk</code> (1 giorno, collega le pagine della stessa visita), oltre ad altri cookie tecnici del dominio clarity.ms. Microsoft tratta i dati come indicato nella sua <a href="https://privacy.microsoft.com/it-it/privacystatement" rel="noopener">informativa sulla privacy</a>; i dati possono essere trasferiti negli Stati Uniti, sulla base del Data Privacy Framework UE-USA.</p>
+      <p>Senza il tuo consenso Clarity non viene caricato. Se rifiuti, il sito funziona allo stesso modo.</p>
+
+      <h2 id="preferenze">Cambiare la tua scelta</h2>
+      <p>Puoi dare o togliere il consenso in qualsiasi momento da <a href="#preferenze" data-preferenze-cookie>Preferenze cookie</a>, il link presente anche in fondo a ogni pagina. Se togli il consenso, i cookie di Clarity vengono cancellati e lo strumento non viene più caricato.</p>
 
       <h2>Link ad altri siti</h2>
       <p>Il sito contiene link a servizi esterni (WhatsApp, LinkedIn e i siti dei clienti). Aprendo questi link si passa su siti di terzi, che applicano le proprie informative su privacy e cookie.</p>
@@ -82,9 +90,10 @@
   <footer>
     <div class="wrap">
       <p>© <span id="anno">2026</span> AV Web · Alessio Vinci · Alghero (SS) · P.IVA IT03014680908</p>
-      <nav aria-label="Note legali"><a href="privacy.html">Privacy policy</a><a href="cookie.html">Cookie policy</a></nav>
+      <nav aria-label="Note legali"><a href="privacy.html">Privacy policy</a><a href="cookie.html">Cookie policy</a><a href="cookie.html#preferenze" data-preferenze-cookie>Preferenze cookie</a></nav>
     </div>
   </footer>
   <script>document.getElementById("anno").textContent = new Date().getFullYear();</script>
+  <script src="/js/consenso.js" defer></script>
 </body>
 </html>
